@@ -1,0 +1,11 @@
+{
+ "pick": "h",
+ "amendment": "eval/protocol_amendment_3.json",
+ "amendments": [
+  "eval/protocol_amendment_3.json",
+  "eval/protocol_amendment_3b.json"
+ ],
+ "decided_by": "the author, 2026-10-21",
+ "why": "the incumbent h, unchanged since fresh test 2 (eval/selection_cycle2.json kept it); fresh test 3 is scored now, once, and cycle 3 is decided after (eval/protocol_amendment_3b.json)",
+ "archive": "data/models/main_4b/h_63659c74-57fd-4353-8a03-07bc11dc0fb6.tar.gz"
+}

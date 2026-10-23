@@ -1,0 +1,834 @@
+{
+ "cycle": "fix cycle 2 (amendment 2: fresh test 1 is the selection set; fresh test 2 untouched)",
+ "set": "fresh test 1, 592 rows, 150 postings, sealed gold (data/built/fresh_test/gold.jsonl)",
+ "code": {
+  "rules": "src/matcher/rules.py _check_location, mode_ruled_out, WORK_MODE_PREFIX",
+  "h_prime": "scripts/hybrid_rules.py category() work_mode, HP_CATS",
+  "extractor_draft": "src/matcher/blueprint.py BLUEPRINT_V3 (live BLUEPRINT stays v2)",
+  "re_extraction": "scripts/extract_v3.py",
+  "this_file": "scripts/fix_cycle2_measure.py"
+ },
+ "work_mode": {
+  "what": "a work mode the profile rules out (remote only vs hybrid/onsite, hybrid or remote only vs onsite) is a hard rules Skip (rules._check_location), soft only on a thin posting; H' Skips it (category work_mode)",
+  "broke": "rules._check_location wrote it as a soft reason, so the rules said Explore and H' (hard Skips only) never fired; the card (work_mode), the profile (remote_preference) and H' were otherwise fine. The card cannot tell a stated onsite from an unstated one (onsite is the default), which is why thin postings keep it soft.",
+  "ruled_out_rows_v2_cards": {
+   "rows": 146,
+   "thin": 13,
+   "gold": {
+    "Explore": 27,
+    "Skip": 115,
+    "Keep": 4
+   }
+  },
+  "agreement_on_ruled_out_rows": {
+   "rules_full": {
+    "rows": 146,
+    "postings": 90,
+    "gold": {
+     "Explore": 27,
+     "Skip": 115,
+     "Keep": 4
+    },
+    "before_agrees": 121,
+    "after_agrees": 120
+   },
+   "h+H'": {
+    "rows": 146,
+    "postings": 90,
+    "gold": {
+     "Explore": 27,
+     "Skip": 115,
+     "Keep": 4
+    },
+    "before_agrees": 99,
+    "after_agrees": 119
+   },
+   "d3+H'": {
+    "rows": 146,
+    "postings": 90,
+    "gold": {
+     "Explore": 27,
+     "Skip": 115,
+     "Keep": 4
+    },
+    "before_agrees": 101,
+    "after_agrees": 120
+   },
+   "base+H'": {
+    "rows": 146,
+    "postings": 90,
+    "gold": {
+     "Explore": 27,
+     "Skip": 115,
+     "Keep": 4
+    },
+    "before_agrees": 108,
+    "after_agrees": 115
+   }
+  },
+  "rules_full_on_rows_it_flips": {
+   "rows": 18,
+   "postings": 14,
+   "gold": {
+    "Explore": 9,
+    "Keep": 1,
+    "Skip": 8
+   },
+   "before_agrees": 9,
+   "after_agrees": 8
+  },
+  "h_prime_on_rows_it_flips": {
+   "h+H'": {
+    "rows": 44,
+    "postings": 33,
+    "gold": {
+     "Explore": 10,
+     "Keep": 4,
+     "Skip": 30
+    },
+    "before_agrees": 10,
+    "after_agrees": 30
+   },
+   "d3+H'": {
+    "rows": 42,
+    "postings": 31,
+    "gold": {
+     "Explore": 9,
+     "Keep": 4,
+     "Skip": 29
+    },
+    "before_agrees": 10,
+    "after_agrees": 29
+   },
+   "base+H'": {
+    "rows": 12,
+    "postings": 11,
+    "gold": {
+     "Keep": 2,
+     "Skip": 9,
+     "Explore": 1
+    },
+    "before_agrees": 2,
+    "after_agrees": 9
+   }
+  },
+  "synthetic_pairs_moved": {
+   "pairs": 10500,
+   "bucket_changed": 311,
+   "by": {
+    "Explore -> Excluded": 311
+   }
+  }
+ },
+ "eligibility_pass": {
+  "sealed_design_pass_rows": 344,
+  "old_rules_v2_cards_reproduce_design_flag": 592,
+  "new_rules_v2_cards_pass_rows": 271,
+  "new_rules_v2_cards_rows_differing_from_design_flag": 73,
+  "new_rules_by_card_set": {
+   "v2_rerun": {
+    "pass_rows": 270,
+    "rows_differing_from_design_flag": 82
+   },
+   "v3_draft_a": {
+    "pass_rows": 272,
+    "rows_differing_from_design_flag": 86
+   },
+   "v3_draft_b": {
+    "pass_rows": 276,
+    "rows_differing_from_design_flag": 84
+   }
+  },
+  "note": "fit_eval_score.load_fresh stops when the recomputed pass differs from the sealed design flag, so fresh/select/fresh2 refuse to run under the new rules until that check and the slice definition are decided (keep the sealed design flag as the slice, or recompute it as amendment 2 words it)."
+ },
+ "extractor_v3": {
+  "what": "each card set against the v2 cards (data/built/fresh_test/cards.jsonl) on fresh test 1, new rules on both sides; v2_rerun is the noise floor any instruction change has to clear",
+  "decision": "v3 not adopted: neither draft makes the full rules agree with gold more often on the rows it flips than the v2 cards do, so no fresh test 2 or fit cards were re-extracted",
+  "v2_rerun": {
+   "file": "data/built/fresh_test/cards_v2rerun.jsonl",
+   "blueprint": "b2b2ed8e",
+   "what": "the v2 instruction sent again: run-to-run noise",
+   "postings_without_a_card_kept_v2": [
+    "workday:mainegeneral.wd5~mainegeneralcareers:R16732"
+   ],
+   "must_skills": {
+    "postings": 150,
+    "groups_v2": 759,
+    "groups_other": 744,
+    "postings_fewer": 27,
+    "postings_more": 29,
+    "postings_same_count": 94,
+    "postings_identical_groups": 76,
+    "postings_with_none_v2": 36,
+    "postings_with_none_other": 44,
+    "postings_8_plus_v2": 31,
+    "postings_8_plus_other": 29,
+    "nice_v2": 1072,
+    "nice_other": 1095,
+    "other_fields_changed": {
+     "degree_level": 6,
+     "thin_posting": 3,
+     "locations": 9,
+     "degree_fields": 5,
+     "license": 10,
+     "salary_max": 2,
+     "min_years": 1
+    }
+   },
+   "rules_full_rows_flipped": {
+    "rows": 34,
+    "postings": 18,
+    "gold": {
+     "Explore": 17,
+     "Keep": 9,
+     "Skip": 8
+    },
+    "before_agrees": 15,
+    "after_agrees": 11
+   },
+   "rules_full_rows_flipped_eligibility_pass_design": {
+    "rows": 30,
+    "postings": 17,
+    "gold": {
+     "Explore": 15,
+     "Keep": 9,
+     "Skip": 6
+    },
+    "before_agrees": 12,
+    "after_agrees": 10
+   },
+   "rules_full_rows_flipped_by_must_and_nice_alone": {
+    "rows": 17,
+    "postings": 12,
+    "gold": {
+     "Explore": 4,
+     "Keep": 8,
+     "Skip": 5
+    },
+    "before_agrees": 7,
+    "after_agrees": 5
+   },
+   "flips": {
+    "Skip->Explore": 14,
+    "Keep->Explore": 3,
+    "Explore->Keep": 4,
+    "Explore->Skip": 6,
+    "Skip->Keep": 2,
+    "Keep->Skip": 5
+   },
+   "h_prime_rows_flipped": {
+    "h+H'": {
+     "rows": 9,
+     "postings": 5,
+     "gold": {
+      "Explore": 7,
+      "Skip": 2
+     },
+     "before_agrees": 3,
+     "after_agrees": 5
+    },
+    "d3+H'": {
+     "rows": 9,
+     "postings": 4,
+     "gold": {
+      "Explore": 7,
+      "Skip": 2
+     },
+     "before_agrees": 3,
+     "after_agrees": 4
+    },
+    "base+H'": {
+     "rows": 3,
+     "postings": 3,
+     "gold": {
+      "Explore": 2,
+      "Skip": 1
+     },
+     "before_agrees": 1,
+     "after_agrees": 1
+    }
+   }
+  },
+  "v3_draft_a": {
+   "file": "data/built/fresh_test/cards_v3_0e7b4209.jsonl",
+   "blueprint": "0e7b4209",
+   "what": "first draft: experience areas excluded from must_skills too (commit 142dc8e)",
+   "postings_without_a_card_kept_v2": [],
+   "must_skills": {
+    "postings": 150,
+    "groups_v2": 759,
+    "groups_other": 346,
+    "postings_fewer": 84,
+    "postings_more": 9,
+    "postings_same_count": 57,
+    "postings_identical_groups": 46,
+    "postings_with_none_v2": 36,
+    "postings_with_none_other": 63,
+    "postings_8_plus_v2": 31,
+    "postings_8_plus_other": 13,
+    "nice_v2": 1072,
+    "nice_other": 971,
+    "other_fields_changed": {
+     "degree_level": 4,
+     "thin_posting": 1,
+     "work_mode": 1,
+     "degree_fields": 7,
+     "locations": 9,
+     "license": 10,
+     "employment_type": 1,
+     "min_years": 2,
+     "salary_max": 2
+    }
+   },
+   "rules_full_rows_flipped": {
+    "rows": 57,
+    "postings": 35,
+    "gold": {
+     "Explore": 11,
+     "Keep": 13,
+     "Skip": 33
+    },
+    "before_agrees": 40,
+    "after_agrees": 6
+   },
+   "rules_full_rows_flipped_eligibility_pass_design": {
+    "rows": 52,
+    "postings": 34,
+    "gold": {
+     "Explore": 11,
+     "Keep": 13,
+     "Skip": 28
+    },
+    "before_agrees": 36,
+    "after_agrees": 5
+   },
+   "rules_full_rows_flipped_by_must_and_nice_alone": {
+    "rows": 53,
+    "postings": 35,
+    "gold": {
+     "Keep": 13,
+     "Explore": 10,
+     "Skip": 30
+    },
+    "before_agrees": 34,
+    "after_agrees": 9
+   },
+   "flips": {
+    "Explore->Keep": 5,
+    "Skip->Explore": 44,
+    "Skip->Keep": 4,
+    "Explore->Skip": 3,
+    "Keep->Skip": 1
+   },
+   "h_prime_rows_flipped": {
+    "h+H'": {
+     "rows": 7,
+     "postings": 5,
+     "gold": {
+      "Keep": 4,
+      "Skip": 1,
+      "Explore": 2
+     },
+     "before_agrees": 3,
+     "after_agrees": 1
+    },
+    "d3+H'": {
+     "rows": 7,
+     "postings": 5,
+     "gold": {
+      "Keep": 4,
+      "Skip": 1,
+      "Explore": 2
+     },
+     "before_agrees": 3,
+     "after_agrees": 1
+    },
+    "base+H'": {
+     "rows": 4,
+     "postings": 4,
+     "gold": {
+      "Keep": 2,
+      "Explore": 2
+     },
+     "before_agrees": 2,
+     "after_agrees": 1
+    }
+   }
+  },
+  "v3_draft_b": {
+   "file": "data/built/fresh_test/cards_v3.jsonl",
+   "blueprint": "d46a0614",
+   "what": "second draft (matcher.blueprint.BLUEPRINT_V3): required experience areas kept as must_skills",
+   "postings_without_a_card_kept_v2": [
+    "greenhouse:abcellera:7984903003",
+    "greenhouse:dynetherapeutics:5722018004",
+    "lever:kcasbio:1ef5d71a-378c-4806-af83-a3f8489d036d",
+    "workday:mainegeneral.wd5~mainegeneralcareers:R16732"
+   ],
+   "must_skills": {
+    "postings": 150,
+    "groups_v2": 759,
+    "groups_other": 624,
+    "postings_fewer": 48,
+    "postings_more": 35,
+    "postings_same_count": 67,
+    "postings_identical_groups": 53,
+    "postings_with_none_v2": 36,
+    "postings_with_none_other": 32,
+    "postings_8_plus_v2": 31,
+    "postings_8_plus_other": 21,
+    "nice_v2": 1072,
+    "nice_other": 965,
+    "other_fields_changed": {
+     "degree_level": 5,
+     "thin_posting": 1,
+     "work_mode": 2,
+     "locations": 11,
+     "degree_fields": 5,
+     "license": 7,
+     "min_years": 1
+    }
+   },
+   "rules_full_rows_flipped": {
+    "rows": 36,
+    "postings": 22,
+    "gold": {
+     "Explore": 18,
+     "Skip": 6,
+     "Keep": 12
+    },
+    "before_agrees": 15,
+    "after_agrees": 10
+   },
+   "rules_full_rows_flipped_eligibility_pass_design": {
+    "rows": 33,
+    "postings": 21,
+    "gold": {
+     "Explore": 18,
+     "Keep": 12,
+     "Skip": 3
+    },
+    "before_agrees": 14,
+    "after_agrees": 8
+   },
+   "rules_full_rows_flipped_by_must_and_nice_alone": {
+    "rows": 29,
+    "postings": 19,
+    "gold": {
+     "Explore": 13,
+     "Skip": 5,
+     "Keep": 11
+    },
+    "before_agrees": 13,
+    "after_agrees": 6
+   },
+   "flips": {
+    "Skip->Explore": 12,
+    "Keep->Explore": 1,
+    "Keep->Skip": 5,
+    "Explore->Skip": 14,
+    "Explore->Keep": 2,
+    "Skip->Keep": 2
+   },
+   "h_prime_rows_flipped": {
+    "h+H'": {
+     "rows": 10,
+     "postings": 6,
+     "gold": {
+      "Explore": 5,
+      "Keep": 4,
+      "Skip": 1
+     },
+     "before_agrees": 3,
+     "after_agrees": 4
+    },
+    "d3+H'": {
+     "rows": 10,
+     "postings": 6,
+     "gold": {
+      "Explore": 5,
+      "Keep": 4,
+      "Skip": 1
+     },
+     "before_agrees": 3,
+     "after_agrees": 4
+    },
+    "base+H'": {
+     "rows": 3,
+     "postings": 3,
+     "gold": {
+      "Keep": 1,
+      "Explore": 2
+     },
+     "before_agrees": 1,
+     "after_agrees": 1
+    }
+   }
+  }
+ },
+ "systems_point_values": {
+  "v4_old_rules_v2_cards": {
+   "all_rows": {
+    "rules_full": {
+     "n": 592,
+     "accuracy": 0.7568,
+     "macro_f1": 0.4915,
+     "keep_recall": 0.0702
+    },
+    "rules_skills_free": {
+     "n": 592,
+     "accuracy": 0.5929,
+     "macro_f1": 0.4995,
+     "keep_recall": 0.5614
+    },
+    "h+H'": {
+     "n": 592,
+     "accuracy": 0.7078,
+     "macro_f1": 0.5392,
+     "keep_recall": 0.2807
+    },
+    "d3+H'": {
+     "n": 592,
+     "accuracy": 0.7061,
+     "macro_f1": 0.5293,
+     "keep_recall": 0.4211
+    },
+    "base+H'": {
+     "n": 592,
+     "accuracy": 0.7196,
+     "macro_f1": 0.4631,
+     "keep_recall": 0.614
+    }
+   },
+   "eligibility_pass_sealed_design_flag": {
+    "rules_full": {
+     "n": 344,
+     "accuracy": 0.689,
+     "macro_f1": 0.5053,
+     "keep_recall": 0.0769
+    },
+    "rules_skills_free": {
+     "n": 344,
+     "accuracy": 0.407,
+     "macro_f1": 0.4025,
+     "keep_recall": 0.6154
+    },
+    "h+H'": {
+     "n": 344,
+     "accuracy": 0.6047,
+     "macro_f1": 0.5294,
+     "keep_recall": 0.3077
+    },
+    "d3+H'": {
+     "n": 344,
+     "accuracy": 0.5988,
+     "macro_f1": 0.521,
+     "keep_recall": 0.4615
+    },
+    "base+H'": {
+     "n": 344,
+     "accuracy": 0.6134,
+     "macro_f1": 0.4475,
+     "keep_recall": 0.6731
+    }
+   }
+  },
+  "new_rules_v2_cards": {
+   "all_rows": {
+    "rules_full": {
+     "n": 592,
+     "accuracy": 0.7551,
+     "macro_f1": 0.4755,
+     "keep_recall": 0.0702
+    },
+    "rules_skills_free": {
+     "n": 592,
+     "accuracy": 0.6486,
+     "macro_f1": 0.5215,
+     "keep_recall": 0.5614
+    },
+    "h+H'": {
+     "n": 592,
+     "accuracy": 0.7416,
+     "macro_f1": 0.5404,
+     "keep_recall": 0.2456
+    },
+    "d3+H'": {
+     "n": 592,
+     "accuracy": 0.7382,
+     "macro_f1": 0.5268,
+     "keep_recall": 0.386
+    },
+    "base+H'": {
+     "n": 592,
+     "accuracy": 0.7314,
+     "macro_f1": 0.4702,
+     "keep_recall": 0.5789
+    }
+   },
+   "eligibility_pass_sealed_design_flag": {
+    "rules_full": {
+     "n": 344,
+     "accuracy": 0.6831,
+     "macro_f1": 0.488,
+     "keep_recall": 0.0769
+    },
+    "rules_skills_free": {
+     "n": 344,
+     "accuracy": 0.5,
+     "macro_f1": 0.4784,
+     "keep_recall": 0.6154
+    },
+    "h+H'": {
+     "n": 344,
+     "accuracy": 0.6599,
+     "macro_f1": 0.5464,
+     "keep_recall": 0.2692
+    },
+    "d3+H'": {
+     "n": 344,
+     "accuracy": 0.6512,
+     "macro_f1": 0.5317,
+     "keep_recall": 0.4231
+    },
+    "base+H'": {
+     "n": 344,
+     "accuracy": 0.6337,
+     "macro_f1": 0.4588,
+     "keep_recall": 0.6346
+    }
+   }
+  },
+  "new_rules_v2_rerun_cards": {
+   "all_rows": {
+    "rules_full": {
+     "n": 592,
+     "accuracy": 0.7483,
+     "macro_f1": 0.4753,
+     "keep_recall": 0.0702
+    },
+    "rules_skills_free": {
+     "n": 592,
+     "accuracy": 0.6503,
+     "macro_f1": 0.5264,
+     "keep_recall": 0.5965
+    },
+    "h+H'": {
+     "n": 592,
+     "accuracy": 0.7449,
+     "macro_f1": 0.5473,
+     "keep_recall": 0.2456
+    },
+    "d3+H'": {
+     "n": 592,
+     "accuracy": 0.7399,
+     "macro_f1": 0.5323,
+     "keep_recall": 0.386
+    },
+    "base+H'": {
+     "n": 592,
+     "accuracy": 0.7314,
+     "macro_f1": 0.4654,
+     "keep_recall": 0.5789
+    }
+   },
+   "eligibility_pass_sealed_design_flag": {
+    "rules_full": {
+     "n": 344,
+     "accuracy": 0.6773,
+     "macro_f1": 0.4881,
+     "keep_recall": 0.0769
+    },
+    "rules_skills_free": {
+     "n": 344,
+     "accuracy": 0.5087,
+     "macro_f1": 0.4881,
+     "keep_recall": 0.6538
+    },
+    "h+H'": {
+     "n": 344,
+     "accuracy": 0.6657,
+     "macro_f1": 0.5528,
+     "keep_recall": 0.2692
+    },
+    "d3+H'": {
+     "n": 344,
+     "accuracy": 0.657,
+     "macro_f1": 0.5393,
+     "keep_recall": 0.4231
+    },
+    "base+H'": {
+     "n": 344,
+     "accuracy": 0.6337,
+     "macro_f1": 0.4538,
+     "keep_recall": 0.6346
+    }
+   }
+  },
+  "new_rules_v3_draft_a_cards": {
+   "all_rows": {
+    "rules_full": {
+     "n": 592,
+     "accuracy": 0.6976,
+     "macro_f1": 0.4298,
+     "keep_recall": 0.0702
+    },
+    "rules_skills_free": {
+     "n": 592,
+     "accuracy": 0.6402,
+     "macro_f1": 0.5093,
+     "keep_recall": 0.5614
+    },
+    "h+H'": {
+     "n": 592,
+     "accuracy": 0.7382,
+     "macro_f1": 0.535,
+     "keep_recall": 0.2456
+    },
+    "d3+H'": {
+     "n": 592,
+     "accuracy": 0.7348,
+     "macro_f1": 0.5211,
+     "keep_recall": 0.386
+    },
+    "base+H'": {
+     "n": 592,
+     "accuracy": 0.7297,
+     "macro_f1": 0.4638,
+     "keep_recall": 0.5789
+    }
+   },
+   "eligibility_pass_sealed_design_flag": {
+    "rules_full": {
+     "n": 344,
+     "accuracy": 0.593,
+     "macro_f1": 0.4241,
+     "keep_recall": 0.0769
+    },
+    "rules_skills_free": {
+     "n": 344,
+     "accuracy": 0.4971,
+     "macro_f1": 0.4723,
+     "keep_recall": 0.6154
+    },
+    "h+H'": {
+     "n": 344,
+     "accuracy": 0.657,
+     "macro_f1": 0.5427,
+     "keep_recall": 0.2692
+    },
+    "d3+H'": {
+     "n": 344,
+     "accuracy": 0.6483,
+     "macro_f1": 0.5272,
+     "keep_recall": 0.4231
+    },
+    "base+H'": {
+     "n": 344,
+     "accuracy": 0.6308,
+     "macro_f1": 0.4516,
+     "keep_recall": 0.6346
+    }
+   }
+  },
+  "new_rules_v3_draft_b_cards": {
+   "all_rows": {
+    "rules_full": {
+     "n": 592,
+     "accuracy": 0.7466,
+     "macro_f1": 0.4594,
+     "keep_recall": 0.0702
+    },
+    "rules_skills_free": {
+     "n": 592,
+     "accuracy": 0.6571,
+     "macro_f1": 0.5397,
+     "keep_recall": 0.614
+    },
+    "h+H'": {
+     "n": 592,
+     "accuracy": 0.7432,
+     "macro_f1": 0.543,
+     "keep_recall": 0.2456
+    },
+    "d3+H'": {
+     "n": 592,
+     "accuracy": 0.7399,
+     "macro_f1": 0.5311,
+     "keep_recall": 0.386
+    },
+    "base+H'": {
+     "n": 592,
+     "accuracy": 0.7314,
+     "macro_f1": 0.4678,
+     "keep_recall": 0.5965
+    }
+   },
+   "eligibility_pass_sealed_design_flag": {
+    "rules_full": {
+     "n": 344,
+     "accuracy": 0.6657,
+     "macro_f1": 0.466,
+     "keep_recall": 0.0769
+    },
+    "rules_skills_free": {
+     "n": 344,
+     "accuracy": 0.5262,
+     "macro_f1": 0.5069,
+     "keep_recall": 0.6731
+    },
+    "h+H'": {
+     "n": 344,
+     "accuracy": 0.6657,
+     "macro_f1": 0.5526,
+     "keep_recall": 0.2692
+    },
+    "d3+H'": {
+     "n": 344,
+     "accuracy": 0.657,
+     "macro_f1": 0.5398,
+     "keep_recall": 0.4231
+    },
+    "base+H'": {
+     "n": 344,
+     "accuracy": 0.6337,
+     "macro_f1": 0.456,
+     "keep_recall": 0.6538
+    }
+   }
+  }
+ },
+ "credits": {
+  "cap": 25,
+  "spent_by_balance": 6.0,
+  "runs": [
+   {
+    "set": "ft1",
+    "blueprint": "0e7b4209",
+    "rows": 150,
+    "estimate": 2.0,
+    "balance_before": 82.0,
+    "balance_after": 80.0,
+    "spent": 2.0
+   },
+   {
+    "set": "ft1",
+    "blueprint": "d46a0614",
+    "rows": 150,
+    "estimate": 2.0,
+    "balance_before": 80.0,
+    "balance_after": 78.0,
+    "spent": 2.0
+   },
+   {
+    "set": "ft1",
+    "blueprint": "b2b2ed8e",
+    "rows": 150,
+    "estimate": 2.0,
+    "balance_before": 78.0,
+    "balance_after": 76.0,
+    "spent": 2.0
+   }
+  ]
+ }
+}

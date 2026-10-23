@@ -1,0 +1,24 @@
+{
+ "what": "Amendment 4b: fresh test 4 is extended before any system is scored on it, because its gold holds 34 Keeps on the eligibility-pass slice, under the 40 amendment 4 asks for so the pass bar has power.",
+ "amends": {
+  "files": {
+   "eval/protocol_amendment_4.json": "9d3720c0f6a959ff5e71e078cef67c1a685ee38102c86467457faa7d98e770f6",
+   "eval/protocol_amendment_5.json": "2e0ac6346b39b131e49e67ed71ea9207a7285a205ed3c1dda461001479346aad",
+   "eval/fresh_test4_manifest.json": "fd2bab74c8c497c07d3efbe81349032b9b0726741c7acb071ab35cf96cc95437",
+   "eval/fresh_test4_gold_manifest.json": "e8ea8ff782a7be7c7d4ab16feba8dc68369a4fa5fe858bd83b926c9ff0199b24"
+  },
+  "parent_commit": "322517d48e06e5528beb14e2a55c6677a2378f51"
+ },
+ "decided_by": "the author, 2026-10-21",
+ "written_before": "any system, model, rules or baseline output on fresh test 4 (first 940 rows or extension) and before the extension is sampled. The only test-4 result read to make this decision is the gold label count of the first 940 rows (eval/fresh_test4_gold_manifest.json: 40 Keep / 110 Explore / 790 Skip; eligibility-pass slice 34 / 77 / 315 of 426 rows).",
+ "why": "amendment 4 builds test 4 to hold at least 40 gold Keeps on its eligibility-pass slice; the first 940 rows hold 34 (3.6 per 100 rows, under the 4.1-6.4 of tests 1-3 that sized it, as the cycle-3 generator removed the held posting title labelers leaned on for Keep).",
+ "extension": {
+  "size": "about 200 more rows on about 50 new postings (4 a posting), expected about 7 more eligibility-pass Keeps at the first 940 rows' rate (about 41 in all); the count is reported as it comes out, the bar is not changed and no second extension is planned in this file",
+  "source": "the same reserved postings and the same filter as the first 240 (load_reserved: reserved by the freeze, in no pool or test, near copies of fresh tests 1-3 and of the train pool dropped, one posting per employer and title), none of the first 240 postings and none in a pool, a fresh test or a training file; the employer cap of 7 counts the first 240 postings",
+  "design": "the same as the first 940 rows: same sampler rules, same v2 extractor, same candidate design (4 a posting, pass rate 0.58, near/gap/strong 0.4/0.4/0.2, not steered toward Keep) with the cycle-3 generator fix on, same resume writer, gates and tries; its own seed so no row id repeats",
+  "credit_cap": 6,
+  "sealing": "the extension's rows are appended to data/built/fresh_test4/rows.jsonl (and its postings, cards, candidates and resumes to theirs) with design.extension = '4b'; the first 940 rows and label batches 01-13 are left byte for byte as they are. Label batches for the new rows only, batch_14 onward, 75 rows each, in the same blind format. eval/fresh_test4_manifest.json and eval/fresh_test4_data_hashes.json are updated at sealing.",
+  "gold": "labelers A and B and the adjudicator on batch_14 onward exactly as on batches 01-13 (amendment 5); the first 940 rows' gold is not relabeled",
+  "scored_once": "test 4 is scored once, on all rows (first 940 plus the extension), under amendment 5 as amended by 5b; the extension is also reported as its own slice"
+ }
+}

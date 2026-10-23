@@ -1,0 +1,297 @@
+{
+ "n_gold": 1187,
+ "gold_sha256": "e837c641d4880fb02baeabe71105eb3e5d0c73eb6cf1c74f91e454db7153fa37",
+ "raw_agreement": 0.8492,
+ "kappa": 0.7191,
+ "n_rows_both": 1187,
+ "adjudicated_n": 179,
+ "adjudicator_sided_with": {
+  "A": 127,
+  "B": 44,
+  "neither": 8
+ },
+ "label_mix": {
+  "Keep": 211,
+  "Explore": 193,
+  "Skip": 783
+ },
+ "label_mix_eligibility_pass": {
+  "Keep": 188,
+  "Explore": 154,
+  "Skip": 334
+ },
+ "n_eligibility_pass": 676,
+ "missing_rows": [],
+ "ignored_stray_label_rows": [],
+ "input_sha256": {
+  "data/built/fresh_test5/adjudicate/chunk_01.gold.jsonl": "d3333d928a7d0b0716bf630cdd219997cf3fdd86c7ddae2a9ef00bb234794616",
+  "data/built/fresh_test5/adjudicate/chunk_01.jsonl": "3448fe4f1fb251c72425c15d39abd78dae66d76680ba570a40ff8485c88c4da8",
+  "data/built/fresh_test5/adjudicate/chunk_02.gold.jsonl": "c88329156d4b2d5ba9459f555551ec8408b23359c9a9254997427f891a7d5cc5",
+  "data/built/fresh_test5/adjudicate/chunk_02.jsonl": "dcfd7c4d5d52049e7db148f159abb0c1e21724cc1bf3fd95fdeeee9f3ac576db",
+  "data/built/fresh_test5/adjudicate/chunk_03.gold.jsonl": "df68883026cb74e9034ba15a3440dc56fb73b831f041bcb99857d5fbbb5d307d",
+  "data/built/fresh_test5/adjudicate/chunk_03.jsonl": "79b810168de2e78174549fe526ebfb9dea3f17141b7c96bafdfc2c75dafd78f9",
+  "data/built/fresh_test5/adjudicate/chunk_04.gold.jsonl": "438483c6d944c3bbbf5cf7baf0082e35711e1662018dfa5c218a99f21ef6a68d",
+  "data/built/fresh_test5/adjudicate/chunk_04.jsonl": "5b72b215e98bfd6b2549e5f6ce07f0f975451b91c62df7397b3ca7b27b779172",
+  "data/built/fresh_test5/adjudicate/chunk_05.gold.jsonl": "288662264f4f1d63521bc42e6291a2a90adb882937c3b6b4b2112fa267fb0379",
+  "data/built/fresh_test5/adjudicate/chunk_05.jsonl": "929729a3f46f52bed0726f84dcbd7d5890102379e121fd73b9f43721c531a241",
+  "data/built/fresh_test5/agreement.json": "c4a123436297fb8b53175d3394e6e70c2d217daf453369643f2fd82bdc63b75e",
+  "data/built/fresh_test5/labels/A/batch_01.jsonl": "9b8484cb9f0c63f06397b922867e5cff6ef827e569a982cc443bece4879d3e59",
+  "data/built/fresh_test5/labels/A/batch_02.jsonl": "ff0aefc38434b75044ccad6806baf4a8053c2bd29b31ba4d2dfd394394bd1a42",
+  "data/built/fresh_test5/labels/A/batch_03.jsonl": "5cd97931c097c3cbce691766c8cd6aa10f83da1506cb9c2feaffacb24688be79",
+  "data/built/fresh_test5/labels/A/batch_04.jsonl": "26c66011ba146b3996b0d03f1992946b5be9f408017b7c9b97b567d9e2f1ef92",
+  "data/built/fresh_test5/labels/A/batch_05.jsonl": "e2cc594fc7d59881e34cafff489a25e4fefebbcc876f20737b20425a04f9b77c",
+  "data/built/fresh_test5/labels/A/batch_06.jsonl": "0417c5e253c7929bd2bd2d96d887988f7b7bcbf7fee7e6b8d3fc4dbe8ed9ee52",
+  "data/built/fresh_test5/labels/A/batch_07.jsonl": "9c062917ef444806ebed7fda8c89087fd5ba5b63b4e68245c32be3e78bf188c7",
+  "data/built/fresh_test5/labels/A/batch_08.jsonl": "8b17560061d386155b0c7e4082d762447a82dd3c67e81fb459959fa1b296c8f9",
+  "data/built/fresh_test5/labels/A/batch_09.jsonl": "43d4136653274c007e625c171fd79fda9911b04531d3a9f0400f6478a35efc7e",
+  "data/built/fresh_test5/labels/A/batch_10.jsonl": "3c210dfe46ddce859779e9c1f82e404491a7ba7b3bb0693bec1f670723c0cadb",
+  "data/built/fresh_test5/labels/A/batch_11.jsonl": "2b5398dd1ff816a0838b58de1b22a5cc199b0b84732665a1cfb22b22241a0f48",
+  "data/built/fresh_test5/labels/A/batch_12.jsonl": "bdc92915c2512037da18e9fad183e780d91b132ccbe025f7362caf273101defd",
+  "data/built/fresh_test5/labels/A/batch_13.jsonl": "223f4aa4f155d905484414afc93063e3025bc7efec09f1d3a6ec916950d7c2dd",
+  "data/built/fresh_test5/labels/A/batch_14.jsonl": "64b1195fe218de408c17c28c8fa7aeb9395671fa9dcf62618b9ab0f1feef40c6",
+  "data/built/fresh_test5/labels/A/batch_15.jsonl": "b4250803f3b50ab5ce6cebf69a49fda071d6010f0dcf45773a91a60850a0e9fe",
+  "data/built/fresh_test5/labels/A/batch_16.jsonl": "9cd73a44aecbcc16f8addd77222abefd4450b448d1be00fa61925f6266229d38",
+  "data/built/fresh_test5/labels/B/batch_01.jsonl": "2043e0fc30e6e79e4c87eda5a1461cc8e2372fbca724d89732ac0cd9c45b2096",
+  "data/built/fresh_test5/labels/B/batch_02.jsonl": "7602f9441f5a3f8e51c1520de929580724e0fb8898b76db0c819a152e40cd381",
+  "data/built/fresh_test5/labels/B/batch_03.jsonl": "3108da51f18d45e630c485d192d9e2841b0c066f7f7579c3db4347b9033d3eba",
+  "data/built/fresh_test5/labels/B/batch_04.jsonl": "fecdd0afa579e253f00a73686035ab5eb782f6f5cf28b17f1b349757b816d5da",
+  "data/built/fresh_test5/labels/B/batch_05.jsonl": "adffaa4e809b03aa9a04bd79d86a354ff8365cd8a9e8b649d426ab28340b43a8",
+  "data/built/fresh_test5/labels/B/batch_06.jsonl": "88fa335f1f4b3ede06c79590ced2fbfc4c4c409305917dfcc2196ddfe82a0980",
+  "data/built/fresh_test5/labels/B/batch_07.jsonl": "f537419ef3535445c57b61cf54feac56e8f35156fb3afb0416833ccf65a099cb",
+  "data/built/fresh_test5/labels/B/batch_08.jsonl": "5a3edac0f64f605b5a9df440f83c3832ca1006a03ecfb1e28067c0538d8b2f7f",
+  "data/built/fresh_test5/labels/B/batch_09.jsonl": "de8f75cfa18118846baa1b3719d1a11a190752c492b6db9d8863e51139f0c64a",
+  "data/built/fresh_test5/labels/B/batch_10.jsonl": "80958229dead80ad9285eb24795b3ebee78d50a7a14487209ba42997827ee113",
+  "data/built/fresh_test5/labels/B/batch_11.jsonl": "f1a961f887048e7bd0368fb8957b468f68d323dce60bbec3fbdc5bac7eb0819d",
+  "data/built/fresh_test5/labels/B/batch_12.jsonl": "a02b65ec55993f9d814c92bd0a4989d355821974a79ecf94c915d69f622acf21",
+  "data/built/fresh_test5/labels/B/batch_13.jsonl": "2c590304eb0741636f3af8e97917802f14c92fe8049b165ccf695291b3d6a43f",
+  "data/built/fresh_test5/labels/B/batch_14.jsonl": "2bd0b834e26430d4c056175c5d608d26c80f03a581058655b6020240a24d05c7",
+  "data/built/fresh_test5/labels/B/batch_15.jsonl": "2fc8db08a61ac2f92384545e9b77f21b7d062b54d0fc8c8f5ab803087a33a232",
+  "data/built/fresh_test5/labels/B/batch_16.jsonl": "69b6b62228005b2fba0fee1b678e47fec6604bd60db2510175b19b85677072fa",
+  "data/built/fresh_test5/rows.jsonl": "caa6020dfe98aaa463ffb44f1b4155a5c10a7e0c7f154607851bf1d26313414b"
+ },
+ "what": "Gold for sealed fresh test 5 (eval/protocol_amendment_6.json gold): labeler A (Opus, effort medium) and labeler B (Sonnet, effort high), blind on the 16 label batches with labeler_prompt_test3 verbatim (sha256 4e0b955028cbe45dcb6b7f369dbfe1202494756ec806ee841ec306db98fa595e, the unclarified rubric); Opus (effort high, test 4's adjudicator prompt) adjudicated every disagreement; assembled by scripts/fresh_test_gold.py fresh_test5 --own-batch --hash-inputs. Committed before any system is scored on test 5; nothing has been scored.",
+ "manifest_sealed_at": {
+  "eval/fresh_test5_manifest.json": "5977d1c55f45547b6bbfc1b10b10e0963ce22bf868252e6a3802a143e63d8c10",
+  "eval/fresh_test5_data_hashes.json": "4f8b3e9dc302888b3bb02af09e604024583e986c5e2a0d03985e9c5681b8697b",
+  "seal_commit": "7e72a43"
+ },
+ "keeps_eligibility_pass": 188,
+ "minimum_40_keeps_on_eligibility_pass": {
+  "floor": 40,
+  "met": true,
+  "extension_needed": false,
+  "note": "amendment 6 expected about 60-70 (cycle-3 teacher rate on c3train-design rows) or about 38 (test 4's unsteered rate); gold has 188, far above both (gold Keep 211 of 1,187 rows, 17.8%; test 4 43 of 1,139, 3.8%). The 4-candidate Keep-leaning design is declared; the larger part of the rise traces to the candidates, not the writer.",
+  "why_the_keep_rate_rose": {
+   "measure": "the amendment's own yardstick (free_pool_finding.why_not_used): share of the card's must_skills strings named in the resume (build_fresh_test.found or a casefold substring), next to the same share in the candidate's skills list",
+   "in_resume_vs_in_skills_list": {
+    "fresh_test4": {
+     "all": [
+      0.117,
+      0.091
+     ],
+     "strong": [
+      0.155,
+      0.126
+     ],
+     "near": [
+      0.162,
+      0.134
+     ],
+     "gap": [
+      0.099,
+      0.073
+     ],
+     "off": [
+      0.042,
+      0.024
+     ]
+    },
+    "fresh_test5": {
+     "all": [
+      0.287,
+      0.278
+     ],
+     "strong": [
+      0.398,
+      0.391
+     ],
+     "near": [
+      0.376,
+      0.362
+     ],
+     "gap": [
+      0.261,
+      0.246
+     ],
+     "off": [
+      0.06,
+      0.054
+     ]
+    },
+    "fresh_test3_in_resume": 0.115
+   },
+   "reading": "the writer adds 1-3 points over the skills list on both tests, so the Sonnet writer is not where the extra required skills come from. Within every archetype test 5's skills lists hold about three times the card's required skills that test 4's did: these tech-internship postings name concrete tools that the sampler's skill vocabulary finds (a vocabulary that now includes their own cards; measured small, see the build manifest), plus the Keep-leaning archetype mix. The old round-2 rows that amendment 6 rejected sat at 95.4%; test 5 sits at 29%, against 12-17% on tests 1-4.",
+   "sampler_vs_labeler_gaps": "gap candidates (built to miss about 40% of the required mentions the sampler found) got 31 pass-slice gold Keeps of 109, and off-field candidates 13 of 162: the gaps the sampler built are often not gaps the labelers saw in the posting text"
+  }
+ },
+ "agree_subset": {
+  "what": "rows where labelers A and B gave the same label (gold = that label)",
+  "n": 1008,
+  "label_mix": {
+   "Keep": 192,
+   "Explore": 119,
+   "Skip": 697
+  },
+  "n_eligibility_pass": 540,
+  "label_mix_eligibility_pass": {
+   "Keep": 174,
+   "Explore": 96,
+   "Skip": 270
+  },
+  "keeps_eligibility_pass": 174
+ },
+ "labeler_label_mix": {
+  "A": {
+   "Keep": 205,
+   "Explore": 199,
+   "Skip": 783
+  },
+  "B": {
+   "Keep": 266,
+   "Explore": 211,
+   "Skip": 710
+  },
+  "A_eligibility_pass": {
+   "Keep": 186,
+   "Explore": 162,
+   "Skip": 328
+  },
+  "B_eligibility_pass": {
+   "Keep": 234,
+   "Explore": 162,
+   "Skip": 280
+  }
+ },
+ "by_archetype": {
+  "strong": {
+   "n": 543,
+   "gold": {
+    "Keep": 133,
+    "Explore": 80,
+    "Skip": 330
+   },
+   "n_eligibility_pass": 302,
+   "gold_eligibility_pass": {
+    "Keep": 115,
+    "Explore": 62,
+    "Skip": 125
+   }
+  },
+  "near": {
+   "n": 165,
+   "gold": {
+    "Keep": 31,
+    "Explore": 28,
+    "Skip": 106
+   },
+   "n_eligibility_pass": 103,
+   "gold_eligibility_pass": {
+    "Keep": 29,
+    "Explore": 23,
+    "Skip": 51
+   }
+  },
+  "gap": {
+   "n": 185,
+   "gold": {
+    "Keep": 33,
+    "Explore": 40,
+    "Skip": 112
+   },
+   "n_eligibility_pass": 109,
+   "gold_eligibility_pass": {
+    "Keep": 31,
+    "Explore": 33,
+    "Skip": 45
+   }
+  },
+  "off": {
+   "n": 294,
+   "gold": {
+    "Keep": 14,
+    "Explore": 45,
+    "Skip": 235
+   },
+   "n_eligibility_pass": 162,
+   "gold_eligibility_pass": {
+    "Keep": 13,
+    "Explore": 36,
+    "Skip": 113
+   }
+  }
+ },
+ "process_notes": [
+  "Labeler wave 1 (A01+B01, then A02-08 with B09-15) ran with test 4's labeler prompt unchanged; several labelers wrote helper scripts under the same names in the shared session scratchpad and some read a few rows of another batch through another labeler's script. Each says it discarded those reads and re-read its own rows. Six labels of batch 05 rows were appended into A's batch_06 file by labeler A05 through A06's script; A06 removed them and A05 re-labeled them in its own file. No A and B labeler of the same batch ran at the same time, and every final label file holds exactly its own batch's row ids (--own-batch found no strays).",
+  "Waves 2-3 (A09-16 with B02-08, then B16) and the adjudicators got one added closing line naming a private helper folder; the rubric text is unchanged (sha256 above).",
+  "Adjudicators split on two calls the rubric does not settle, each applied consistently within its chunk: postings whose program dates or deadline have passed (chunk_01 treats them as stale text, Keep; chunk_03 as Skip) and 'US citizens only' against a profile that says 'U.S. citizen or permanent resident' (chunk_04 Keep, chunk_05 Explore). Recorded, not corrected."
+ ],
+ "by_source_set_eligibility_pass": {
+  "real_test": {
+   "Keep": 5,
+   "Explore": 10,
+   "Skip": 19
+  },
+  "real_train train": {
+   "Keep": 168,
+   "Explore": 129,
+   "Skip": 289
+  },
+  "real_train dev": {
+   "Keep": 15,
+   "Explore": 15,
+   "Skip": 26
+  }
+ },
+ "review": {
+  "who": "one Sonnet reviewer (effort high), blind to scores (none exist), after the gold manifest commit abea447",
+  "rows": "30 gold rows read in full, 15 agreed and 15 adjudicated, drawn with random.Random(20261022).sample over the sorted agreed and adjudicated row ids",
+  "row_ids": [
+   "f5_ae7f86d829",
+   "f5_5b6db65f05",
+   "f5_9253ee6857",
+   "f5_4ad6cfe3d2",
+   "f5_db7c96856d",
+   "f5_317400ee72",
+   "f5_0b59596f76",
+   "f5_f0fd19977b",
+   "f5_d20920d338",
+   "f5_414341cc12",
+   "f5_3e0e43d78b",
+   "f5_3f9f65868c",
+   "f5_012a1faeeb",
+   "f5_b40cfe1c88",
+   "f5_d2c3a00e6c",
+   "f5_ba79ebad2e",
+   "f5_27fd9b992a",
+   "f5_161714690e",
+   "f5_3bc9bd4700",
+   "f5_3b8b8dec43",
+   "f5_5b2caf4780",
+   "f5_dfab5d23a8",
+   "f5_ebb9625167",
+   "f5_d417f76397",
+   "f5_2111939310",
+   "f5_2c61e68ff6",
+   "f5_aa97ef1a15",
+   "f5_2435b29e8b",
+   "f5_3f2e9a465a",
+   "f5_caf2ceadda"
+  ],
+  "gold_errors_of_30": 0,
+  "blocker_rule": "more than 3 of 30",
+  "pass": true,
+  "counts_and_hashes": "all match: one gold row per row, gold_sha256 and the 44 input hashes, agreement and kappa recomputed from the labels, pass-slice mix and Keep count, agree subset, labeler mixes, by_archetype",
+  "judgment_calls": 12,
+  "lean": "every judgment call that leans away from gold leans toward Keep where gold says Explore (5 of 30 rows: soft 'bring' lists, 'or similar' language lists); across the file, on the 75 rows where A and B split Keep vs Explore the adjudicators chose Explore 57 times. Gold Keep may be slightly under-called on adjudicated Keep/Explore ties; recorded, not corrected."
+ }
+}

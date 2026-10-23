@@ -1,0 +1,181 @@
+{
+ "what": "cycle-3 training rows (eval/protocol_amendment_5.json), built with scripts/build_fresh_test.py --set c3train from the train pool: the fresh-test pipeline (v2 extractor imported unchanged, the cycle-3 candidate generator of 8c6bac5, the fresh-test resume writer and gates). Never sealed or scored; not labeled here. Label batches: eval/cycle3_train_batches.json.",
+ "commit_of_builder": "7883b96 (+ an assemble print fix in the commit adding this file)",
+ "source": {
+  "train_pool": 59780,
+  "cycle1_sampled_postings_dropped": 1696,
+  "untouched_employer_postings_held_out": 300,
+  "kept": 57784,
+  "employers_kept": 156,
+  "employers_shared_with_test_or_dev_pool": 0,
+  "untouched_employers_held_out_n": 60,
+  "untouched_employers_held_out": [
+   "1910 genetics",
+   "abiologics",
+   "alexion astrazeneca",
+   "ansa biotechnologies",
+   "avalyn pharmaceuticals",
+   "biofourmis",
+   "blueprint medicines",
+   "cellarity",
+   "cogent biosciences",
+   "collegium pharmaceutical",
+   "cradle",
+   "dayhoff labs",
+   "digital biology",
+   "editas medicine",
+   "empress tx",
+   "etiome",
+   "expedition medicines",
+   "extuitive",
+   "fl106",
+   "fl111",
+   "fl113",
+   "fl114",
+   "fl116",
+   "fl117",
+   "fl119",
+   "fl120",
+   "fl130",
+   "form bio",
+   "harbinger health",
+   "hexagon bio",
+   "intellia therapeutics",
+   "ironwood pharmaceuticals",
+   "korro bio",
+   "labcentral",
+   "latent labs",
+   "lumen bioscience",
+   "lycia therapeutics",
+   "magnet biomedicine",
+   "manifold bio",
+   "maplight therapeutics",
+   "mirai bio",
+   "montai therapeutics",
+   "nimbus therapeutics",
+   "nuvalent",
+   "onepot",
+   "owkin",
+   "pillar biosciences",
+   "precede biosciences",
+   "prime medicine",
+   "profound therapeutics",
+   "remix therapeutics",
+   "ring therapeutics",
+   "serif biomedicines",
+   "sonothera",
+   "strand therapeutics",
+   "superluminal medicines",
+   "ultragenyx pharmaceutical",
+   "vesalius therapeutics",
+   "volastra therapeutics",
+   "xilio therapeutics"
+  ],
+  "why_held_out": "every other train-pool employer already has a row in data/built/fit/train_fit.csv; these 60 are the only train-pool employers a later test could use without sharing an employer with any training file",
+  "fresh_tests": "the train pool shares no employer with the test and dev pools (checked at sample), so none with fresh tests 1-3 or with fresh test 4 (built from test and dev employers' reserved postings)"
+ },
+ "design_vs_fresh_tests": {
+  "same": "sampler (field quotas, teaser and empty-body slots, employer cap), extraction, candidate kits and archetypes, eligibility steering, resume writer prompt, gates and up to 3 tries, repair of an exhausted try that fails only on an empty section",
+  "different": {
+   "per_posting": 5,
+   "pass_rate": 0.75,
+   "arch_weights_near_gap_strong": [
+    0.3,
+    0.3,
+    0.4
+   ],
+   "fresh_tests_used": {
+    "per_posting": 4,
+    "pass_rate": 0.58,
+    "arch_weights_near_gap_strong": [
+     0.4,
+     0.4,
+     0.2
+    ]
+   },
+   "why": "fresh tests 1-3 run about 7% Keep / 25% Explore / 68% Skip, below amendment 5's Keep band (12-30%); more rows a posting and more passing, stronger candidates put more paid rows where the fit layer reads the resume and fewer get downsampled away by the band check"
+  },
+  "n_postings": 520,
+  "employer_cap": 8,
+  "seed": 20261131,
+  "row_id_prefix": "c3_"
+ },
+ "n_rows": 2553,
+ "n_postings": 520,
+ "employers": 156,
+ "dropped_candidates_without_resume": 47,
+ "field_mix_postings": {
+  "data": 75,
+  "health_nursing": 75,
+  "software": 74,
+  "sales_ops": 74,
+  "other": 74,
+  "internship": 74,
+  "lab_bio": 74
+ },
+ "length_mix_postings": {
+  "3000+": 447,
+  "1300-3000": 22,
+  "empty": 10,
+  "teaser 1-699": 40,
+  "700-1300": 1
+ },
+ "archetypes": {
+  "strong": 1150,
+  "off": 514,
+  "gap": 435,
+  "near": 454
+ },
+ "eligibility_pass_rows": 1450,
+ "no_card_rows": 5,
+ "repaired_resumes": 7,
+ "render_tries": {
+  "1": 2117,
+  "2": 397,
+  "3": 39
+ },
+ "credits": {
+  "runs": [
+   {
+    "name": "extract_b2b2ed8e_0",
+    "estimate": 7.0,
+    "rows": 520,
+    "launched": true,
+    "run_id": "dataset-54d10abb-d5dc-4012-a92d-1bb94d16c0a0-1792608947525"
+   },
+   {
+    "name": "resumes_0",
+    "estimate": 27.0,
+    "rows": 2600,
+    "launched": true,
+    "run_id": "dataset-61216c09-1068-40f0-ab3f-8d9afa984127-1792609270184"
+   },
+   {
+    "name": "resumes_1",
+    "estimate": 5.0,
+    "rows": 483,
+    "launched": true,
+    "run_id": "dataset-b734b664-5bf4-48c7-93ab-1808e7ee5c10-1792610630483"
+   },
+   {
+    "name": "resumes_2",
+    "estimate": 1.0,
+    "rows": 86,
+    "launched": true,
+    "run_id": "dataset-7761f7c7-25b8-43af-9f85-9a83c111479b-1792611260788"
+   }
+  ],
+  "total_launched_estimate": 40.0,
+  "balance_before": 66.0,
+  "balance_after": 26.0,
+  "cap": 40.0,
+  "cap_rule": "balance 66 at the start minus 20 held for fresh test 4 minus a 6-credit buffer"
+ },
+ "files": {
+  "data/built/fit/cycle3/rows.jsonl": "1cf61f042b9033592780ea1cf6fcfe3c4350821a13acf44025b3470384998653",
+  "data/built/fit/cycle3/cards.jsonl": "b9fe2ee03b8163dcb5ffd1e41ee15cfb8411bbdf9e6a8b61d7e568101af7682c",
+  "data/built/fit/cycle3/postings.jsonl": "ec936314bb221e3606154040639a8e666715cfd6249c11c89fcdb0568dad9760",
+  "data/built/fit/cycle3/candidates.jsonl": "939f80f8c4c1610e2b9d84995a36ce6eb81e414ac64c98d38309979deaba794d",
+  "data/built/fit/cycle3/resumes.jsonl": "4124b9b3ce9c1e4de8294440c2190d709a883a5cfe42271d9d8f3100a8a40958"
+ }
+}

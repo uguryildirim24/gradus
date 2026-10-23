@@ -1,0 +1,51 @@
+{
+ "what": "sha256 of every input the v4 fit evaluation reads, and the two model archives, taken before any model output on dev_fit or the fresh test exists (eval/protocol_amendment_1.json). scripts/fit_eval_score.py checks the data files and the amendment against this before scoring.",
+ "sha256": {
+  "data/built/fit/pools/test.jsonl": "26ddbaccf671a5ffd126ab6c920c9a494f0b11e9c5c6c8d4ef94ee706a29f8cd",
+  "data/built/fit/pools/dev.jsonl": "20fb8fd5ddd3c13080d740e3a75374656fa7789c5fb6589427c60685f8ce1d8b",
+  "data/built/fit/pools/train.jsonl": "fc5cc6d236d257feea7e0f8097a162459f0becf1965fd05e9846eff4f4c57968",
+  "eval/protocol.json": "f95d47a05cd386b93566af410005f4a1c3185e16cd9c794eef3fc96fee8ffa31",
+  "eval/protocol_amendment_1.json": "5d8055f08653f19b6891193e13699aa27d1afbaf9a9cb0acfc58c92848f80ea3",
+  "data/built/fresh_test/rows.jsonl": "fec921ab3fc0dd3e4c6618663e44a90a0de8bef383cf0ec626a5db64c6eff418",
+  "data/built/fresh_test/cards.jsonl": "783c142db75200b934f6af7c4b9a89a134ac60d51e0e92264e9d8f45f122da79",
+  "data/built/fresh_test/gold.jsonl": "eef1d5699056b982d09bcfa1e7550348a2b26a5f6a6ffe09aca6ea32309be572",
+  "data/built/fresh_test/postings.jsonl": "9a6ca087a405c1d5d7a4f319765d8a0009ae2e88e6a1a21ab8ef956e6339e264",
+  "data/built/fit/dev_fit.jsonl": "89baa22b7b87fb5061dc657766e3a10f76ac2cdfeb66456f5d115e557eb6a473",
+  "data/built/fit/train_fit.csv": "2d99ea11a55d145ea86dfd31be1daa8f49c7d131a5a425ac70fc6e50f110e167",
+  "data/built/real_train/train_mix3.csv": "42f9d3afe95f20915b5e4bca03de21c5c354b1378a7f5c12c2e8d768c2e702a1",
+  "data/built/fit/eval_inputs/h/dev_fit.jsonl": "a332db3cf5b7629c3609ae60fa354fa7309951016f8ceb1014218836014c35de",
+  "data/built/fit/eval_inputs/h/fresh_test.jsonl": "f6d624a8df590f87d6fdd4557366643586acf9345425f40e7ecf9476fdc30791",
+  "data/built/fit/eval_inputs/d3/dev_fit.jsonl": "a332db3cf5b7629c3609ae60fa354fa7309951016f8ceb1014218836014c35de",
+  "data/built/fit/eval_inputs/d3/fresh_test.jsonl": "f6d624a8df590f87d6fdd4557366643586acf9345425f40e7ecf9476fdc30791",
+  "data/built/fit/eval_inputs/base/dev_fit.jsonl": "a332db3cf5b7629c3609ae60fa354fa7309951016f8ceb1014218836014c35de",
+  "data/built/fit/eval_inputs/base/fresh_test.jsonl": "f6d624a8df590f87d6fdd4557366643586acf9345425f40e7ecf9476fdc30791"
+ },
+ "model_archives": {
+  "where": "oci-pi:/home/ubuntu/matcher-train/data/models/main_4b/ (zstd tar under a .tar.gz name; tar --zstd), read there with md5sum and sha256sum on 2026-10-21",
+  "h": {
+   "file": "h_63659c74-57fd-4353-8a03-07bc11dc0fb6.tar.gz",
+   "bytes": 82576893,
+   "md5": "34c7c3f9024f701aed4129dba7b6ad4a",
+   "sha256": "eaac2d260b08b8543a60e717ea1062a6ac1fd6a084e1fe8290ce8040d0f71135"
+  },
+  "d3": {
+   "file": "d3_5be8d991-d02e-4293-bded-3d1374c55e7f.tar.gz",
+   "bytes": 82578113,
+   "md5": "6167f578230326f5ff0569be1c87bf76",
+   "sha256": "aeb3482c5cbc555060267125fef65ab31d98698e03acd46d20c51be1133a043f"
+  },
+  "base": {
+   "model": "Qwen/Qwen3.5-4B",
+   "note": "untrained base, downloaded by colab_eval.py from the Hub"
+  }
+ },
+ "protocol_commit": "c6c814b6c6f92ebc577656be1f28f56630a60bb2",
+ "cross_checks": {
+  "pools": "the sorted-id sha256 of each pool equals eval/fit_freeze.json (test ad5f4bc1..., dev 581c0453..., train dc3a9985...)",
+  "fresh_test rows and cards": "equal eval/fresh_test_manifest.json",
+  "fresh_test gold": "equals eval/fresh_test_gold_manifest.json gold_sha256",
+  "train_fit.csv": "md5 b1fdfa85f3cb4b406f692e48b07f29fb, the file run h uploaded (scripts/train_main.py)",
+  "h archive": "md5 equals the one recorded for run h (34c7c3f9...)",
+  "eval_inputs": "h, d3 and base prompt files are byte-identical per set (one format, see the amendment's prompts.formats_differ)"
+ }
+}

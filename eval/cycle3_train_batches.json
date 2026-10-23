@@ -1,0 +1,111 @@
+{
+ "what": "cycle-3 training label batches (eval/protocol_amendment_5.json), written by scripts/cycle3_label_batches.py; not labeled here",
+ "rows": 4102,
+ "batches": 55,
+ "batch_size": 75,
+ "by_source": {
+  "new": 2553,
+  "twins": 600,
+  "venator": 730,
+  "teaser": 219
+ },
+ "available_by_source": {
+  "twins": 2544,
+  "venator": 879,
+  "teaser": 219,
+  "new": 2553
+ },
+ "title_copy_excluded_by_source": {
+  "venator": 149,
+  "twins": 9
+ },
+ "twin_draw": {
+  "seed": 20261021,
+  "n": 600,
+  "from": 2535
+ },
+ "shuffle_seed": 20261022,
+ "rules_label_mix_old_rows": {
+  "Skip": 573,
+  "Explore": 564,
+  "Keep": 412
+ },
+ "posting_chars": {
+  "new": {
+   "max": 14793,
+   "over_6000": 1119
+  },
+  "teaser": {
+   "max": 822,
+   "over_6000": 0
+  },
+  "twins": {
+   "max": 5296,
+   "over_6000": 0
+  },
+  "venator": {
+   "max": 17409,
+   "over_6000": 348
+  }
+ },
+ "dir": "data/built/fit/cycle3/label_batches",
+ "index": "data/built/fit/cycle3/label_index.jsonl",
+ "files": {
+  "data/built/fit/cycle3/label_batches/batch_001.jsonl": "e96f396047e46675e82c31bfc477899857eb33c55668144072db461ee995c3fb",
+  "data/built/fit/cycle3/label_batches/batch_002.jsonl": "c09397d277a957822e63ce86eb24ddb650ba71506c82f990e0e0ddb6f5dbba4b",
+  "data/built/fit/cycle3/label_batches/batch_003.jsonl": "2f287f794d56a65ec8ca4f4ffc257ca65d60941339810486a44710f2e4bbcb05",
+  "data/built/fit/cycle3/label_batches/batch_004.jsonl": "52d6488ce942b1bf2dab0ac22052059b4a7fb0f00bc091c0f5b444f31c02079e",
+  "data/built/fit/cycle3/label_batches/batch_005.jsonl": "b124a188045dbef9b6cdbbc2634329e7ee5419e3027df972da787ae7dc1dfbf7",
+  "data/built/fit/cycle3/label_batches/batch_006.jsonl": "bcdb245fb123c902dab1cbd7d3051270d5a22db207cf62c4830fc00c1f49f2cb",
+  "data/built/fit/cycle3/label_batches/batch_007.jsonl": "337ac3880a67993a9d4cd4de9fac229db802a3400fcf04ed826b8e7960c1396b",
+  "data/built/fit/cycle3/label_batches/batch_008.jsonl": "ddee13504cfd42fa12fa6c2ea158dece4d4b9e9cf2b192bdfd02c2148d480ee0",
+  "data/built/fit/cycle3/label_batches/batch_009.jsonl": "23d88a058f2b763f33d526d2a6899401120f0e1d92461eac3c6a474c387b36b4",
+  "data/built/fit/cycle3/label_batches/batch_010.jsonl": "2b6df340dafa5d5414dda26f5f76aca9e7a2b7e862b4a3b6f4594d3c5ce47a2e",
+  "data/built/fit/cycle3/label_batches/batch_011.jsonl": "324878f8373fa6660ec870b737b681525d4901796ee5a29df90e7d5201604fb5",
+  "data/built/fit/cycle3/label_batches/batch_012.jsonl": "b62625c54ea332beb10b1402a87151f5de9cf409ced2741c0bdc72d41ab81c93",
+  "data/built/fit/cycle3/label_batches/batch_013.jsonl": "62f5f0d99e64d2b68154e785c33b12643222f527ad9f840d6daaafe350342d1c",
+  "data/built/fit/cycle3/label_batches/batch_014.jsonl": "94fe99f27bd7aff62c7fde96a3cdbf1cf23b104ccdd7a0944ef95e336b8df868",
+  "data/built/fit/cycle3/label_batches/batch_015.jsonl": "d8ce9680d0a1e1867e9fc951ef4aca568a7b37cd19418891afa23548be2d8993",
+  "data/built/fit/cycle3/label_batches/batch_016.jsonl": "ad8ed71b1f051850131bce627dfe88f88cb02167d44bfea4358e12fa8a3890d7",
+  "data/built/fit/cycle3/label_batches/batch_017.jsonl": "241cc3b2f87e04cfcbd2d61b34845dc65d2c5634025f2077a896a49e13b4ec5a",
+  "data/built/fit/cycle3/label_batches/batch_018.jsonl": "b7b960e0810738148885357c497aaf028f01729f8c0d98ac83a6720ffe8b3b83",
+  "data/built/fit/cycle3/label_batches/batch_019.jsonl": "d9dc7a697ee30a2103f347a27e219caa2f1485ee3acc3683f22d55cdfe313469",
+  "data/built/fit/cycle3/label_batches/batch_020.jsonl": "bfd1579fa1d0d8b556827b7356214692810c5d874a19e65057be031dc1856ba0",
+  "data/built/fit/cycle3/label_batches/batch_021.jsonl": "70d403b563928c9eda72a3453e313db87a2365939f99f25f74d01744941464a1",
+  "data/built/fit/cycle3/label_batches/batch_022.jsonl": "f7d166943f2e84155a83d5611b8291b015eddf298028ea24dccfe9bcb1e340cb",
+  "data/built/fit/cycle3/label_batches/batch_023.jsonl": "4ff9d47826ec18781ff36a9eab897383b3c06cb5fdc838aa551941fed0e48cac",
+  "data/built/fit/cycle3/label_batches/batch_024.jsonl": "b01d2069de24d00559c2af9c9ff86bc6fd9a8a110d73b8071722c7a10cd3a538",
+  "data/built/fit/cycle3/label_batches/batch_025.jsonl": "6e21661255dea03d0d3a3c4c2cd4440b548d61408fc3cad1eb7a3cf8a64497d0",
+  "data/built/fit/cycle3/label_batches/batch_026.jsonl": "7ebb5afb6ec68e0fb6fe3c3d144869003443daeb4454559dc4696d0e39430e14",
+  "data/built/fit/cycle3/label_batches/batch_027.jsonl": "cf111ce26f0f8aeab4b3529a9dab36bfe8d042701ccad66ba6f49e976ddf35d4",
+  "data/built/fit/cycle3/label_batches/batch_028.jsonl": "d0a916e44949b91307585d366ba336b15bd3be3a7970331aa76510982793d4e8",
+  "data/built/fit/cycle3/label_batches/batch_029.jsonl": "8fda05245f1d30243ea05924cc483e1eafdeadb4793495f5c2505f12585cd782",
+  "data/built/fit/cycle3/label_batches/batch_030.jsonl": "5b5e3764c6291956c4ca643691d4ab7fd5b1e94833d15f54b575ed68ef6f387a",
+  "data/built/fit/cycle3/label_batches/batch_031.jsonl": "3e794ddf450f746707879353d68391342dd318bd8268bbea1b79af47ae10764e",
+  "data/built/fit/cycle3/label_batches/batch_032.jsonl": "a8c026587400ba9bca81486eca7caa14441aa106c25dc0a3fe67c79e77ab5f6f",
+  "data/built/fit/cycle3/label_batches/batch_033.jsonl": "f1098ce0ec11521fd74eb35741852155f352da63095e08f610f777939f9b55a8",
+  "data/built/fit/cycle3/label_batches/batch_034.jsonl": "ed36387bbf09c9817d568f7fa6a2ca959a50a313d1ffc0b02bdf459aae79997d",
+  "data/built/fit/cycle3/label_batches/batch_035.jsonl": "2d0a3b56ae4666670a5d0a7fc1730fc9844c5ce445e589f5425dffffd70e2311",
+  "data/built/fit/cycle3/label_batches/batch_036.jsonl": "727608108d5c4e5d6ec2dea2a4781dca239aaf3379855d76147a36121cc0569a",
+  "data/built/fit/cycle3/label_batches/batch_037.jsonl": "db1cfe2b404ed2c4b61e536835d3e76adaf8c9f297f14c3312ab116b00f0d67e",
+  "data/built/fit/cycle3/label_batches/batch_038.jsonl": "de15da68c5db924a7ddaac8a5766313328d47a8ecbd086e5acd09d0cd1f0ef16",
+  "data/built/fit/cycle3/label_batches/batch_039.jsonl": "d4341912e1cc4250ba87828edb9c8f0482a26c28af6b50ea75e673fb79621bad",
+  "data/built/fit/cycle3/label_batches/batch_040.jsonl": "961ebd82d0e881fc3abdff77fdf46aa152c162b8d04856066378de219d9e9c35",
+  "data/built/fit/cycle3/label_batches/batch_041.jsonl": "15f37eda49d8a5ac96dd3f708fcb08d327a6fa6ad975ec9aa7b0ae37f7118598",
+  "data/built/fit/cycle3/label_batches/batch_042.jsonl": "e4803dee0d62be53e3f542499b5cffb4614d9c78af4a5f5de4332f4a97145874",
+  "data/built/fit/cycle3/label_batches/batch_043.jsonl": "9058eb2e0c87f4c0cb168b756b5b91ba5381d536516b696ac8e7bf5f40d63f4b",
+  "data/built/fit/cycle3/label_batches/batch_044.jsonl": "1db0d5a118c4b20b208f7a2ba6335ff6d3193546fc25caa8e361a5acd9491cfa",
+  "data/built/fit/cycle3/label_batches/batch_045.jsonl": "6829e9a799f4ed82bf472266a14de067d3c2eaa718d8e4501ac419114a6d0596",
+  "data/built/fit/cycle3/label_batches/batch_046.jsonl": "ddf9ef90f1532771b641c253454088da126bd20c0674ef0967e3044e005a7e2a",
+  "data/built/fit/cycle3/label_batches/batch_047.jsonl": "257503b9138c4188d8b8f1d7bd4f11b62c44dd245ecb841774db201eb13edef7",
+  "data/built/fit/cycle3/label_batches/batch_048.jsonl": "d4d8ed9c54cfadf090a69ec065215d420b82b4fda8a0bfb924eb107732524995",
+  "data/built/fit/cycle3/label_batches/batch_049.jsonl": "a3b0a904d1e8124adc5bfc1c2e1afc8f20d7bc4898062a0434bb144b37293315",
+  "data/built/fit/cycle3/label_batches/batch_050.jsonl": "99b53a94b5f3d58ca5c823cbb476349b12bbcf1977cdd53c15330c1832ff71d1",
+  "data/built/fit/cycle3/label_batches/batch_051.jsonl": "9a59a151cf4da316c29d6193f054e5d6a94ce87f04aaa720040ee9847d7df107",
+  "data/built/fit/cycle3/label_batches/batch_052.jsonl": "8fa8b583a14a7c791ef410eef79a645b1bfa20adf0b35fb9a7ec5951fe336236",
+  "data/built/fit/cycle3/label_batches/batch_053.jsonl": "5acd19ad34c3b78de4c5a2e6cfc36dd38cecaec37e9a5c301f884ff039b5822e",
+  "data/built/fit/cycle3/label_batches/batch_054.jsonl": "ed389bc613477714921bf4f5580bc84a7a107250f4a2269608fdf34d38013d6b",
+  "data/built/fit/cycle3/label_batches/batch_055.jsonl": "42d979f98017ba0bfb8633f7afd303eb21e6c60df007f04cde8cde34dbce50a7",
+  "data/built/fit/cycle3/label_index.jsonl": "385119eb79c3196324496f6cffbdcec7d7c5a444d4a3e63fa68fbefb2dd81f5a"
+ }
+}

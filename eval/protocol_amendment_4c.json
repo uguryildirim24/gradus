@@ -1,0 +1,16 @@
+{
+ "what": "Amendment 4c: fresh test 4 is scored with 36 gold Keeps on its eligibility-pass slice, under amendment 4's 40.",
+ "amends": {
+  "files": {
+   "eval/protocol_amendment_4.json": "9d3720c0f6a959ff5e71e078cef67c1a685ee38102c86467457faa7d98e770f6",
+   "eval/protocol_amendment_4b.json": "169df803bce5f72f66a27b933511e6408fbb8c7e0f2503616a12b036df6c8fc1",
+   "eval/fresh_test4_gold_manifest.json": "a1528e07c31af486f5161d49297c432368d2fabec2d8cb1ceda37ba27c55d937"
+  },
+  "parent_commit": "039378ad3efe8ef84b60d683d95909be9f43f3d4"
+ },
+ "decided_by": "the author, 2026-10-21, from gold counts alone",
+ "written_before": "any system is scored on fresh test 4 (eval/selection_cycle3.json does not exist yet)",
+ "facts": "first 940 rows gave 34 eligibility-pass gold Keeps; the amendment-4b extension (199 rows, 50 postings) added 2, for 36 of 511 eligibility-pass rows (43 Keeps of 1,139 rows overall). The Adaption balance is 1 credit, so no further extension can be built.",
+ "decision": "score test 4 once as amendments 4, 5 and 5b say, on all 1,139 rows, with the 36 Keeps as they are. The result json states the count beside every Keep-recall number; Keep recall on test 4 moves in steps of about 0.028.",
+ "unchanged": "everything else in amendments 4, 4b, 5 and 5b"
+}

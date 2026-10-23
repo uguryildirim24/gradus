@@ -1,0 +1,70 @@
+{
+ "what": "the prompt files fresh test 4 is scored on (scripts/fit_eval_inputs.py build5), pinned before any inference on it: run B on B/fresh_test4.jsonl (rubric at the top of the user turn, the posting as the labelers saw it); h and the untrained base on h's format (posting fitted to 6,000 characters)",
+ "B": {
+  "data/built/fit/eval_inputs/B/fresh_test4.jsonl": "f7ef4c1b30384803df83c184e585fd2b244b98119f7a747c621bca0dbfbfa232"
+ },
+ "h": {
+  "data/built/fit/eval_inputs/h/fresh_test4.jsonl": "8f5bd97958192fd619816cbdc71d2a0c19971c1bee4a43c4da123968f227d988"
+ },
+ "base": {
+  "data/built/fit/eval_inputs/base/fresh_test4.jsonl": "8f5bd97958192fd619816cbdc71d2a0c19971c1bee4a43c4da123968f227d988"
+ },
+ "B_format": "build_fit_train3.prompt_b(resume_text, render_profile(profile), posting_text, system_b())",
+ "h_format": "pairs.build_prompt(resume_text, render_profile(profile), build_fit_train.posting_text_of(posting))",
+ "system_b_sha256": "1d12b0d0ec70e3dcab5e7523a3477c04fc75714564b5e33b94c31f44e7cb2e0d",
+ "inputs_sha256": {
+  "data/built/fresh_test4/rows.jsonl": "b4e7d84e5be70fa870556efde6f09e0282173f59caead6179260a0438818b172",
+  "data/built/fresh_test4/postings.jsonl": "108596c24c428b5dfb7f73b89a26b5f5436fa326b86f8e4a56b8fc8ea3d9aabf",
+  "data/built/fresh_test4/gold.jsonl": "dfe279891821076299769c8cc1b7f90221638ebbf4977edf88bfe83d58ec5bfd"
+ },
+ "labeler_view": {
+  "rows": 1139,
+  "rows_in_label_batches": 1139,
+  "posting_equal": 1139,
+  "resume_equal": 1139,
+  "profile_equal": 1139,
+  "render_profile_equal": 1139
+ },
+ "train_B_parity": {
+  "train_B.csv rows": 2686,
+  "kept new rows": 1501,
+  "rebuilt": 1501,
+  "byte_equal": 1501,
+  "profile_text == render_profile": 1501,
+  "first_mismatches": []
+ },
+ "report": "data/built/fit/eval_inputs/report_fresh_test4.json",
+ "report_sha256": "a79352c81deabae93cb110a5f1679c1a0b8fa42d6f0c08075c38c0a1a8604c75",
+ "verified_before_build": {
+  "what": "step 1 of the test-4 scoring package, 2026-10-21, before any prompt was built or any model ran on fresh test 4",
+  "manifest_and_data_hash_files": "every sha256 in eval/fresh_test4_manifest.json, eval/fresh_test4_data_hashes.json and eval/fresh_test4_gold_manifest.json (110 files: built set, label batches 01-16, labels, adjudication chunks) equals the file on disk; the five first_940_rows pins (rows 940, postings 240, cards 239, candidates 960, resumes 940) equal the sha256 of those files' first lines",
+  "manifest_sha256": "010913c8ce31e180dbfa910e80344256bf53b91975f6fc3a07b4362fd80689f3 (as the data-hash file records)",
+  "gold_sha256": "dfe279891821076299769c8cc1b7f90221638ebbf4977edf88bfe83d58ec5bfd (as the gold manifest pins; 1,139 rows)",
+  "committed_unchanged": [
+   "eval/selection_cycle3.json",
+   "eval/fresh_test4_gold_manifest.json",
+   "eval/fresh_test4_manifest.json",
+   "eval/fresh_test4_data_hashes.json",
+   "eval/protocol_amendment_2.json",
+   "eval/protocol_amendment_4.json",
+   "eval/protocol_amendment_4b.json",
+   "eval/protocol_amendment_4c.json",
+   "eval/protocol_amendment_5.json",
+   "eval/protocol_amendment_5b.json"
+  ],
+  "amendment_pins": "selection_cycle3.json amendments_sha256 (5, 5b) and amendment 4c's amends (4, 4b, the gold manifest) equal the files on disk"
+ },
+ "no_card_rows_policy": {
+  "what": "fresh test 4 is the first scored set with rows whose posting has no extracted card: 4 rows of one posting (workday:qiagen.wd502~QIAGEN:JR00000922, extraction failed, design.has_card False, design.eligibility_pass None); all four are gold Skip. No amendment covers this; the policy is fixed here, before any inference on fresh test 4, and applies the same way to every system",
+  "rows": [
+   "f4_8a703f1a9a",
+   "f4_cff0d6b5b4",
+   "f4_929ce711ef",
+   "f4_c41c9a750b"
+  ],
+  "eligibility_pass": "False: the slice needs a card to recompute (the gold manifest's 511 eligibility-pass rows and amendment 4c's 36 Keeps already leave them out), so the pass bar never reads them",
+  "eligibility_layer": "no rule verdict exists, so H' and H'' override nothing: every model system keeps its readout's label on these rows",
+  "rules_full": "Explore, fixed (the rules have no card to read; rules.label gives Explore on a title-only card with no body for all four rows)",
+  "reported": "all-rows numbers on all 1,139 rows as the brief says, and the same on the 1,135 rows with a card beside them (slice all_with_card)"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "what": "Amendment 5b: a decider-style readout (one fit score, two cut-offs) beside the argmax label read, and a Keep-recall floor of 0.60 in the cycle-3 pick.",
+ "amends": {
+  "files": {
+   "eval/protocol_amendment_5.json": "2e0ac6346b39b131e49e67ed71ea9207a7285a205ed3c1dda461001479346aad"
+  },
+  "parent_commit": "8c6bac5c7d7bfc57dfbbb4277dd59846c883abcb",
+  "unchanged": "everything amendment 5 pins that this file does not change: teacher, rubric, label-mix band, training rows, runs A and B, H'' variants, test-4 build and the systems scored on it, the pass bar of amendment 2, the bootstrap."
+ },
+ "decided_by": "the author, 2026-10-21: the untrained 4B already ranks test Keeps at AUC 0.84 (eval/diag_cycle3_cpu.json), and h finds 31% of Keeps; a pick that finds under 60% of Keeps is not acceptable. (A comparison against a set of personal keep/skip labels was dropped from this record: those labels answer a different question than the rubric.)",
+ "written_before": "any cycle-3 training label, any fresh test 4 gold, any new run (A, B) and any score of a cycle-3 system.",
+ "decider_readout": {
+  "score": "s = P(Keep) + 0.5 * P(Explore), P from a softmax (temperature 1) over the three float32 first-token label scores of the row",
+  "labels": "s >= t_hi -> Keep; s < t_lo -> Skip; otherwise Explore; then the system's eligibility layer (H'' variant) overrides with Skip exactly as for the argmax read",
+  "cut_offs": "fitted per model x H'' variant on all rows of fresh tests 1+2+3 pooled: (t_lo, t_hi) with t_lo <= t_hi from the grid of the 201 quantiles 0, 0.5%, ..., 100% of that model's s on those rows; the pair with the highest pooled macro-F1 among pairs whose pooled recall is at least 0.60 for Keep and 0.25 for Explore and Skip; ties: higher Keep recall, then lower t_lo, then lower t_hi. If no pair reaches those floors, the pair with the highest pooled macro-F1 among pairs with at least 0.25 recall on every class, recorded as such.",
+  "fixed_for_test_4": "the fitted cut-offs are written into eval/selection_cycle3.json and applied unchanged to fresh test 4"
+ },
+ "selection": {
+  "candidates": "{h, A, B} x {H''_with_work_mode, H''_without_work_mode} x {argmax, decider}: twelve systems",
+  "rule": "amendment 5's rule with the recall floors raised for Keep: pick the highest pooled macro-F1 among systems whose pooled recall is at least 0.60 for Keep and 0.25 for Explore and Skip. Ties as amendment 5 (margin 0.005; without work_mode first, then h, A, B), then argmax before decider. If no system clears the floors, amendment 5's fallback applies and the selection json records it.",
+  "keep_recall_floor": 0.6
+ },
+ "fresh_test_4": {
+  "base_comparator": "base + H'' is read with the same readout as the pick: argmax if the pick is argmax; if the pick is decider, base gets its own decider cut-offs fitted the same way on tests 1+2+3 pooled, so the bar measures training, not the readout",
+  "also_report": "Keep recall, Keep precision and unsafe Keeps (predicted Keep where gold is Explore or Skip) for every scored system, beside macro-F1"
+ }
+}

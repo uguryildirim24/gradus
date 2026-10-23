@@ -1,0 +1,22 @@
+{
+ "name": "Alex (synthetic): CS junior, F-1 on CPT",
+ "synthetic": true,
+ "resume": "Alex Morgan\nalex.morgan@example.com | (617) 555-0142 | linkedin.com/in/alexmorgan | Boston, MA\n\nEDUCATION\nB.S. in Computer Science, Northeastern-area university, expected May 2028. GPA 3.7.\nCoursework: Data Structures, Algorithms, Operating Systems, Databases, Machine Learning, Linear Algebra.\n\nEXPERIENCE\nSoftware Engineering Intern, Harborview Analytics (Summer 2026)\n- Built a Python service that cleaned and joined 2M rows of weekly sales data, cutting a manual report from 6 hours to 20 minutes.\n- Wrote SQL queries and unit tests (pytest); added a React dashboard used by 12 analysts.\nUndergraduate Research Assistant, Applied ML Lab (Sep 2025 - May 2026)\n- Trained and evaluated text classifiers in PyTorch; reproduced two published baselines and documented results in Git.\n\nPROJECTS\nCampus Ride Share (Java, SQL): matching service for 300 students; led a team of four.\nStudy Planner (JavaScript, React): scheduling app with 150 weekly users.\n\nSKILLS\nPython, Java, SQL, Git, Machine Learning, React, JavaScript, C++, Data Analysis, Linux\n",
+ "profile": {
+  "work_auth": "f1_cpt",
+  "current_location": "Boston, MA",
+  "relocate": "anywhere_us",
+  "remote_preference": "any",
+  "employment_types": [
+   "internship"
+  ],
+  "salary_floor": 25000,
+  "industries_wanted": "",
+  "industries_avoided": "Defense & Intelligence",
+  "roles_avoided": "",
+  "degree_level": "bachelor",
+  "degree_field": "Computer Science",
+  "graduation_year": 2028,
+  "years": 1
+ }
+}

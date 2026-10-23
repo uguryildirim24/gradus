@@ -1,0 +1,24 @@
+[project]
+name = "gradus"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "adaption==0.15.0",
+    "httpx>=0.28.1",
+    "mlx-lm>=0.32.2",
+    "pandas>=3.0.6",
+    "pyarrow>=26.0.0",
+    "scikit-learn>=1.9.1",
+]
+
+[dependency-groups]
+demo = [
+    "pypdf>=6.0.0",
+]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

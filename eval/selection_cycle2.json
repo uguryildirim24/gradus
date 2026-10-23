@@ -1,0 +1,161 @@
+{
+ "set": "fresh_test (selection set, amendment 2)",
+ "amendment": "eval/protocol_amendment_2.json",
+ "candidates": [
+  "h",
+  "h2n"
+ ],
+ "ignored_tags": [],
+ "draws": 2000,
+ "seed": 20261021,
+ "selection": {
+  "macro_f1": {
+   "h": 0.5404,
+   "h2n": 0.5415
+  },
+  "pick": "h",
+  "why": "h2n is within 0.01 macro-F1 of h: the incumbent stays",
+  "tie_margin": 0.01,
+  "incumbent": "h"
+ },
+ "pick": "h",
+ "eligibility_vs_sealed_design": {
+  "slice_scored": "eligibility_pass recomputed with the rules in effect (amendment 2 definition)",
+  "recomputed_pass_rows": 271,
+  "sealed_design_pass_rows": 344,
+  "rows_moved_out": 73,
+  "postings_moved_out": 60,
+  "moved_by": {
+   "work_mode": 73
+  },
+  "gold_of_moved_rows": {
+   "Explore": 12,
+   "Skip": 57,
+   "Keep": 4
+  }
+ },
+ "all_rows": {
+  "n": 592,
+  "postings": 150,
+  "gold": {
+   "Explore": 120,
+   "Skip": 415,
+   "Keep": 57
+  },
+  "systems": {
+   "h+H'": {
+    "accuracy": [
+     0.7416,
+     0.6933,
+     0.7906
+    ],
+    "macro_f1": [
+     0.5404,
+     0.4659,
+     0.6176
+    ],
+    "per_label": {
+     "Keep": {
+      "gold": 57,
+      "pred": 30,
+      "precision": 0.4667,
+      "recall": 0.2456
+     },
+     "Explore": {
+      "gold": 120,
+      "pred": 97,
+      "precision": 0.4948,
+      "recall": 0.4
+     },
+     "Skip": {
+      "gold": 415,
+      "pred": 465,
+      "precision": 0.8108,
+      "recall": 0.9084
+     }
+    },
+    "unsafe_keep": 16
+   },
+   "h2n+H'": {
+    "accuracy": [
+     0.7483,
+     0.6924,
+     0.801
+    ],
+    "macro_f1": [
+     0.5415,
+     0.4697,
+     0.6116
+    ],
+    "per_label": {
+     "Keep": {
+      "gold": 57,
+      "pred": 83,
+      "precision": 0.4458,
+      "recall": 0.6491
+     },
+     "Explore": {
+      "gold": 120,
+      "pred": 32,
+      "precision": 0.5312,
+      "recall": 0.1417
+     },
+     "Skip": {
+      "gold": 415,
+      "pred": 477,
+      "precision": 0.8155,
+      "recall": 0.9373
+     }
+    },
+    "unsafe_keep": 46
+   }
+  },
+  "paired": {
+   "h2n+H' - h+H'": {
+    "macro_f1_diff_low_exact": -0.09283861430807532,
+    "accuracy_diff": [
+     0.0068,
+     -0.0438,
+     0.0568
+    ],
+    "macro_f1_diff": [
+     0.0011,
+     -0.0928,
+     0.0917
+    ],
+    "rows_fixed": 57,
+    "rows_broken": 53
+   }
+  },
+  "labeler_ceiling": {
+   "raw_agreement": 0.8919,
+   "kappa": 0.7754
+  }
+ },
+ "score_files": {
+  "h": {
+   "path": "data/models/v4_eval/fresh_test/h_run/h_fresh_test.json",
+   "sha256": "65ca96d7601397310437def94a22a01b80a00bc47c11580bc916e6af90be3188"
+  },
+  "h2n": {
+   "path": "data/models/v4_eval/fresh_test/h2n_run/h2n_fresh_test.json",
+   "sha256": "842c6652a7edd5e868561a0412e286d5ae14ab90923bd874cb243311b060916c"
+  }
+ },
+ "archives": {
+  "h": {
+   "file": "h_63659c74-57fd-4353-8a03-07bc11dc0fb6.tar.gz",
+   "sha256": "eaac2d260b08b8543a60e717ea1062a6ac1fd6a084e1fe8290ce8040d0f71135"
+  },
+  "h2n": {
+   "file": "h2n_0a978d55-5a40-4de4-86c9-e2558c5a3607.tar.gz",
+   "sha256": "0f2654cb5a4a7538447b62d4e59765c1cf11f72f41b912cccea73cac27949127"
+  }
+ },
+ "notes": [
+  "h2b was never trained: Adaption refused the run (Fine-tuning requires at least 1,000 training rows; train_fit2_bal.csv has 564), so the candidates are h and h2n",
+  "every system uses the cycle-2 fixed rules (work mode a hard Skip) on the sealed v2 cards; the v3 extractor was not adopted (eval/fix_cycle2.json), so no card was re-extracted",
+  "h2n was scored on h's prompt build (eval_inputs/h/fresh_test.jsonl): all 4,829 train_fit2_nat.csv prompts are train_fit.csv rows; Colab L4, bfloat16, batch 1, one adapter per session",
+  "h2n's AutoScientist best win rate 0.7071 (h: 0.7707), Adaption's own held-out, not a selection input"
+ ]
+}

@@ -1,0 +1,266 @@
+{
+ "what": "B's decider cut-offs refit on fresh tests 1-4 pooled: amendment 6's refit-B comparator for test 5",
+ "rule": "amendment 5b's cut-off fit unchanged (see scripts/refit_cutoffs_t1to4.py docstring); amendment 6 adds only 'dev (tests 1-4 pooled) by amendment 5b's grid and rule'. Fit on all rows of tests 1-4 (the 5b rule fits on all pooled rows, not the eligibility-pass slice).",
+ "system": "B+H''_without_work_mode|decider",
+ "script": "scripts/refit_cutoffs_t1to4.py",
+ "rows": {
+  "pooled": 2539,
+  "fresh_test": 592,
+  "fresh_test2": 371,
+  "fresh_test3": 437,
+  "fresh_test4": 1139,
+  "gold_pooled": {
+   "Explore": 476,
+   "Skip": 1923,
+   "Keep": 140
+  }
+ },
+ "old_cutoffs": {
+  "t_lo": 0.2731045004103801,
+  "t_hi": 0.5890379172624224,
+  "source": "eval/selection_cycle3.json (fit on tests 1-3)"
+ },
+ "new_cutoffs": {
+  "t_lo": 0.3131455744010331,
+  "t_hi": 0.58653052550823,
+  "quantile_lo": 0.75,
+  "quantile_hi": 0.93,
+  "grid_index_lo": 150,
+  "grid_index_hi": 186,
+  "floors_met": "0.60/0.25/0.25",
+  "fit_macro_f1": 0.7440014142385817,
+  "fit_recall": {
+   "Keep": 0.7214285714285714,
+   "Explore": 0.6050420168067226,
+   "Skip": 0.9375975039001561
+  },
+  "pairs_tried": 20301,
+  "pairs_clearing_floors": 5601
+ },
+ "checks_passed": [
+  "selection_rows.jsonl and test4_rows.jsonl match the sha256 recorded by selection_cycle3.json and fresh_test4_result.json",
+  "stored s equals s recomputed from the stored B scores (atol 1e-12)",
+  "shipped cut-offs reproduce every stored B decider label on all 2,539 rows",
+  "the same fit on tests 1-3 alone returns the shipped cut-offs (0.27310 / 0.58904)"
+ ],
+ "metrics": {
+  "all_rows_tests_1to4_pooled (the fit set)": {
+   "n": 2539,
+   "gold": {
+    "Explore": 476,
+    "Skip": 1923,
+    "Keep": 140
+   },
+   "old_cutoffs": {
+    "macro_f1": 0.7428049782267321,
+    "keep_recall": 0.7142857142857143,
+    "explore_recall": 0.6239495798319328,
+    "skip_recall": 0.9287571502860115,
+    "keep_found": 100,
+    "keep_gold": 140,
+    "keep_predicted": 166,
+    "keep_precision": 0.6024096385542169,
+    "true_keeps": 100,
+    "wrong_keeps": 66,
+    "accuracy": 0.85978731784167
+   },
+   "new_cutoffs": {
+    "macro_f1": 0.7440014142385817,
+    "keep_recall": 0.7214285714285714,
+    "explore_recall": 0.6050420168067226,
+    "skip_recall": 0.9375975039001561,
+    "keep_found": 101,
+    "keep_gold": 140,
+    "keep_predicted": 169,
+    "keep_precision": 0.5976331360946746,
+    "true_keeps": 101,
+    "wrong_keeps": 68,
+    "accuracy": 0.8633320204805042
+   }
+  },
+  "eligibility_pass_slice_tests_1to4_pooled": {
+   "n": 1161,
+   "gold": {
+    "Explore": 311,
+    "Keep": 121,
+    "Skip": 729
+   },
+   "old_cutoffs": {
+    "macro_f1": 0.7401804928977777,
+    "keep_recall": 0.7272727272727273,
+    "explore_recall": 0.6559485530546624,
+    "skip_recall": 0.8765432098765432,
+    "keep_found": 88,
+    "keep_gold": 121,
+    "keep_predicted": 141,
+    "keep_precision": 0.624113475177305,
+    "true_keeps": 88,
+    "wrong_keeps": 53,
+    "accuracy": 0.801894918173988
+   },
+   "new_cutoffs": {
+    "macro_f1": 0.7435901731227172,
+    "keep_recall": 0.7355371900826446,
+    "explore_recall": 0.6366559485530546,
+    "skip_recall": 0.8930041152263375,
+    "keep_found": 89,
+    "keep_gold": 121,
+    "keep_predicted": 143,
+    "keep_precision": 0.6223776223776224,
+    "true_keeps": 89,
+    "wrong_keeps": 54,
+    "accuracy": 0.8079242032730405
+   }
+  },
+  "fresh_test_all_rows": {
+   "n": 592,
+   "gold": {
+    "Explore": 120,
+    "Skip": 415,
+    "Keep": 57
+   },
+   "old_cutoffs": {
+    "macro_f1": 0.7512614490819886,
+    "keep_recall": 0.7894736842105263,
+    "explore_recall": 0.6083333333333333,
+    "skip_recall": 0.9012048192771084,
+    "keep_found": 45,
+    "keep_gold": 57,
+    "keep_predicted": 68,
+    "keep_precision": 0.6617647058823529,
+    "true_keeps": 45,
+    "wrong_keeps": 23,
+    "accuracy": 0.831081081081081
+   },
+   "new_cutoffs": {
+    "macro_f1": 0.7444601911561085,
+    "keep_recall": 0.7894736842105263,
+    "explore_recall": 0.575,
+    "skip_recall": 0.9060240963855422,
+    "keep_found": 45,
+    "keep_gold": 57,
+    "keep_predicted": 68,
+    "keep_precision": 0.6617647058823529,
+    "true_keeps": 45,
+    "wrong_keeps": 23,
+    "accuracy": 0.8277027027027027
+   }
+  },
+  "fresh_test2_all_rows": {
+   "n": 371,
+   "gold": {
+    "Explore": 131,
+    "Skip": 220,
+    "Keep": 20
+   },
+   "old_cutoffs": {
+    "macro_f1": 0.7778917378917379,
+    "keep_recall": 0.75,
+    "explore_recall": 0.7251908396946565,
+    "skip_recall": 0.9181818181818182,
+    "keep_found": 15,
+    "keep_gold": 20,
+    "keep_predicted": 25,
+    "keep_precision": 0.6,
+    "true_keeps": 15,
+    "wrong_keeps": 10,
+    "accuracy": 0.8409703504043127
+   },
+   "new_cutoffs": {
+    "macro_f1": 0.7750190155025082,
+    "keep_recall": 0.75,
+    "explore_recall": 0.7099236641221374,
+    "skip_recall": 0.9318181818181818,
+    "keep_found": 15,
+    "keep_gold": 20,
+    "keep_predicted": 26,
+    "keep_precision": 0.5769230769230769,
+    "true_keeps": 15,
+    "wrong_keeps": 11,
+    "accuracy": 0.8436657681940701
+   }
+  },
+  "fresh_test3_all_rows": {
+   "n": 437,
+   "gold": {
+    "Explore": 97,
+    "Skip": 320,
+    "Keep": 20
+   },
+   "old_cutoffs": {
+    "macro_f1": 0.7394938325386547,
+    "keep_recall": 0.6,
+    "explore_recall": 0.6804123711340206,
+    "skip_recall": 0.94375,
+    "keep_found": 12,
+    "keep_gold": 20,
+    "keep_predicted": 22,
+    "keep_precision": 0.5454545454545454,
+    "true_keeps": 12,
+    "wrong_keeps": 10,
+    "accuracy": 0.8695652173913043
+   },
+   "new_cutoffs": {
+    "macro_f1": 0.7485310121968287,
+    "keep_recall": 0.65,
+    "explore_recall": 0.6597938144329897,
+    "skip_recall": 0.953125,
+    "keep_found": 13,
+    "keep_gold": 20,
+    "keep_predicted": 24,
+    "keep_precision": 0.5416666666666666,
+    "true_keeps": 13,
+    "wrong_keeps": 11,
+    "accuracy": 0.8741418764302059
+   }
+  },
+  "fresh_test4_all_rows": {
+   "n": 1139,
+   "gold": {
+    "Skip": 968,
+    "Explore": 128,
+    "Keep": 43
+   },
+   "old_cutoffs": {
+    "macro_f1": 0.6785677576611896,
+    "keep_recall": 0.6511627906976745,
+    "explore_recall": 0.4921875,
+    "skip_recall": 0.9380165289256198,
+    "keep_found": 28,
+    "keep_gold": 43,
+    "keep_predicted": 51,
+    "keep_precision": 0.5490196078431373,
+    "true_keeps": 28,
+    "wrong_keeps": 23,
+    "accuracy": 0.8770851624231782
+   },
+   "new_cutoffs": {
+    "macro_f1": 0.6841762015753613,
+    "keep_recall": 0.6511627906976745,
+    "explore_recall": 0.484375,
+    "skip_recall": 0.9473140495867769,
+    "keep_found": 28,
+    "keep_gold": 43,
+    "keep_predicted": 51,
+    "keep_precision": 0.5490196078431373,
+    "true_keeps": 28,
+    "wrong_keeps": 23,
+    "accuracy": 0.884108867427568
+   }
+  }
+ },
+ "inputs_sha256": {
+  "data/models/c3_eval/selection_rows.jsonl": "cd9f1966281c05004409e44c38bc9fb346b3fa238a11de49d4189e1fd0bdce1a",
+  "data/models/c3_eval/test4/test4_rows.jsonl": "323470e15217cdb18a27a73f7be51bbea9916783e19d4f128f9f85e0c32d6e2c",
+  "eval/selection_cycle3.json": "17b6bdd3bda9855f9e0e4bb1708b07e8511c608bb5fb8ff9c0b71a66233deab5",
+  "eval/fresh_test4_result.json": "6312218c91f7eefca4bdf895e7f5a27ccc2fd21a104c5e8b453b728e41f5f3fb",
+  "scripts/fit_select_cycle3.py": "17791a981e5fd2dc7662b316a895757fc7ddf000111bd8d18580febc1eda43b3",
+  "eval/protocol_amendment_5b.json": "d959445da0d96038206cbc3a61aa21dd9dae0917403e3adf752e45e7c338157d",
+  "eval/protocol_amendment_6.json": "aa8ab773af08835cb8778be881ccba1ec125f85cb9283aa812db49b4962dc9e1",
+  "data/models/c3_eval/B/B_fresh_test.json": "79289c070173bcb62c495a4857fdfdb283bbd821d657359c6b343a21656cc62f",
+  "data/models/c3_eval/B/B_fresh_test2.json": "1ec9b8c08d9dc7894c944b276c8a27f832a1b971e86ea6104097eee171bf2ac2",
+  "data/models/c3_eval/B/B_fresh_test3.json": "16f6eb739ebb4c244374a87d207d54b6b54296a4cfd4d14be271f7965125f9cf",
+  "data/models/c3_eval/test4/B/B_fresh_test4.json": "b7d8d9e5657a00e6d92722ceb24b90757b8c7e797da075168fbe874a78c223f9"
+ },
+ "fresh_test5": "not read"
+}

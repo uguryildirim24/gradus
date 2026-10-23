@@ -1,0 +1,427 @@
+{
+ "what": "Sealed fresh test 3 (scripts/build_fresh_test.py --set 3): 112 English postings of the dev pool (employers disjoint from the test pool and from training), sampled with fresh test 1's sampler and a hard cap of 4 postings per employer, built exactly as fresh tests 1 and 2 (same v2 extractor imported unchanged, same resume writer prompt and gates, same candidate design, new seed, row ids f3_...). Not gold: no row carries a label; gold comes from blind labelers reading the label batches.",
+ "seed": 20261223,
+ "row_id_prefix": "f3_",
+ "credit_cap": 12.0,
+ "sample": {
+  "rule": "cmd_sample (fresh test 1's sampler) on data/built/fit/pools/dev.jsonl minus the non-English postings (language()): up to N_TEASER=17 teasers with at most MAX_ADZUNA_TEASERS=9 from adzuna, N_EMPTY=3 empty bodies, NON_US_CAP=30, then long postings by even field quotas; EMPLOYER_CAP=4 with no over-cap fallback (CAP_SLACK=0)",
+  "requested_postings": 150,
+  "reachable_at_employer_cap": 137,
+  "taken": 112,
+  "why_fewer": "the dev pool has 298 English postings from 70 employers, 53 of them with 4 or fewer; at a cap of 4 at most 137 postings exist, and fresh test 1's teaser and adzuna caps leave out most of the single-posting adzuna teasers. The employer cap was kept over the posting count: raising it only adds postings from the same big employers.",
+  "pool_employers_not_sampled": 24
+ },
+ "disjointness": {
+  "employers": 46,
+  "employers_shared_with_fresh_test1_or_2": [],
+  "employers_in_train_pool": [],
+  "postings_in_fresh_test1_or_2": [],
+  "near_copies_of_fresh_test1_or_2_postings": {},
+  "near_copy_rule": "matcher.nearcopy.NearIndex against every fresh test 1 and 2 posting: same company and title, or description 6-word-window Jaccard >= 0.8 on a body of 60+ words (empty bodies all match each other on description and are not counted)",
+  "training_text": {
+   "rule": "Postings whose text sits in a training file: three 12-word windows (at 25%, 50% and 75% of the normalized body) ...",
+   "files": [
+    "data/built/fit/train_fit.csv",
+    "data/built/fit/train_fit2_bal.csv",
+    "data/built/fit/train_fit2_nat.csv",
+    "data/built/fit/dpo_pairs.csv"
+   ],
+   "checked": 107,
+   "too_short_to_check": 5,
+   "hits": [],
+   "one_window_found": []
+  },
+  "fresh_manifests_sha256": {
+   "eval/fresh_test_manifest.json": "717408f3d184c28cd90daec2677ced08e7ecc54d472f6f837d130c120f70b53d",
+   "eval/fresh_test2_manifest.json": "bd0302f97f9a5f61e4ea84d10560dbd9aee408fc264e9d7024f9473305fa1e3c"
+  }
+ },
+ "earlier_use_of_these_postings": {
+  "dev_fit": {
+   "what": "cycle 1's dev_fit (data/built/fit/dev_fit.jsonl, rules-made gold) had rows built on dev-pool postings, and dev_fit is the set that selected h over d3 (eval/selection_v4.json): model-selection exposure, not training. Nothing was trained on them.",
+   "postings": 63,
+   "rows": 247,
+   "postings_in_dev_fit_all": 77,
+   "design_flags": "design.posting_in_dev_fit and design.posting_in_dev_fit_all on every row"
+  },
+  "cycle1_v2_cards": {
+   "what": "build_fit_train extracted v2 cards (data/built/fit/build/extract_cards.jsonl) for dev-pool postings to build dev_fit; those cards are not read here (test 3's cards are a new extraction)",
+   "postings": 111
+  },
+  "extractor_v3": "extract_v3.py's 'fit' set includes every dev-pool posting; its chunks were uploaded for a free estimate (data/adaption/fixcycle2_fit_0e7b4209_*.json carry no run_id) and never run; v3 is not live either way",
+  "extractor_v2": "the v2 instruction text (blueprint b2b2ed8e) is the text the pools were frozen under (c6c814b) and fresh tests 1 and 2 were built with; no extractor run on dev-pool postings fed an extractor change (cycle 1's v2 cards built dev_fit; v3's fit chunks were never run)"
+ },
+ "target_pass_but_fail_work_mode_only": 49,
+ "pool": {
+  "file": "data/built/fit/pools/dev.jsonl",
+  "sha256 sorted ids": "581c04535e871ff95db91fc39887d732f9a3deaa9613988bb6f85044e5c4445d"
+ },
+ "n_rows": 437,
+ "n_postings": 112,
+ "dropped_candidates_without_resume": [
+  "f3_f0217bbe38",
+  "f3_9c059110d8",
+  "f3_f53671ffe6",
+  "f3_34b0979168",
+  "f3_80ec3c71a2",
+  "f3_d87e15c9f6",
+  "f3_960ec3cc5a",
+  "f3_df9d016815",
+  "f3_6aacbd6003",
+  "f3_f082794358",
+  "f3_0420eca771"
+ ],
+ "sample_excluded": [
+  {
+   "posting_id": "workday:sartorius.wd3~sartoriuscareers:R37944",
+   "why": "language fr"
+  },
+  {
+   "posting_id": "workday:sartorius.wd3~sartoriuscareers:R41774",
+   "why": "language de"
+  }
+ ],
+ "posting_ids": [
+  "adzuna:us:5757883975",
+  "adzuna:us:5775673846",
+  "adzuna:us:5775991693",
+  "adzuna:us:5804511918",
+  "adzuna:us:5829939769",
+  "adzuna:us:5847021031",
+  "adzuna:us:5847179244",
+  "adzuna:us:5847181493",
+  "adzuna:us:5847199786",
+  "ashby:Edison%20Scientific:197c5ba5-0b96-468b-b2e1-26d25e3f925e",
+  "ashby:Edison%20Scientific:3c36d493-7a83-4266-90cb-b0ecedb75273",
+  "ashby:Edison%20Scientific:cbbaee1c-0d44-430a-a02b-b0b12e9e614e",
+  "ashby:Edison%20Scientific:f4387414-89f9-4170-b3e4-53e0b2656d6c",
+  "ashby:LatchBio:30eaf928-e782-47bf-a1f8-074d8be76848",
+  "ashby:LatchBio:d3d0b96d-1c7b-4589-bf73-090dbdba5ab2",
+  "ashby:chaidiscovery:19fcda8f-b68a-465a-a960-edc49c7ecdb9",
+  "ashby:chaidiscovery:2de4c9cf-bb01-4997-b0c9-534e4fd2db7b",
+  "ashby:chaidiscovery:bc55b169-d23c-4e50-ac80-8dbe7ed64b72",
+  "ashby:chaidiscovery:f9536a79-5e81-4d88-be04-8a654c5082d5",
+  "ashby:orbitalindustries:1f9f61ca-6b41-4628-a663-5f6d1a15f51b",
+  "ashby:orbitalindustries:47c0edc0-7f3f-4aac-85a8-fe32a3628ab4",
+  "ashby:orbitalindustries:f61de282-ee9a-4849-a0de-6c9f13328bf7",
+  "ashby:parallel-bio:09c0fc97-0f41-49ab-9f70-c2b130e7da9b",
+  "ashby:parallel-bio:cc279eaf-c1da-4235-8306-1d3fad9e2012",
+  "greenhouse:adamsclinical:4304776009",
+  "greenhouse:adamsclinical:4341968009",
+  "greenhouse:adamsclinical:4386527009",
+  "greenhouse:adamsclinical:4386927009",
+  "greenhouse:adaptivebiotechnologies:8623552002",
+  "greenhouse:adaptivebiotechnologies:8677978002",
+  "greenhouse:adaptivebiotechnologies:8706468002",
+  "greenhouse:amylyx:6116694004",
+  "greenhouse:amylyx:6181117004",
+  "greenhouse:amylyx:6188317004",
+  "greenhouse:amylyx:6209785004",
+  "greenhouse:azuritypharmaceuticals:4706757005",
+  "greenhouse:azuritypharmaceuticals:4717387005",
+  "greenhouse:azuritypharmaceuticals:4721073005",
+  "greenhouse:azuritypharmaceuticals:4730702005",
+  "greenhouse:butterflynetwork:7973453003",
+  "greenhouse:butterflynetwork:7986309003",
+  "greenhouse:butterflynetwork:7998618003",
+  "greenhouse:butterflynetwork:7998620003",
+  "greenhouse:citytherapeutics:4173305008",
+  "greenhouse:debutbiotech25:5242236007",
+  "greenhouse:dynotherapeutics:7864749003",
+  "greenhouse:eikontherapeutics:5192672007",
+  "greenhouse:eikontherapeutics:5209678007",
+  "greenhouse:eikontherapeutics:5231432007",
+  "greenhouse:eikontherapeutics:5239946007",
+  "greenhouse:natera:6001996004",
+  "greenhouse:natera:6115020004",
+  "greenhouse:natera:6135539004",
+  "greenhouse:natera:6148527004",
+  "greenhouse:praxisprecisionmedicines:5217070008",
+  "greenhouse:praxisprecisionmedicines:5226204008",
+  "greenhouse:praxisprecisionmedicines:5379355008",
+  "greenhouse:praxisprecisionmedicines:5386648008",
+  "greenhouse:puretechhealth:2051158",
+  "greenhouse:recursionpharmaceuticals:7540026",
+  "greenhouse:recursionpharmaceuticals:8188707",
+  "greenhouse:revolutionmedicines:7787228003",
+  "greenhouse:seaporttherapeutics:5396977008",
+  "greenhouse:spyretherapeutics:5437052008",
+  "greenhouse:summittherapeutics:4380552009",
+  "greenhouse:tangotherapeutics:7808592003",
+  "greenhouse:tangotherapeutics:7855118003",
+  "greenhouse:tangotherapeutics:7917042003",
+  "greenhouse:tangotherapeutics:7986730003",
+  "greenhouse:twistbioscience:7958955",
+  "greenhouse:twistbioscience:8075662",
+  "greenhouse:twistbioscience:8103656",
+  "greenhouse:twistbioscience:8162360",
+  "greenhouse:watershed:4254100003",
+  "greenhouse:watershed:5820655003",
+  "greenhouse:watershed:5975769003",
+  "greenhouse:watershed:6216631003",
+  "greenhouse:xairatherapeutics:5089321007",
+  "greenhouse:xairatherapeutics:5156238007",
+  "greenhouse:xairatherapeutics:5161853007",
+  "greenhouse:xairatherapeutics:5225658007",
+  "icims:careers-wuxiapptec.icims.com:14222",
+  "icims:careers-wuxiapptec.icims.com:14231",
+  "lever:Kyverna:f8e19b57-38b3-49ba-a902-68048b58f065",
+  "lever:egenesisbio:36b40e8a-a940-4f27-977c-dd794abf33b2",
+  "lever:egenesisbio:b89dea5c-2023-4b37-ad70-10b5c2b68e26",
+  "lever:egenesisbio:d7585fd6-a82b-4f6c-b40c-507b20184b5c",
+  "lever:retro:2f9b3bc9-2f9e-43c0-8416-841a5e645e02",
+  "lever:retro:fa6168bd-51a9-4fe0-abc7-df3a59f8c662",
+  "smartrecruiters:BicycleTherapeutics:744000137101419",
+  "smartrecruiters:BicycleTherapeutics:744000143501259",
+  "smartrecruiters:BicycleTherapeutics:744000148793669",
+  "smartrecruiters:BicycleTherapeutics:744000149270490",
+  "workday:baystatehealth.wd12~External_Careers:R44227",
+  "workday:baystatehealth.wd12~External_Careers:R44346",
+  "workday:baystatehealth.wd12~External_Careers:R44533",
+  "workday:baystatehealth.wd12~External_Careers:R44732",
+  "workday:fortrea.wd1~fortrea:264572",
+  "workday:freseniusmedicalcare.wd3~fme:R0258307",
+  "workday:freseniusmedicalcare.wd3~fme:R0258314",
+  "workday:freseniusmedicalcare.wd3~fme:R0263667",
+  "workday:freseniusmedicalcare.wd3~fme:R0271657",
+  "workday:illumina.wd1~illumina-careers:41428-JOB",
+  "workday:illumina.wd1~illumina-careers:43277-JOB",
+  "workday:illumina.wd1~illumina-careers:43390-JOB",
+  "workday:sarepta.wd5~sarepta_external:R-03062",
+  "workday:sartorius.wd3~sartoriuscareers:R40595",
+  "workday:sartorius.wd3~sartoriuscareers:R41847",
+  "workday:sartorius.wd3~sartoriuscareers:R42041",
+  "workday:sartorius.wd3~sartoriuscareers:R42380",
+  "workday:simonsfoundation.wd1~simonsfoundationcareers:R0002112",
+  "workday:simonsfoundation.wd1~simonsfoundationcareers:R0002160"
+ ],
+ "employers": {
+  "eGenesis": 4,
+  "Edison Scientific": 4,
+  "Chai Discovery": 4,
+  "Adams Clinical": 4,
+  "Amylyx Pharmaceuticals": 4,
+  "Azurity Pharmaceuticals": 4,
+  "Butterfly Network": 4,
+  "Eikon Therapeutics": 4,
+  "Natera": 4,
+  "Praxis Precision Medicines": 4,
+  "Tango Therapeutics": 4,
+  "Twist Bioscience": 4,
+  "Watershed": 4,
+  "Xaira Therapeutics": 4,
+  "Bicycle Therapeutics": 4,
+  "Baystate Health": 4,
+  "Fresenius Medical Care": 4,
+  "Sartorius": 4,
+  "Orbital Industries": 3,
+  "Adaptive Biotechnologies": 3,
+  "Illumina": 3,
+  "LatchBio": 2,
+  "Parallel Bio": 2,
+  "Recursion": 2,
+  "WuXi AppTec": 2,
+  "Retro Biosciences": 2,
+  "Simons Foundation": 2,
+  "Datavant": 1,
+  "RELX INC": 1,
+  "Elsevier": 1,
+  "EQL Tech": 1,
+  "Nestle": 1,
+  "Jade Biosciences": 1,
+  "Cushman & Wakefield": 1,
+  "Real Chemistry": 1,
+  "City Therapeutics": 1,
+  "Debut": 1,
+  "Dyno Therapeutics": 1,
+  "PureTech Health": 1,
+  "Revolution Medicines": 1,
+  "Seaport Therapeutics": 1,
+  "Spyre Therapeutics": 1,
+  "Summit Therapeutics": 1,
+  "Kyverna Therapeutics": 1,
+  "Fortrea": 1,
+  "Sarepta Therapeutics": 1
+ },
+ "field_mix": {
+  "postings": {
+   "other": 16,
+   "lab_bio": 16,
+   "sales_ops": 16,
+   "software": 17,
+   "data": 16,
+   "health_nursing": 18,
+   "internship": 13
+  },
+  "rows": {
+   "other": 64,
+   "lab_bio": 64,
+   "sales_ops": 62,
+   "software": 66,
+   "data": 60,
+   "health_nursing": 71,
+   "internship": 50
+  }
+ },
+ "length_mix": {
+  "teaser 1-699": 11,
+  "3000+": 83,
+  "1300-3000": 14,
+  "700-1300": 1,
+  "empty": 3
+ },
+ "source_mix": {
+  "adzuna": 9,
+  "ashby": 15,
+  "greenhouse": 57,
+  "icims": 2,
+  "lever": 6,
+  "smartrecruiters": 4,
+  "workday": 19
+ },
+ "country_mix": {
+  "by extracted card meta": {
+   "US": 97,
+   "UK": 5,
+   "unknown": 7,
+   "other": 3
+  },
+  "by pool locations before extraction": {
+   "unknown": 30,
+   "US": 75,
+   "UK": 5,
+   "other": 2
+  }
+ },
+ "foreign_resident_rows": {
+  "what": "rows whose profile lives outside the US (matcher.metros.parse_place not in_us): steer_pass put some candidates in a foreign posting's city so it could pass the location filter",
+  "rows": 12,
+  "eligibility_pass_rows": 8
+ },
+ "repaired_resumes": [
+  "f3_d7f8b55b13",
+  "f3_2083c6b879",
+  "f3_e03dcd30e3"
+ ],
+ "teaser_rows": 56,
+ "eligibility": {
+  "rule": "design metadata only: hybrid_rules.rule_verdict on the profile and Adaption's extracted card, with the rules at this commit; pass = no hard Skip in H' categories (degree_field, degree_level, employment_type, enrollment, location, work_auth, work_mode) and no salary cap. work_mode became an H' hard Skip in c6c4790, after the candidate design was written: steer_pass does not steer it, so some rows designed to pass fail on work_mode alone (target_pass_but_fail_work_mode_only)",
+  "pass_frac": 0.4691,
+  "by_field": {
+   "data": 0.45,
+   "health_nursing": 0.507,
+   "internship": 0.38,
+   "lab_bio": 0.438,
+   "other": 0.453,
+   "sales_ops": 0.532,
+   "software": 0.5
+  },
+  "fails": {
+   "work_mode": 74,
+   "location": 57,
+   "degree_level": 28,
+   "employment_type": 82,
+   "degree_field": 1,
+   "work_auth": 9,
+   "enrollment": 8
+  },
+  "salary_cap_rows": 2
+ },
+ "archetypes": {
+  "strong": 143,
+  "gap": 97,
+  "off": 110,
+  "near": 87
+ },
+ "work_auth": {
+  "needs_h1b_now": 59,
+  "citizen_or_pr": 312,
+  "other_visa": 27,
+  "f1_opt": 29,
+  "stem_opt": 6,
+  "f1_cpt": 4
+ },
+ "degree_level": {
+  "master": 94,
+  "bachelor": 222,
+  "doctoral": 76,
+  "none": 19,
+  "associate": 26
+ },
+ "extractor": {
+  "script": "scripts/extract_postings.py (imported, unchanged)",
+  "blueprint_hash": "b2b2ed8e"
+ },
+ "writer": {
+  "prompt_sha1": "da56452953c7",
+  "max_tries": 3,
+  "tries": {
+   "1": 372,
+   "2": 56,
+   "3": 9
+  }
+ },
+ "credits": {
+  "runs": [
+   {
+    "name": "extract_b2b2ed8e_0",
+    "estimate": 2.0,
+    "rows": 112,
+    "launched": true,
+    "run_id": "dataset-9c9a1e28-9823-42db-b6dd-c7199cbc65ac-1792585349921"
+   },
+   {
+    "name": "extract_b2b2ed8e_1",
+    "estimate": 1.0,
+    "rows": 1,
+    "launched": true,
+    "run_id": "dataset-f731968f-d412-43cc-ae5f-b73a1da0f804-1792585667759"
+   },
+   {
+    "name": "resumes_0",
+    "estimate": 5.0,
+    "rows": 448,
+    "launched": true,
+    "run_id": "dataset-31a975ac-ae13-4560-9339-9baa419c7ece-1792585960173"
+   },
+   {
+    "name": "resumes_1",
+    "estimate": 1.0,
+    "rows": 80,
+    "launched": true,
+    "run_id": "dataset-b99a9d08-b3fb-4ed6-9bcf-6fdae9e9240c-1792586346878"
+   },
+   {
+    "name": "resumes_2",
+    "estimate": 1.0,
+    "rows": 21,
+    "launched": true,
+    "run_id": "dataset-34cd824f-c719-44dc-8677-3291c5a889a0-1792586587945"
+   }
+  ],
+  "total_launched_estimate": 10.0
+ },
+ "files": {
+  "data/built/fresh_test3/rows.jsonl": "08702d7cda71ba0d9c9c356264c6776bbfc3e0f5c09115ec1c200b06abf5d38a",
+  "data/built/fresh_test3/cards.jsonl": "1750e32f37bfacf8cb87a768d130cab6c8977e95965b58708fc5cce7b9a76c6d",
+  "data/built/fresh_test3/postings.jsonl": "09a4923936cfd5b4afe497ae0a27b66dda083e7491a4fac1c9906c4319fc55f5",
+  "data/built/fresh_test3/candidates.jsonl": "5a95893657a88bab544cdd36db9b28467b610da302aa3edcd9d717a54cdd5c25",
+  "data/built/fresh_test3/resumes.jsonl": "839244e93bfcdfd3110ebb13a3840919dab7a30e3cc9dcc267ab3ef2a6b04559",
+  "data/built/fresh_test3/blind_sheet.jsonl": "a204f29346204b56f0674dfde24a44a696e82b98e2b6d3781c3d04dc782bec04",
+  "data/built/fresh_test3/label_batches/batch_01.jsonl": "ef452fad9c506a497b494ca93329493d2b46b2c06a8dd3884956aff013719e5e",
+  "data/built/fresh_test3/label_batches/batch_02.jsonl": "8603da4920cf2ab6a040297abfc8e5a4d0867ddb9c790515ef57b6178f99c91e",
+  "data/built/fresh_test3/label_batches/batch_03.jsonl": "321622afede6f7b0a86a9c849517930332435d3bb7f9b30a89558fff72a33e8f",
+  "data/built/fresh_test3/label_batches/batch_04.jsonl": "27ded2ed8ee87b27ced427d23d3d8a785c2f9a93201a468d3487f37accb96d5f",
+  "data/built/fresh_test3/label_batches/batch_05.jsonl": "c3371e6f64188f74b6d230f65c27ef268fd03f044bba90e21d30d8ce0386ebce",
+  "data/built/fresh_test3/label_batches/batch_06.jsonl": "739ae1b5be74899c0df60bf7d7b6b6509bf48e61af91a49ce94315376f96ae90"
+ },
+ "label_batches": [
+  "data/built/fresh_test3/label_batches/batch_01.jsonl",
+  "data/built/fresh_test3/label_batches/batch_02.jsonl",
+  "data/built/fresh_test3/label_batches/batch_03.jsonl",
+  "data/built/fresh_test3/label_batches/batch_04.jsonl",
+  "data/built/fresh_test3/label_batches/batch_05.jsonl",
+  "data/built/fresh_test3/label_batches/batch_06.jsonl"
+ ],
+ "blind_sheet": "data/built/fresh_test3/blind_sheet.jsonl"
+}

@@ -1,0 +1,433 @@
+{
+ "what": "v4 sealed fresh test (scripts/build_fresh_test.py): 150 postings of the frozen test pool, candidates designed per posting, resumes written by Adaption from the candidates' cards. Not gold: no row carries a label; gold comes from blind labelers reading the label batches.",
+ "seed": 20261021,
+ "pool": {
+  "file": "data/built/fit/pools/test.jsonl",
+  "sha256 sorted ids": "ad5f4bc1300a7ae29d70d3bc1915e3da423a212e565373726b736e17847d55eb"
+ },
+ "n_rows": 592,
+ "n_postings": 150,
+ "dropped_candidates_without_resume": [
+  "ft_6a8198eef9",
+  "ft_a4aa770b89",
+  "ft_b6c8ebd5ae",
+  "ft_87a7d9ec54",
+  "ft_59a85d8971",
+  "ft_defdf0d065",
+  "ft_c6539db6e9",
+  "ft_4deab8bae7"
+ ],
+ "sample_excluded": [
+  {
+   "posting_id": "lever:kcasbio:15fda636-e7fe-4ffb-83c8-9a651f3109b3",
+   "why": "language fr"
+  },
+  {
+   "posting_id": "smartrecruiters:SmithsGroup2:744000146115439",
+   "why": "language de"
+  },
+  {
+   "posting_id": "smartrecruiters:SmithsGroup2:744000152161233",
+   "why": "language de"
+  },
+  {
+   "posting_id": "workday:qiagen.wd502~QIAGEN:JR00000463",
+   "why": "language de"
+  },
+  {
+   "posting_id": "workday:qiagen.wd502~QIAGEN:JR00000795",
+   "why": "language de"
+  }
+ ],
+ "posting_ids": [
+  "adzuna:us:5784591389",
+  "adzuna:us:5787311420",
+  "adzuna:us:5812686622",
+  "adzuna:us:5814035608",
+  "adzuna:us:5814043900",
+  "adzuna:us:5814100762",
+  "adzuna:us:5825809141",
+  "adzuna:us:5830007804",
+  "adzuna:us:5847014936",
+  "ashby:periodic-labs:01d2c4b2-d848-4426-ad5f-7f1052db3a63",
+  "ashby:periodic-labs:0d96f03c-8f08-44ae-a7cb-8c4bbc80976c",
+  "ashby:periodic-labs:1d6ade4f-ae4c-4bde-baf7-82c401063e42",
+  "ashby:periodic-labs:67f49f4e-2d0c-49f4-9f4b-15dbc840f8f5",
+  "ashby:periodic-labs:98837207-657f-4116-a112-d8dc6184b49e",
+  "ashby:periodic-labs:c4e0774f-0f3e-4ea7-be27-fb89130c0d01",
+  "ashby:periodic-labs:d9180228-c113-4d5f-a4d6-793994e50b7c",
+  "greenhouse:abcellera:6578101003",
+  "greenhouse:abcellera:7698887003",
+  "greenhouse:abcellera:7829982003",
+  "greenhouse:abcellera:7920054003",
+  "greenhouse:abcellera:7984903003",
+  "greenhouse:abcellera:7998872003",
+  "greenhouse:billiontoone:4305991005",
+  "greenhouse:billiontoone:4685595005",
+  "greenhouse:billiontoone:4704105005",
+  "greenhouse:billiontoone:4707466005",
+  "greenhouse:billiontoone:4723718005",
+  "greenhouse:billiontoone:4729470005",
+  "greenhouse:dynetherapeutics:5722018004",
+  "greenhouse:dynetherapeutics:5849912004",
+  "greenhouse:dynetherapeutics:6017221004",
+  "greenhouse:dynetherapeutics:6020363004",
+  "greenhouse:dynetherapeutics:6190020004",
+  "greenhouse:formationbio:6623947",
+  "greenhouse:formationbio:7523506",
+  "greenhouse:formationbio:8148469",
+  "greenhouse:formationbio:8167853",
+  "greenhouse:formationbio:8167989",
+  "greenhouse:formationbio:8213738",
+  "greenhouse:inceptive:4085997007",
+  "greenhouse:inceptive:4934419007",
+  "greenhouse:inceptive:4961579007",
+  "greenhouse:inceptive:5060348007",
+  "greenhouse:inceptive:5155248007",
+  "greenhouse:inceptive:5167437007",
+  "greenhouse:inceptive:5211454007",
+  "greenhouse:iterativehealth:4678304006",
+  "greenhouse:iterativehealth:4695759006",
+  "greenhouse:iterativehealth:4700931006",
+  "greenhouse:iterativehealth:4707713006",
+  "greenhouse:iterativehealth:4712179006",
+  "greenhouse:iterativehealth:4714222006",
+  "greenhouse:iterativehealth:4716838006",
+  "greenhouse:zenasbio:5986358004",
+  "greenhouse:zenasbio:6011471004",
+  "greenhouse:zenasbio:6100459004",
+  "greenhouse:zenasbio:6129882004",
+  "greenhouse:zenasbio:6138725004",
+  "greenhouse:zenasbio:6186406004",
+  "lever:convergentresearch:3a4dfff8-87b3-40aa-bf5d-ce554afd820d",
+  "lever:convergentresearch:801342e0-5446-4520-b084-04590fc26d3d",
+  "lever:convergentresearch:9041fc58-fd51-464a-856a-c0abbdf70599",
+  "lever:convergentresearch:a2e56f3e-09b0-402e-9566-6c7b235759d0",
+  "lever:convergentresearch:c8a5a3fa-6da3-4f68-bdd8-625e5a039bfe",
+  "lever:convergentresearch:e62d0373-df49-42f2-ad4d-73d99329d781",
+  "lever:convergentresearch:f5e10bdc-49a8-46f6-ae55-848135a356a9",
+  "lever:kcasbio:1b3c7072-8fb5-40ab-b6cb-49be081d5cc2",
+  "lever:kcasbio:1ef5d71a-378c-4806-af83-a3f8489d036d",
+  "lever:kcasbio:3708dc08-8867-47a8-96b3-05dde3ce1328",
+  "lever:kcasbio:e6739b02-6a61-4999-8a53-2d5f7f1d6dbf",
+  "lever:kcasbio:ebb0b122-b234-4ece-b649-f3925fc9b26b",
+  "lever:kcasbio:fc22b1f9-26a1-4028-a0d3-5ea91c5ca4b9",
+  "lever:scholarrock:17167a28-80ae-4126-a2c7-cb23b1bb06ec",
+  "lever:scholarrock:24a831cd-9a53-4789-92c9-29f6d5a4883e",
+  "lever:scholarrock:3943729b-ad49-4a26-aa88-be59e2dac0e5",
+  "lever:scholarrock:7c01fab2-3a60-4800-841c-5ee0f4a095fe",
+  "lever:scholarrock:a5a52900-c834-49d9-8e3a-fe98fe3d1ec7",
+  "lever:scholarrock:bb7fbeba-a6ae-4689-b2c6-48424bd5f2a9",
+  "lever:scholarrock:d552a461-1c64-4f98-abed-8b2128a1d3c9",
+  "lever:veeva:561872bd-8a76-43b6-bf20-a1d05caa4223",
+  "lever:veeva:58edfcf2-acbf-4646-8976-a05fe29b4be5",
+  "lever:veeva:aa4e4a75-eb5d-45fd-ad71-048a6b40f6a1",
+  "lever:veeva:bd55ddbb-577f-4961-aeeb-c3736af0b110",
+  "smartrecruiters:SmithsGroup2:744000127703238",
+  "smartrecruiters:SmithsGroup2:744000135011634",
+  "smartrecruiters:SmithsGroup2:744000144489110",
+  "smartrecruiters:SmithsGroup2:744000146934229",
+  "smartrecruiters:SmithsGroup2:744000151387389",
+  "smartrecruiters:SmithsGroup2:744000151445839",
+  "smartrecruiters:SmithsGroup2:744000151564559",
+  "smartrecruiters:Sobi:744000139095251",
+  "smartrecruiters:Sobi:744000140617285",
+  "smartrecruiters:Sobi:744000141651580",
+  "smartrecruiters:Sobi:744000143698579",
+  "smartrecruiters:Sobi:744000148996932",
+  "smartrecruiters:Sobi:744000150765359",
+  "smartrecruiters:Sobi:744000151586509",
+  "workday:covenanthealth.wd12~covenanthealthcareers:JR2745",
+  "workday:covenanthealth.wd12~covenanthealthcareers:JR2789",
+  "workday:covenanthealth.wd12~covenanthealthcareers:JR3252",
+  "workday:covenanthealth.wd12~covenanthealthcareers:JR3331",
+  "workday:covenanthealth.wd12~covenanthealthcareers:JR3395",
+  "workday:covenanthealth.wd12~covenanthealthcareers:JR3422",
+  "workday:davita.wd1~DKC_External:R0464357",
+  "workday:davita.wd1~DKC_External:R0472175",
+  "workday:davita.wd1~DKC_External:R0475429",
+  "workday:davita.wd1~DKC_External:R0477851",
+  "workday:davita.wd1~DKC_External:R0478288",
+  "workday:davita.wd1~DKC_External:R0478563",
+  "workday:galderma.wd3~external:JR019556",
+  "workday:galderma.wd3~external:JR020779",
+  "workday:icon.wd3~broadbean_external:JR144729",
+  "workday:icon.wd3~broadbean_external:JR153105",
+  "workday:icon.wd3~broadbean_external:JR157719",
+  "workday:icon.wd3~broadbean_external:JR159143",
+  "workday:icon.wd3~broadbean_external:JR159909",
+  "workday:icon.wd3~broadbean_external:JR160511",
+  "workday:mainegeneral.wd5~mainegeneralcareers:R11761",
+  "workday:mainegeneral.wd5~mainegeneralcareers:R13965",
+  "workday:mainegeneral.wd5~mainegeneralcareers:R16182",
+  "workday:mainegeneral.wd5~mainegeneralcareers:R16631",
+  "workday:mainegeneral.wd5~mainegeneralcareers:R16732",
+  "workday:mainegeneral.wd5~mainegeneralcareers:R17135",
+  "workday:mainegeneral.wd5~mainegeneralcareers:R17255",
+  "workday:qiagen.wd502~QIAGEN:JR00000208",
+  "workday:qiagen.wd502~QIAGEN:JR00000684",
+  "workday:qiagen.wd502~QIAGEN:JR00000721",
+  "workday:qiagen.wd502~QIAGEN:JR00000747",
+  "workday:qiagen.wd502~QIAGEN:JR00000852",
+  "workday:qiagen.wd502~QIAGEN:JR00000966",
+  "workday:revvity.wd103~external:JR-043491",
+  "workday:solutionhealth.wd1~careers:JR11587",
+  "workday:solutionhealth.wd1~careers:JR12585",
+  "workday:solutionhealth.wd1~careers:JR13491",
+  "workday:solutionhealth.wd1~careers:JR2958",
+  "workday:solutionhealth.wd1~careers:JR8401",
+  "workday:solutionhealth.wd1~careers:JR9304",
+  "workday:syneoshealth.wd12~Syneos_Health_External_Site:25102030",
+  "workday:syneoshealth.wd12~Syneos_Health_External_Site:25109002",
+  "workday:syneoshealth.wd12~Syneos_Health_External_Site:25109291",
+  "workday:syneoshealth.wd12~Syneos_Health_External_Site:25109571",
+  "workday:syneoshealth.wd12~Syneos_Health_External_Site:25111988",
+  "workday:syneoshealth.wd12~Syneos_Health_External_Site:25112293",
+  "workday:wustl.wd1~External:JR94766",
+  "workday:wustl.wd1~External:JR94974",
+  "workday:wustl.wd1~External:JR96783",
+  "workday:wustl.wd1~External:JR96959",
+  "workday:wustl.wd1~External:JR97319",
+  "workday:wustl.wd1~External:JR97338",
+  "workday:wustl.wd1~External:JR97530"
+ ],
+ "employers": {
+  "Zenas BioPharma": 7,
+  "Periodic Labs": 7,
+  "Inceptive": 7,
+  "Iterative Health": 7,
+  "Convergent Research": 7,
+  "Scholar Rock": 7,
+  "Smiths Group": 7,
+  "Sobi (Swedish Orphan Biovitrum)": 7,
+  "MaineGeneral Health": 7,
+  "Washington University in St. Louis": 7,
+  "Dyne Therapeutics": 6,
+  "AbCellera": 6,
+  "BillionToOne": 6,
+  "Formation Bio": 6,
+  "KCAS Bio": 6,
+  "Covenant Health": 6,
+  "DaVita": 6,
+  "ICON": 6,
+  "QIAGEN": 6,
+  "SolutionHealth": 6,
+  "Syneos Health": 6,
+  "Veeva Systems": 4,
+  "Veeva": 2,
+  "Galderma": 2,
+  "CSL Seqirus": 1,
+  "Coriolis Pharma Research GmbH": 1,
+  "Jobot": 1,
+  "Dyne Tx": 1,
+  "TriNetX, LLC": 1,
+  "Revvity": 1
+ },
+ "field_mix": {
+  "postings": {
+   "lab_bio": 21,
+   "sales_ops": 21,
+   "other": 21,
+   "data": 22,
+   "software": 21,
+   "internship": 22,
+   "health_nursing": 22
+  },
+  "rows": {
+   "lab_bio": 83,
+   "sales_ops": 83,
+   "other": 84,
+   "data": 87,
+   "software": 81,
+   "internship": 86,
+   "health_nursing": 88
+  }
+ },
+ "length_mix": {
+  "teaser 1-699": 16,
+  "1300-3000": 12,
+  "3000+": 116,
+  "700-1300": 3,
+  "empty": 3
+ },
+ "source_mix": {
+  "adzuna": 9,
+  "ashby": 7,
+  "greenhouse": 43,
+  "lever": 24,
+  "smartrecruiters": 14,
+  "workday": 53
+ },
+ "country_mix": {
+  "by extracted card meta": {
+   "US": 113,
+   "UK": 3,
+   "CA": 6,
+   "other": 17,
+   "unknown": 11
+  },
+  "by pool locations before extraction": {
+   "unknown": 48,
+   "UK": 3,
+   "US": 77,
+   "CA": 6,
+   "other": 16
+  }
+ },
+ "foreign_resident_rows": {
+  "what": "rows whose profile lives outside the US (matcher.metros.parse_place not in_us): steer_pass put some candidates in a foreign posting's city so it could pass the location filter",
+  "rows": 48,
+  "eligibility_pass_rows": 36
+ },
+ "repaired_resumes": [
+  "ft_fed2bc70f5",
+  "ft_b4374ee42e",
+  "ft_90c268a7b9",
+  "ft_0713585fab"
+ ],
+ "teaser_rows": 75,
+ "eligibility": {
+  "rule": "design metadata only: hybrid_rules.rule_verdict on the profile and Adaption's extracted card; pass = no hard Skip in H' categories (work_auth, enrollment, degree_level, degree_field, employment_type, location) and no salary cap",
+  "pass_frac": 0.5811,
+  "by_field": {
+   "data": 0.529,
+   "health_nursing": 0.602,
+   "internship": 0.558,
+   "lab_bio": 0.639,
+   "other": 0.619,
+   "sales_ops": 0.578,
+   "software": 0.543
+  },
+  "fails": {
+   "employment_type": 97,
+   "location": 109,
+   "degree_field": 6,
+   "degree_level": 26,
+   "enrollment": 4,
+   "work_auth": 1
+  },
+  "salary_cap_rows": 6
+ },
+ "archetypes": {
+  "gap": 128,
+  "strong": 212,
+  "off": 146,
+  "near": 106
+ },
+ "work_auth": {
+  "needs_h1b_now": 58,
+  "citizen_or_pr": 440,
+  "other_visa": 37,
+  "stem_opt": 9,
+  "f1_opt": 37,
+  "f1_cpt": 11
+ },
+ "degree_level": {
+  "doctoral": 85,
+  "bachelor": 292,
+  "none": 50,
+  "master": 118,
+  "associate": 47
+ },
+ "extractor": {
+  "script": "scripts/extract_postings.py (imported, unchanged)",
+  "blueprint_hash": "b2b2ed8e"
+ },
+ "writer": {
+  "prompt_sha1": "da56452953c7",
+  "max_tries": 3,
+  "tries": {
+   "1": 496,
+   "2": 84,
+   "3": 12
+  }
+ },
+ "credits": {
+  "runs": [
+   {
+    "name": "extract_b2b2ed8e_0",
+    "estimate": 3.0,
+    "rows": 150,
+    "launched": true,
+    "run_id": "dataset-57880b76-72bc-46c3-bbc6-f2422901a0fe-1792542652534"
+   },
+   {
+    "name": "resumes_0",
+    "estimate": 1.0,
+    "rows": 12,
+    "launched": true,
+    "run_id": "dataset-565df8b8-9eb8-4ed8-a94f-40b4c2912dba-1792543192853"
+   },
+   {
+    "name": "resumes_1",
+    "estimate": 6.0,
+    "rows": 600,
+    "launched": true,
+    "run_id": "dataset-4f365336-f418-4e7c-b923-e0bc1f4842d9-1792543446318"
+   },
+   {
+    "name": "resumes_2",
+    "estimate": 1.0,
+    "rows": 100,
+    "launched": true,
+    "run_id": "dataset-1d9814da-4586-4813-9e16-52bedb66b446-1792543683401"
+   },
+   {
+    "name": "resumes_3",
+    "estimate": 1.0,
+    "rows": 18,
+    "launched": true,
+    "run_id": "dataset-51ddf71d-f455-4c43-9b77-eb24c4c8c900-1792544015735"
+   },
+   {
+    "name": "resumes_4",
+    "estimate": 1.0,
+    "rows": 32,
+    "launched": true,
+    "run_id": "dataset-79052ee6-1aeb-4cff-b266-9dc7ae399a45-1792544493031"
+   },
+   {
+    "name": "resumes_5",
+    "estimate": 1.0,
+    "rows": 10,
+    "launched": true,
+    "run_id": "dataset-b09efadc-45e8-468e-977b-dfb04f372584-1792544723639"
+   },
+   {
+    "name": "resumes_6",
+    "estimate": 1.0,
+    "rows": 2,
+    "launched": true,
+    "run_id": "dataset-c09fa772-8ca6-4cc5-82f1-ae0ccc80c0b4-1792544934492"
+   }
+  ],
+  "total_launched_estimate": 15.0
+ },
+ "files": {
+  "data/built/fresh_test/rows.jsonl": "fec921ab3fc0dd3e4c6618663e44a90a0de8bef383cf0ec626a5db64c6eff418",
+  "data/built/fresh_test/cards.jsonl": "783c142db75200b934f6af7c4b9a89a134ac60d51e0e92264e9d8f45f122da79",
+  "data/built/fresh_test/postings.jsonl": "9a6ca087a405c1d5d7a4f319765d8a0009ae2e88e6a1a21ab8ef956e6339e264",
+  "data/built/fresh_test/candidates.jsonl": "5b18e335fafa1c3fa15be508925d82198a4a71faabbdd320ceee1c9edab3e187",
+  "data/built/fresh_test/resumes.jsonl": "42f6c0efe31ec998b25cdd311a17a8fef9971cd4345a1c6e37544e458135d18e",
+  "data/built/fresh_test/blind_sheet.jsonl": "4d13b6359e57e0c6e74d0b0d9d8ad836e69ccacf4750aff396e541d7a8c28ac2",
+  "data/built/fresh_test/label_batches/batch_01.jsonl": "7b094d17630450e52e67f319208d262eabfa9cb1c67d62cb59db334e0901cd0c",
+  "data/built/fresh_test/label_batches/batch_02.jsonl": "a6d1ba397c8eee75e2925f3e51c89252e8a3c6458be3f7e4db1d025e6c44d504",
+  "data/built/fresh_test/label_batches/batch_03.jsonl": "bf1f5097af2bed82e796c7d3ed25156887d19a0b7fba313f677485c7edd380c8",
+  "data/built/fresh_test/label_batches/batch_04.jsonl": "c21505ec6cf6a1782be233ceec14535e88940e710b4dd8b768ce9e5eb28e142a",
+  "data/built/fresh_test/label_batches/batch_05.jsonl": "f97192e2672dee221bae2bbf60ba347985f150a3fffe19b033fe3f0ca88406db",
+  "data/built/fresh_test/label_batches/batch_06.jsonl": "d40e2ec5722a4bcef6fcdc1cf9f9e2c36df2d90ce69456e5f85ce7312f025c31",
+  "data/built/fresh_test/label_batches/batch_07.jsonl": "4d96aa8a8e402994d70bddc2b1016170cc9d0612a555eef7a100350dcebd1f2c",
+  "data/built/fresh_test/label_batches/batch_08.jsonl": "160856fc532ba6365b9efa6859faffc7b6340cf43e71db267821eb6417d65471"
+ },
+ "label_batches": [
+  "data/built/fresh_test/label_batches/batch_01.jsonl",
+  "data/built/fresh_test/label_batches/batch_02.jsonl",
+  "data/built/fresh_test/label_batches/batch_03.jsonl",
+  "data/built/fresh_test/label_batches/batch_04.jsonl",
+  "data/built/fresh_test/label_batches/batch_05.jsonl",
+  "data/built/fresh_test/label_batches/batch_06.jsonl",
+  "data/built/fresh_test/label_batches/batch_07.jsonl",
+  "data/built/fresh_test/label_batches/batch_08.jsonl"
+ ],
+ "blind_sheet": "data/built/fresh_test/blind_sheet.jsonl"
+}

@@ -1,0 +1,82 @@
+{
+ "what": "Amendment 5: cycle 3's teacher, training label mix, the two new runs, the eligibility layer H'', how the pick is chosen on fresh tests 1-3, and how sealed fresh test 4 is scored once.",
+ "amends": {
+  "files": {
+   "eval/protocol_amendment_2.json": "6cfaa69e84c139139b28132aaf28d826588473ee25d77c725138ba6b703c74d1",
+   "eval/protocol_amendment_4.json": "9d3720c0f6a959ff5e71e078cef67c1a685ee38102c86467457faa7d98e770f6"
+  },
+  "parent_commit": "01d1b7fd8b8c88bfd95aa1f09c3d7b41537ed7e1",
+  "unchanged": "Everything earlier files pin that this file does not change: tests 1-3 are practice sets (amendment 4) and their recorded results stand; no row, posting or employer of fresh tests 1-4 enters a training file; the label read from float32 first-token scores (evalstats.pick, ties Skip > Explore > Keep); colab_eval bf16 batch 1, one adapter per Colab L4 session; macro-F1 as evalstats.macro_f1_of; the two-way bootstrap (2000 draws, numpy default_rng(20261021), postings then rows within them, one draw set per slice shared by every system); the eligibility-pass slice definition (no HP_CATS hard Skip and no salary cap, recomputed from profile and card) and amendment 2's pass bar."
+ },
+ "decided_by": "the author, 2026-10-21 (cycle-3 decision after eval/diag_cycle3_cpu.json, eval/diag_cycle3_h2n.json, eval/diag_cycle3_rowread.md)",
+ "written_before": "any cycle-3 training label, any fresh test 4 posting sample, card, candidate or resume, and any new run (A, B).",
+ "teacher": {
+  "why": "rules labels (src/matcher/rules.py) agree with careful reading on only 53% of fit rows, and runs h, d3 and h2n all plateau there; the rubric labelers of fresh tests 1-3 agree with each other 89%.",
+  "rubric": "unchanged, verbatim as used for fresh tests 1-3 (the three bullets below are byte-identical in every labeler, adjudicator and relabel prompt of tests 1, 2 and 3). No clarification is added for training labels or test-4 gold.",
+  "rubric_bullets": "- Skip: something the posting states as a hard requirement rules them out. That covers work authorization (US citizens or permanent residents only; no visa sponsorship when the candidate will need it; no OPT or CPT when they are on F-1), student status (a posting for current students when the candidate has graduated, or one for graduates when they are still a student; compare the graduation year with today), a required degree level, or a required degree field they lack unless the posting accepts \"related\" or \"equivalent\", a required license they don't hold, an employment type, location or work mode their profile rules out, stated pay below their salary floor, or a skill or amount of experience the posting clearly calls required (must have, required, minimum qualifications) that the resume doesn't show.\n- Keep: nothing rules them out and they meet the posting's stated requirements. Skills given as examples (\"such as\", \"e.g.\", \"or similar\", \"one of\", \"experience with a language like\") are met by any one of them or a close equivalent. Missing preferred, bonus or nice-to-have items do not block Keep unless most of them are missing. Duties describe the work; they are not requirements.\n- Explore: worth a look but not a clean fit. Nothing rules them out, but they are about a year short on required experience, they miss most of the preferred items, a requirement is genuinely ambiguous, or the posting says too little to judge (a short teaser with no real requirements).",
+  "rubric_bullets_sha256": "879376f44a137ec73b3dfff36961aafe5d386f5b7c97ad17fb56dfeb0f54884e",
+  "labeler_prompt_test3": "You are labeling job-match rows for a test set. Each row has a job posting, a candidate's resume, and the candidate's profile (what they filled in on a form). Decide what a careful career advisor would tell this candidate about applying. Today is October 2026.\n\n- Skip: something the posting states as a hard requirement rules them out. That covers work authorization (US citizens or permanent residents only; no visa sponsorship when the candidate will need it; no OPT or CPT when they are on F-1), student status (a posting for current students when the candidate has graduated, or one for graduates when they are still a student; compare the graduation year with today), a required degree level, or a required degree field they lack unless the posting accepts \"related\" or \"equivalent\", a required license they don't hold, an employment type, location or work mode their profile rules out, stated pay below their salary floor, or a skill or amount of experience the posting clearly calls required (must have, required, minimum qualifications) that the resume doesn't show.\n- Keep: nothing rules them out and they meet the posting's stated requirements. Skills given as examples (\"such as\", \"e.g.\", \"or similar\", \"one of\", \"experience with a language like\") are met by any one of them or a close equivalent. Missing preferred, bonus or nice-to-have items do not block Keep unless most of them are missing. Duties describe the work; they are not requirements.\n- Explore: worth a look but not a clean fit. Nothing rules them out, but they are about a year short on required experience, they miss most of the preferred items, a requirement is genuinely ambiguous, or the posting says too little to judge (a short teaser with no real requirements).\n\nJudge only from the three texts in your batch file. Don't search the repository, don't open any other file, and don't look at any card, rule code, model output or other labeler's labels. For each row give: label (Keep, Explore or Skip), a one-sentence reason naming the deciding fact, and confidence (high, medium or low).",
+  "labeler_prompt_test3_sha256": "4e0b955028cbe45dcb6b7f369dbfe1202494756ec806ee841ec306db98fa595e",
+  "labeler_prompt_note": "the prompt fresh test 3's labelers A and B got, up to the batch path; the batch path and output path lines follow it as in test 3",
+  "training_labels": "labeler A's setup alone: Opus, effort medium, labeler_prompt_test3 (the rubric), the whole posting, the profile text and the resume, one label per row, no second labeler, no adjudication. Label batches in the format of data/built/fresh_test3/label_batches/ (row_id, posting (whole), resume, profile).",
+  "test_4_gold": "exactly as fresh tests 1-3: labeler A (Opus, effort medium) and labeler B (Sonnet, effort high) blind on the label batches only, each with labeler_prompt_test3; Opus adjudicates every disagreement with the test-3 adjudicator prompt; gold.jsonl pinned by eval/fresh_test4_gold_manifest.json and committed before any system is scored on fresh test 4."
+ },
+ "training_label_mix": {
+  "band": {
+   "Keep": [
+    0.12,
+    0.3
+   ],
+   "Explore": [
+    0.22,
+    0.4
+   ],
+   "Skip": [
+    0.4,
+    0.65
+   ]
+  },
+  "check": "by script, on the labeled training set, before any upload; the script writes the counts and the check result next to the training csv",
+  "if_outside": "downsample the over-represented class or classes (seeded, recorded) until every class is inside the band; never relabel a row and never change a label to fit the band",
+  "why": "h2n trained on 5% Explore while fresh tests 1-3 are about 7% Keep / 25% Explore / 68% Skip"
+ },
+ "training_rows": {
+  "rule": "the rows sent to the teacher, each with its whole posting: (1) new rows built from the training pool (scripts/fit_pools.py train pool, about 59.8k postings) with scripts/build_fresh_test.py's pipeline and the fixed candidate/resume generator, excluding every employer of fresh tests 1-4, with the Adaption credits left after fresh test 4 minus a 6-credit buffer (aim 2,500-3,500 rows); (2) every row of data/built/fit/train_fit.csv built on a real venator posting and every teaser row; (3) a seeded random 600 of the twin rows (data/built/fit/build/twin_*). Seeds and row ids are recorded with the batches. Existing rows whose resume carries the posting's exact title as a held job title stay out unless their resume is regenerated within the budget; their count is recorded.",
+  "never": "no row, posting or employer of fresh tests 1, 2, 3 or 4"
+ },
+ "runs": {
+  "same_for_both": "the same labeled rows (after the band check) and run h's hyperparameters unchanged: Qwen/Qwen3.5-4B, SFT (training_method instruction, data_format chat), lora r16 alpha 32 dropout 0 all-linear, lr 2e-4, 3 epochs, warmup 0.05, cosine (min_lr_ratio 0.1, 0.5 cycles), max_grad_norm 2.0, weight_decay 0, batch 'max', train_on_inputs false, augmentation 0, 1 iteration, target 0.8 (scripts/oci/run_create_h.sh)",
+  "A": "the new labels in h's prompt format (matcher.pairs.build_prompt: INSTRUCTION, resume, profile, posting fitted to 6,000 characters by textclean.fit_posting); completion = label and the labeler's reason in h's completion format",
+  "B": "the new labels with the rubric (rubric_bullets under the labeler prompt's opening sentence) as the system prompt and the whole posting (no 6,000-character cut), if Adaption's maximum training sequence length allows it. The 4B's SFT context on Adaption is 131,072 tokens (scripts/train_main.py), so whole postings are expected to fit; if the upload or create refuses a row's length, B cuts every posting to the longest length that fits and records that length here, in a note committed before B's create.",
+  "tags": "A and B (state files main_4b_A.json and main_4b_B.json, never another run's file)"
+ },
+ "eligibility_layer": {
+  "H''": "H' (hybrid_rules.VARIANTS['H_prime']: HP_CATS + salary cap) minus the category employment_type, because the cycle-3 ablation (eval/diag_cycle3_cpu.json) found it does more harm than good",
+  "variants": {
+   "H''_with_work_mode": "HP_CATS minus employment_type: degree_field, degree_level, enrollment, location, work_auth, work_mode + salary cap",
+   "H''_without_work_mode": "HP_CATS minus employment_type and work_mode: degree_field, degree_level, enrollment, location, work_auth + salary cap"
+  },
+  "eligibility_pass_slice": "unchanged: defined by H' (HP_CATS and the salary cap) as in amendments 2-4, so the slice is the same rows for every system"
+ },
+ "selection": {
+  "candidates": "{h, A, B} x {H''_with_work_mode, H''_without_work_mode}: six systems",
+  "data": "all rows of fresh tests 1, 2 and 3 pooled (592 + 371 + 437 = 1,400 rows), sealed gold of each",
+  "rule": "pick the system with the highest pooled macro-F1 among systems whose pooled recall is at least 0.25 for each of Keep, Explore and Skip. Ties: systems within 0.005 of the best pooled macro-F1 (values rounded to 6 decimals) are tied; among tied systems the variant without work_mode wins, then the model in the order h, A, B. If no system clears the recall floors, the highest pooled macro-F1 wins (same ties) and the selection json records that no system cleared them.",
+  "recall_floor": 0.25,
+  "tie_margin": 0.005,
+  "tie_order": [
+   "H''_without_work_mode before H''_with_work_mode",
+   "h",
+   "A",
+   "B"
+  ],
+  "output": "eval/selection_cycle3.json, committed before any system is scored on fresh test 4"
+ },
+ "fresh_test_4": {
+  "build": "as amendment 4 says: sealed, from postings the freeze reserved that no pool or test used; about 4 rows per posting, mixed fields and lengths, teasers included as in tests 1-3; candidate design as in tests 1-3 except the generator fix (no held job title equal to the posting's title, no skills list copied from the posting's keyword list); sized from tests 1-3's Keep rates so the expected gold Keeps on the eligibility-pass slice are at least 50; label batches in fresh test 3's format with the whole posting; a data-hash manifest committed at sealing. Adaption credit cap for the build: 20, balance read and recorded before.",
+  "scored_once": "after eval/selection_cycle3.json and fresh test 4's gold manifest are committed, once, for these systems on the same rows: the pick; h + H' (the recorded system of earlier cycles); rules_full (rules.label on the extracted card); base + H'' (the untrained Qwen/Qwen3.5-4B with the H'' variant the pick uses).",
+  "pass": "amendment 2's bar on fresh test 4's eligibility-pass slice: the pick beats BOTH rules_full AND base + H'' on macro-F1, each paired difference (pick minus baseline, same rows, same draws) with a 95% two-way bootstrap lower bound (2.5th percentile, unrounded) above 0.",
+  "also_reported": "every number above also on the subset of rows where labelers A and B agree (agreement subset, both slices), and labeler agreement (raw and Cohen's kappa) as the ceiling; reported as it comes out, pass or not, no second scoring",
+  "output": "eval/fresh_test4_result.json (+ .md), write-once"
+ }
+}

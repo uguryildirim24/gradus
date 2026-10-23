@@ -1,0 +1,87 @@
+{
+ "what": "Amendment 2 to the fit evaluation protocol, for the cycle after v4: fresh test 1 becomes the selection set, fresh test 2 (built and sealed in the same commit as this file) is the new sealed test, scored once after the pick is committed.",
+ "amends": {
+  "files": {
+   "eval/protocol.json": "f95d47a05cd386b93566af410005f4a1c3185e16cd9c794eef3fc96fee8ffa31",
+   "eval/protocol_amendment_1.json": "5d8055f08653f19b6891193e13699aa27d1afbaf9a9cb0acfc58c92848f80ea3"
+  },
+  "parent_commit": "9ec90829f8f34edb80916967d28633a15a7b41cc",
+  "unchanged": "Everything protocol.json and amendment 1 pin that this file does not change: the system definition (TAG+H' = hybrid_rules.VARIANTS['H_prime'] on the Adaption-extracted card with rules.mark_thin), the label read from float32 first-token scores (evalstats.pick, ties Skip > Explore > Keep), colab_eval bf16 batch 1 with one adapter per Colab L4 session, the eligibility-pass definition (no HP_CATS hard Skip and no salary cap, recomputed from profile and card), macro-F1 as evalstats.macro_f1_of, the two-way bootstrap (2000 draws, numpy default_rng(20261021), postings then rows within them, one draw set per slice shared by every system), the slice definitions, the baselines' definitions and reporting results as they are.",
+  "replaces": "dev_fit (rules-made gold) no longer selects; amendment 1's pass rule (beat skills-free rules) is replaced for fresh test 2 by the bar below."
+ },
+ "written_before": "Any model output on fresh test 2 exists and before any fresh test 2 gold exists. Fresh test 2 was built without opening fresh test 1's model outputs or error lists (data/models/v4_eval/fresh_test/, FRESH_TEST.md).",
+ "fresh_test_1": {
+  "role": "the selection set for this cycle",
+  "files": {
+   "manifest": "eval/fresh_test_manifest.json",
+   "gold_manifest": "eval/fresh_test_gold_manifest.json",
+   "result_v4": "eval/fresh_test_result_v4.json"
+  },
+  "n_rows": 592,
+  "n_postings": 150,
+  "n_employers": 30,
+  "never_trained_on": "Its rows, its postings and its employers stay out of every training file this cycle (train csv, DPO pairs, any dev or selection set built for training). A builder that reads the train pool cannot reach them (the test pool is disjoint from the train pool by employer); any new training file states that it was checked against eval/fresh_test_manifest.json posting_ids and employers.",
+  "may": "be used to diagnose errors (model outputs, error lists, slices) and to design rules or extractor fixes",
+  "gold": "stays as sealed: data/built/fresh_test/gold.jsonl sha256 eef1d5699056b982d09bcfa1e7550348a2b26a5f6a6ffe09aca6ea32309be572 (eval/fresh_test_gold_manifest.json); never relabeled, even where diagnosis finds a gold row it disagrees with (such rows are reported, not changed)"
+ },
+ "fresh_test_2": {
+  "role": "the new sealed test: scored once, after the pick is committed",
+  "manifest": "eval/fresh_test2_manifest.json",
+  "manifest_sha256": "bd0302f97f9a5f61e4ea84d10560dbd9aee408fc264e9d7024f9473305fa1e3c",
+  "built": "scripts/build_fresh_test.py --set 2: every English test-pool posting fresh test 1 did not use, same v2 extractor (blueprint b2b2ed8e, imported unchanged), same resume writer prompt and gates, same candidate design, new seed 20261122, row ids f2_...",
+  "n_rows": 371,
+  "n_postings": 95,
+  "n_employers": 32,
+  "eligibility_pass_rows": 214,
+  "eligibility_pass_frac": 0.5768,
+  "gold": "two blind labelers (Opus and Sonnet) on data/built/fresh_test2/label_batches/ only (row_id, posting, resume, profile form), the same rubric and the same adjudication as fresh test 1; gold.jsonl is pinned by eval/fresh_test2_gold_manifest.json (gold_sha256) and committed before any model is run on fresh test 2.",
+  "scored_once": "scripts/fit_eval_score.py fresh2 reads the pick from the committed selection json (tracked, unchanged from HEAD, 'amendment': 'eval/protocol_amendment_2.json'), checks rows and cards against this manifest and gold against its gold manifest, writes eval/fresh_test2_result.json (+ .md) and refuses to run when that file exists.",
+  "inference": "model outputs on fresh test 2 are produced only after the selection json is committed, for the pick, h, d3 and the untrained base (the systems the bar and the report need), each once."
+ },
+ "candidates": {
+  "runs": "new runs trained this cycle (tags h2, h2a, h2b, ...; fit_eval_score.CANDIDATE_RX '^h(2\\w*)?$') and run h as the incumbent. d3 and the base are reported, never selected.",
+  "incumbent": "h (eval/selection_v4.json; archive pinned in eval/fit_eval_hashes.json)"
+ },
+ "selection": {
+  "rule": "The candidate whose system TAG+H' has the highest macro-F1 on all fresh test 1 rows. Within 0.01 (best - h <= 0.01, compared on values rounded to 6 decimals) the incumbent h stays.",
+  "data": "data/built/fresh_test (all rows, sealed gold)",
+  "metric": "macro-F1",
+  "tie_margin": 0.01,
+  "tie_break": "h (the incumbent)",
+  "tool": "scripts/fit_eval_score.py select --score h=... --score h2a=... --out eval/selection_v5.json; the selection json is committed before any fresh test 2 model output exists",
+  "rules_changes": "a rules or extractor fix made this cycle is in effect for every candidate's system, the baselines and h alike when selection is scored (fresh test 1 cards re-extracted only if the extractor changed, the same way for all)"
+ },
+ "pass": {
+  "rule": "On fresh test 2's eligibility-pass slice the chosen system (PICK+H') beats BOTH rules_full (rules.label on the extracted card) AND base+H' (the untrained Qwen/Qwen3.5-4B, H' on top) on macro-F1: each paired difference (chosen minus baseline, same rows, same draws) has a 95% two-way bootstrap lower bound (2.5th percentile, unrounded) above 0. Both must hold.",
+  "slice": "eligibility_pass",
+  "metric": "macro-F1",
+  "against": [
+   "rules_full",
+   "base+H'"
+  ],
+  "condition": "lower_bound_exact > 0 for each",
+  "accuracy": "reported alongside each difference, not used for pass",
+  "why": "fresh test 1 passed only against skills-free rules, a weak bar: full rules on the card (0.757 / 0.491) and the untrained base + H' (0.720 / 0.463) were the systems the trained model had to beat to show that training added careful reading."
+ },
+ "report": {
+  "against": [
+   "h+H'",
+   "d3+H'",
+   "rules_skills_free",
+   "rules_full",
+   "base+H'"
+  ],
+  "slices": "all rows and the eligibility-pass slice for every system; every fresh_slices slice for the chosen system, including employer_new_vs_fresh_test1 and employer_shared_with_fresh_test1",
+  "ceiling": "labeler agreement on fresh test 2 (raw agreement and Cohen's kappa of A vs B), on all rows and on the eligibility-pass slice",
+  "as_is": "the result is reported as it comes out, pass or not; no second scoring"
+ },
+ "rules_and_extractor_fixes": {
+  "rule": "Rules (src/matcher/rules.py, scripts/hybrid_rules.py) or extractor (scripts/extract_postings.py) fixes made this cycle apply to every system and baseline equally: rules_full, rules_skills_free, H' under every model, on fresh test 1 and fresh test 2 alike.",
+  "designed_from": "fresh test 1 and training data only; never from fresh test 2 rows, cards, batches or gold",
+  "fresh_test_2_cards": "if the extractor changes, fresh test 2's cards are re-extracted with the fixed extractor for every system at once, under a new manifest entry recorded before scoring; the sealed rows, resumes and gold do not change"
+ },
+ "limitations": {
+  "employers": "fresh test 2 is new at the posting level, not the employer level: 27 of its 32 employers and 82 of its 95 postings (320 of 371 rows) come from employers fresh test 1 also has, and fresh test 1 is open for diagnosis this cycle. The employer_new_vs_fresh_test1 slice is reported; it is too small to carry the bar.",
+  "posting_mix": "every remaining test-pool posting was taken, nothing drawn or capped, so short postings weigh more than in fresh test 1: {'teaser 1-699': 23, '1300-3000': 7, '3000+': 55, 'empty': 10}"
+ }
+}

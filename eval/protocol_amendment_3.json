@@ -1,0 +1,76 @@
+{
+ "what": "Amendment 3 to the fit evaluation protocol: fresh test 3 (built and sealed in the same commit as this file, from the dev pool) is sealed, and no system is scored on it until the author decides how this work ends.",
+ "amends": {
+  "files": {
+   "eval/protocol.json": "f95d47a05cd386b93566af410005f4a1c3185e16cd9c794eef3fc96fee8ffa31",
+   "eval/protocol_amendment_1.json": "5d8055f08653f19b6891193e13699aa27d1afbaf9a9cb0acfc58c92848f80ea3",
+   "eval/protocol_amendment_2.json": "6cfaa69e84c139139b28132aaf28d826588473ee25d77c725138ba6b703c74d1"
+  },
+  "parent_commit": "1c2825fece7a79b8f5eb929a2de1ab5fc030c830",
+  "unchanged": "Everything protocol.json and amendments 1 and 2 pin that this file does not change: the system definition (TAG+H' = hybrid_rules.VARIANTS['H_prime'] on the Adaption-extracted card with rules.mark_thin), the label read from float32 first-token scores (evalstats.pick, ties Skip > Explore > Keep), colab_eval bf16 batch 1 with one adapter per Colab L4 session, macro-F1 as evalstats.macro_f1_of, the two-way bootstrap (2000 draws, numpy default_rng(20261021), postings then rows within them, one draw set per slice shared by every system), the baselines' definitions and reporting results as they are.",
+  "status_of_fresh_test_2": "scored once (eval/fresh_test2_result.json, NOT PASSED); this file does not rescore it or change its result"
+ },
+ "written_before": "Any model output on fresh test 3 and any fresh test 3 gold exist. Fresh test 3 was built without opening any fresh test 1 or fresh test 2 model output or error list. Read from fresh tests 1 and 2: their manifests and protocol amendment 2 (posting ids, mixes, employer counts), and the test-pool postings the manifests name (for the near-copy check).",
+ "fresh_test_3": {
+  "role": "sealed; scored by no system until the author's decision below",
+  "manifest": "eval/fresh_test3_manifest.json",
+  "manifest_sha256": "63bd3cffa2df1dae26978715aaaa5c462c6d7d9fe3baf4bbe6499ff060663f33",
+  "built": "scripts/build_fresh_test.py --set 3: dev-pool postings (data/built/fit/pools/dev.jsonl), fresh test 1's sampler with a hard cap of 4 postings per employer, same v2 extractor (blueprint b2b2ed8e, imported unchanged, its cards a new extraction), same resume writer prompt and gates, same candidate design (about 4 candidates per posting), new seed 20261223, row ids f3_..., blind label batches of 75 rows (row_id, posting, resume, profile form only)",
+  "n_rows": 437,
+  "n_postings": 112,
+  "n_employers": 46,
+  "eligibility_pass_rows_sealed_design": 205,
+  "eligibility_pass_frac_sealed_design": 0.4691,
+  "gold": "two blind labelers on data/built/fresh_test3/label_batches/ only, the same rubric and the same adjudication as fresh tests 1 and 2; gold.jsonl is pinned by eval/fresh_test3_gold_manifest.json (gold_sha256), committed before any model is run on fresh test 3",
+  "never_trained_on": "Its rows, postings and employers stay out of every training, DPO, selection or diagnosis file from here on, whichever branch the author picks."
+ },
+ "decision": {
+  "who": "the author",
+  "options": {
+   "stop": "Fresh test 3 is the final measurement of the shipped system: h + H' (with the rules at the commit that scores it) is scored on it once, with the baselines the bar and the report need (rules_full, base+H', rules_skills_free, d3+H'), each run once; nothing is changed after the score.",
+   "cycle_3": "Fresh test 3 is the sealed test for cycle 3: scored once, after cycle 3's pick is committed in a selection json, for the pick and the systems the bar and the report need. Which set selects in cycle 3, and whether fresh test 2 opens for diagnosis, is left to cycle 3's own amendment, written before any fresh test 3 model output exists."
+  },
+  "until_then": "no model, rules or baseline output is produced on fresh test 3 rows; its cards are read only by the eligibility recompute at scoring time"
+ },
+ "pass": {
+  "rule": "On fresh test 3's eligibility-pass slice the chosen system (PICK+H') beats BOTH rules_full (rules.label on the extracted card) AND base+H' (the untrained Qwen/Qwen3.5-4B, H' on top) on macro-F1: each paired difference (chosen minus baseline, same rows, same draws) has a 95% two-way bootstrap lower bound (2.5th percentile, unrounded) above 0. Both must hold.",
+  "from": "eval/protocol_amendment_2.json pass, unchanged except the set it is read on",
+  "slice": "eligibility_pass (as computed below)",
+  "metric": "macro-F1",
+  "against": [
+   "rules_full",
+   "base+H'"
+  ],
+  "condition": "lower_bound_exact > 0 for each",
+  "accuracy": "reported alongside each difference, not used for pass"
+ },
+ "eligibility_pass_slice": {
+  "primary": "recomputed at the moment fresh test 3 is scored, from each row's profile and its posting's card with the rules in effect at that commit (no HP_CATS hard Skip and no salary cap, as amendment 2 defines it); the bar is read on this slice",
+  "sensitivity": "the sealed-design slice (rows.jsonl design.eligibility_pass, computed at sealing with the rules at the parent commit, work_mode already an H' hard Skip since c6c4790) is reported beside it with the same draws, every system, not used for pass",
+  "note": "the candidate design steers eligibility on the categories it was written for; work_mode became an H' hard Skip (c6c4790) after it was written and is not steered, so 49 rows designed to pass fail on work_mode alone; the sealed-design pass fraction is 0.4691 (205 of 437 rows)"
+ },
+ "report": {
+  "against": [
+   "h+H'",
+   "d3+H'",
+   "rules_skills_free",
+   "rules_full",
+   "base+H'"
+  ],
+  "slices": "all rows and both eligibility-pass slices for every system; for the scored system also posting_in_dev_fit vs not (design.posting_in_dev_fit), field, length and teaser slices",
+  "ceiling": "labeler agreement on fresh test 3 (raw agreement and Cohen's kappa of A vs B), on all rows and on the eligibility-pass slice",
+  "as_is": "the result is reported as it comes out, pass or not; no second scoring"
+ },
+ "disclosures": {
+  "dev_fit": "Cycle 1's dev_fit (data/built/fit/dev_fit.jsonl, rules-made gold) was built on dev-pool postings, and dev_fit is the set that selected h over d3 (eval/selection_v4.json). 63 of fresh test 3's 112 postings (247 of its 437 rows) had dev_fit rows, 77 had rows in build/dev_fit_all.jsonl before its filter. That is model-selection exposure of the postings (different candidates and resumes, rules-made labels), not training: nothing was trained on dev-pool postings. The posting_in_dev_fit slice is reported.",
+  "cycle1_v2_cards": "build_fit_train extracted v2 cards for dev-pool postings in cycle 1 (111 of fresh test 3's postings); fresh test 3 does not read them, its cards are a new extraction with the same instruction",
+  "extractor": "the live v2 instruction (b2b2ed8e) predates the dev pool and is unchanged; extract_v3.py's 'fit' set listed every dev-pool posting but its chunks were only uploaded for a free estimate and never run",
+  "training": "checked at sealing (manifest disjointness): no fresh test 3 employer is in the train pool, in fresh test 1 or in fresh test 2; no posting is a near copy of a fresh test 1 or 2 posting; no posting text is found in train_fit.csv, train_fit2_bal.csv, train_fit2_nat.csv or dpo_pairs.csv (5 bodies too short to check)",
+  "sample": "150 postings were asked for; at a cap of 4 per employer the dev pool holds at most 137, and fresh test 1's teaser, adzuna and empty-body caps leave 112. The cap was kept over the count. Mix: {'teaser 1-699': 11, '3000+': 83, '1300-3000': 14, '700-1300': 1, 'empty': 3} by length, {'other': 16, 'lab_bio': 16, 'sales_ops': 16, 'software': 17, 'data': 16, 'health_nursing': 18, 'internship': 13} by field."
+ },
+ "credits": {
+  "spent": 10.0,
+  "cap": 12.0,
+  "balance_before": 76.0
+ }
+}

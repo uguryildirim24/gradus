@@ -1,0 +1,25 @@
+{
+ "n_gold": 592,
+ "gold_sha256": "eef1d5699056b982d09bcfa1e7550348a2b26a5f6a6ffe09aca6ea32309be572",
+ "raw_agreement": 0.8919,
+ "kappa": 0.7754,
+ "n_rows_both": 592,
+ "adjudicated_n": 64,
+ "adjudicator_sided_with": {
+  "A": 45,
+  "B": 17,
+  "neither": 2
+ },
+ "label_mix": {
+  "Keep": 57,
+  "Explore": 120,
+  "Skip": 415
+ },
+ "label_mix_eligibility_pass": {
+  "Keep": 52,
+  "Explore": 92,
+  "Skip": 200
+ },
+ "n_eligibility_pass": 344,
+ "missing_rows": []
+}

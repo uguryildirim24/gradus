@@ -1,0 +1,57 @@
+{
+ "what": "Amendment 6b: candidate C (the clarified-rubric relabel) and a control, B-colab, are trained on Google Colab with B's recipe, not on Adaption. Adaption credits are spent, so C is trained to see whether the idea works. B-colab is B's exact train_B.csv with B's recipe on the same Colab trainer: it separates the effect of the relabel (C vs B-colab) from the effect of the trainer (B-colab vs B).",
+ "status": "in force from this commit; the author's ask of 2026-10-22: \"train it on colab lets at least see how it is / fastest gpu\"",
+ "amends": {
+  "files": {
+   "eval/protocol_amendment_6.json": "aa8ab773af08835cb8778be881ccba1ec125f85cb9283aa812db49b4962dc9e1",
+   "eval/cutoffs_B_t1to4.json": "f000820ae730d9e2468911f6ef82f35709f0efbd93b65de7402e2369d7103777",
+   "eval/selection_cycle3.json": "17b6bdd3bda9855f9e0e4bb1708b07e8511c608bb5fb8ff9c0b71a66233deab5",
+   "eval/fresh_test5_manifest.json": "5977d1c55f45547b6bbfc1b10b10e0963ce22bf868252e6a3802a143e63d8c10",
+   "eval/fresh_test5_gold_manifest.json": "6d51f13af27b9ebe1b4e079b21b1f27d522eb369c5107dd093dc2d3c65a8fffb",
+   "eval/cycle3_train_csvs.json": "b4ee46c6309277b7127590d8a0db6c0c47545a813522cffc61f52a636599f001"
+  },
+  "parent_commit": "5690580",
+  "unchanged": "everything amendment 6 pins that this file does not change: test 5's postings, rows, gold and slices; the gold rubric (unclarified); the decider readout and amendment 5b's cut-off grid, floors and ties; H''_without_work_mode; the eligibility-pass slice; the two-way bootstrap (2,000 draws, numpy default_rng(20261022), one draw set per slice shared by every system); the bar (Keep-F1 lower bound above 0 and macro-F1 lower bound above -0.03, both against refit-B on the pass slice); scoring with colab_eval bf16 batch 1, one adapter per Colab L4 session; write-once eval/fresh_test5_result.json; the deadline Saturday 2026-10-24 12:00 ET."
+ },
+ "written_before": "any relabel batch, any C training label, any Colab training run, and any score of B, B-colab or C on fresh test 5. Nothing of test 5 has been scored by any model.",
+
+ "cannot_ship": "A Colab-trained model can't ship as the contest model: the contest model has to be trained on Adaption. If C passes the bar, the result says the relabel works and C needs an Adaption retrain (on train_C.csv with B's recipe) before it can replace B. A pass does not change what ships today; B (run B, Adaption) stays the shipped model until such a retrain exists and is scored.",
+
+ "D_dropped": "Candidate D (the Keep verifier) is not trained: it was an Adaption run and the credits are spent. Amendment 6's selection_on_dev therefore has one candidate; C goes to the bar without a dev pick (eval/selection_cycle4.json is not written). C's dev numbers are reported for the record.",
+
+ "C_labels": {
+  "departure_from_6": "Amendment 6 relabels all 4,102 rows the cycle-3 teacher labeled. 6b relabels only the 1,292 rows of train_B.csv labeled Keep (701) or Explore (591). The clarification can only make a label stricter (a requirement counts as unmet in more cases), so a Skip cannot move; the 1,394 Skip rows of train_B.csv stay Skip and the 1,416 band-dropped Skips of the 4,102 are not revisited.",
+  "labeler": "labeler A's setup: Claude Opus, effort medium, one label per row, through the Agent tool in blind batches (row_id, posting, resume, profile only; no old label, no card, no model output)",
+  "prompt": "labeler_prompt_test3 (sha256 4e0b9550...) verbatim, with one line added right after the three rubric bullets: \"- A required item the resume names but doesn't show doing is not met.\" sha256 of the clarified prompt: cc1ab478caaeb7bd34dea18325901fb7cb24c0aeb3a754e1f3fcb59008eafab8",
+  "batches": "the 1,292 row ids in seeded random order (random.Random(20261024)), 72 rows a batch -> data/built/fit/cycle3/relabel_C/batches/; labels -> relabel_C/labels/. A batch that comes back short is rerun once; a row still without a valid label keeps its train_B label and is listed.",
+  "gate_1": "one Claude Sonnet outside reader (effort high) grades 50 random relabeled rows (random.Random(20261024).sample of the relabeled ids) against the written rubric and the clarification line. More than 4 clear errors: the prompt is fixed (the fix recorded here in a follow-up commit) and the 1,292 rows are relabeled once more; the second relabel stands whatever its grade.",
+  "gate_2": "20 random rows whose label changed (all of them if fewer than 20) go to a review sheet for the author, kept outside the repo: posting and resume in short, old label, new label, one-line reason. Nothing waits on the author's reply.",
+  "completion": "build_fit_train2.careful_completion(label, reason). A row whose label changed gets the relabel's label and reason; a row whose label did not change keeps its train_B completion byte for byte, so C differs from B-colab only where a label moved (and in the system line below)."
+ },
+
+ "train_C": {
+  "rows": "train_B.csv's 2,686 rows in their order, with the new labels",
+  "band": "amendment 5's training_label_mix band (Keep 12-30%, Explore 22-40%, Skip 40-65%) with build_fit_train3.band_counts / downsample unchanged: downsample only, never relabel to fit; seed 20261024 (new, recorded); dropped ids recorded",
+  "prompt": "build_fit_train3.prompt_b with C's system: B's prompt_b_system (sha256 1d12b0d0...) + \"\\n\" + the clarification line; sha256 eb304433e80f6a71d43d5404cec86131f5094a32487472f4494ae8361c22cc9f (amendment 6: C's system is B's plus the clarification line). Same layout: the rubric at the top of the single user turn.",
+  "script": "scripts/build_fit_train_c.py -> data/built/fit/cycle3/relabel_C/train_C.csv, its report and eval/cycleC_train_csv.json (label file hashes, mix before and after the band)"
+ },
+
+ "colab_training": {
+  "runs": {"B-colab": "data/built/fit/cycle3/train_B.csv (sha256 117128cb..., md5 6fb0f861...), unchanged", "C": "train_C.csv"},
+  "recipe": "B's recipe (data/models/c3_eval/B/state_main_4b_B.json, RECIPES['h'] in train_main.py) translated to PEFT: LoRA r 16, alpha 32, dropout 0, no rslora, no DoRA, bias none, on the language model's q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj (the seven names in B's adapter_config; no vision module; 128 LoRA pairs, as merge_lora reported for B); base Qwen/Qwen3.5-4B in bfloat16; AdamW (torch, betas 0.9/0.999, eps 1e-8), weight decay 0, max grad norm 2.0; lr 2e-4, cosine with min_lr_ratio 0.1 (half a cycle), 4 warmup steps (ceil(0.05 x 63)); 3 epochs at 21 optimizer steps an epoch, 63 steps in all (B's trainer_state.json: 63 steps, lr 0 at step 1 rising to 2e-4 at step 5, 2.01e-5 at step 63). Adaption packed rows to its context; here each step takes ceil(N / 21) whole rows (128 for 2,686 rows) one at a time with gradient accumulation, and the loss is the mean over every completion token of the step's rows (the token mean a packed batch gives). Row order: a fresh shuffle each epoch from torch.Generator seeded 20261024. Gradient checkpointing on.",
+  "loss_and_framing": "completion-only loss (train_on_inputs False). Each row is framed exactly as local_eval.frame scores it: tokenizer.apply_chat_template([{role: user, content: prompt}], add_generation_prompt=True, enable_thinking=False), then the completion and <|im_end|> as the only trained tokens, the prompt and the completion tokenized separately so the first trained token is the label word's own token, as the scorer reads it.",
+  "eval_loss": "64 rows drawn with random.Random(20261024) from the 1,416 band-dropped Skip rows of the cycle-3 teacher's labels (never in train_B.csv or train_C.csv; Skip under both B and C, so the same targets for both runs), each in the run's own prompt format; eval loss at steps 21, 42 and 63. B's own eval loss came from about 3 rows Adaption held out; the two are not comparable, only B-colab's and C's are.",
+  "gpu": "The author asked for the fastest GPU for this training: H100 when Colab grants it, else A100 (an exception to the L4-only rule, for training only). Started through scripts/colab_guard_fast.sh (the external colab_guard.sh with A100/H100 allowed, the same colab_watchdog.sh: hard deadline, 20-minute stale heartbeat, three failed checks); a VM thread touches /content/heartbeat every minute. One model per session; the session is stopped when its adapter is down.",
+  "recorded": "GPU type, wall time, final train loss (mean of the last step), eval loss, the step log -> data/models/main_4b_c3/<tag>_colab_<stamp>.tar.gz (adapter_config.json, adapter_model.safetensors, train_log.json) and eval/colab_train_<tag>.json; archives also copied to oci-pi beside B's when oci-pi answers",
+  "scoring_hardware": "scoring stays as amendment 6 pins it: colab_eval.py, bf16, batch 1, one adapter per Colab L4 session"
+ },
+
+ "eval_inputs": "B-colab is scored on B's prompt files (B's format; the existing data/built/fit/eval_inputs/B/fresh_test{,2,3,4}.jsonl and a new fresh_test5.jsonl); C on its own format (C's system, otherwise byte-identical to B's files) on tests 1-5. Every prompt file is pinned in eval/fresh_test5_eval_inputs.json, committed before any inference of B, B-colab or C on test 5 and of C or B-colab on tests 1-4.",
+ "sessions": "three L4 sessions: B on test 5; B-colab on tests 1-5; C on tests 1-5. A test-5 score file that lands is not read until the dev cut-offs of B-colab and C are committed.",
+ "dev": "B-colab and C each get decider cut-offs fit on tests 1-4 pooled (2,539 rows, all rows, H''_without_work_mode) by fit_select_cycle3.fit_cutoffs as refit_cutoffs_t1to4.py calls it -> eval/cutoffs_Bcolab_C_t1to4.json, committed before test 5 is read.",
+ "test_5": {
+  "systems": "B (run B, shipped cut-offs 0.27310 / 0.58904), refit-B (run B, cut-offs 0.31315 / 0.58653), B-colab (own dev cut-offs), C (own dev cut-offs), each + H''_without_work_mode + decider; rules_full beside them. Base is not scored on test 5 (amendment 6 also_report lists it; dropped to keep to three sessions).",
+  "bar": "amendment 6's bar, C against refit-B, unchanged. B-colab is reported beside it with the same paired numbers against refit-B and against C, with no pass claim. The trainer effect is B-colab against B (refit-B).",
+  "report": "on the eligibility-pass slice: Keep-F1 (paired difference, two-way bootstrap lower bound), macro-F1 (non-inferiority at -0.03), Keep recall with found/gold, Keep precision, wrong-Keep count; the same on the A/B-agree subset; all rows beside -> eval/fresh_test5_result.json (+ .md), write-once, scored once"
+ }
+}

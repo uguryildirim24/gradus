@@ -1,0 +1,16 @@
+{
+  "amends": ["eval/protocol.json", "eval/protocol_amendment_1.json", "eval/protocol_amendment_2.json", "eval/protocol_amendment_3.json", "eval/protocol_amendment_3b.json"],
+  "decided_by": "the author, 2026-10-21",
+  "written_before": "any cycle-3 diagnostic score on fresh tests 1, 2 or 3 (h2n on tests 2 and 3, zero-shot rubric-prompted base models on tests 1-3)",
+  "practice_sets": {
+    "rule": "Fresh tests 1, 2 and 3 are practice sets for cycle 3: they may be used for diagnosis and for selecting the cycle-3 pick. Their recorded results (eval/fresh_test_result_v4.json, eval/fresh_test2_result.json, eval/fresh_test3_result.json) stand as written and are never rescored or overwritten.",
+    "never_trained_on": "No row, posting or employer from fresh tests 1, 2 or 3 enters any training file."
+  },
+  "judge": {
+    "rule": "The cycle-3 pick is judged once on a new sealed fresh test 4, built from postings the freeze reserved and no pool or test used, sealed and labeled by two blind labelers before any cycle-3 model is scored on it, under amendment 2's pass bar (beat both full rules and the untrained model + eligibility layer on eligibility-pass macro-F1, two-way bootstrap lower bound above 0). Test 4 is built to hold at least 40 gold Keeps on its eligibility-pass slice so the bar has power."
+  },
+  "diagnostics": {
+    "outputs": "data/models/diag_cycle3/ and eval/diag_cycle3*.json, never the write-once fresh*_result paths",
+    "list": ["h vs full-rules copy rate per test", "h2n on fresh tests 2 and 3", "rubric-prompted untrained Qwen3.5-4B and 9B zero-shot on fresh tests 1-3", "per-class logit offsets fit on one practice set, applied to the others", "eligibility-layer ablation (raw, full H', work authorization + enrollment only)"]
+  }
+}

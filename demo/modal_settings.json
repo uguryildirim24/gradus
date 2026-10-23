@@ -1,0 +1,14 @@
+{
+ "model": "main_4b_B",
+ "dtype": "bfloat16",
+ "gpu_mem_gib": 16,
+ "caps": {
+  "2026-10": 10,
+  "2026-11": 10
+ },
+ "cap_default": 15,
+ "cold_s": 420,
+ "rate": "8/600",
+ "video_url": "https://youtu.be/h3V7mkQGKT8",
+ "repo_url": "https://github.com/uguryildirim24/gradus"
+}

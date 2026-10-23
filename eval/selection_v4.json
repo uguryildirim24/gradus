@@ -1,0 +1,144 @@
+{
+ "what": "v4 model selection on data/built/fit/dev_fit.jsonl only (eval/protocol.json selection, eval/protocol_amendment_1.json tie-break). The fresh test was not scored or opened for this.",
+ "rule": {
+  "text": "The system TAG+H' with the higher macro-F1 on all 567 dev_fit rows; within 0.01 (|h - d3| <= 0.01) the incumbent d3 stays (amendment 1 selection.tie_break, since protocol.json's 'prefer the run without reasoning traces' cannot separate two runs that both have none).",
+  "metric": "macro-F1",
+  "tie_margin": 0.01,
+  "tie_break": "d3 (the incumbent), amendment 1",
+  "applied": "h+H' 0.8132 - d3+H' 0.7706 = 0.0426 > 0.01: the higher macro-F1 wins, the tie-break does not apply (it would have picked d3 inside the margin)"
+ },
+ "pick": "h",
+ "why": "higher macro-F1 by more than the tie margin (fit_eval_score.py dev)",
+ "dev_fit_all_rows": {
+  "n": 567,
+  "postings": 226,
+  "h+H'": {
+   "accuracy": [
+    0.8131,
+    0.7704,
+    0.8501
+   ],
+   "macro_f1": [
+    0.8132,
+    0.7694,
+    0.8495
+   ],
+   "unsafe_keep": 51
+  },
+  "d3+H'": {
+   "accuracy": [
+    0.7707,
+    0.7254,
+    0.8109
+   ],
+   "macro_f1": [
+    0.7706,
+    0.7242,
+    0.8103
+   ],
+   "unsafe_keep": 78
+  },
+  "d3+H' - h+H'": {
+   "macro_f1_diff": [
+    -0.0426,
+    -0.0765,
+    -0.0126
+   ],
+   "accuracy_diff": [
+    -0.0423,
+    -0.0757,
+    -0.0115
+   ],
+   "rows_d3_right_h_wrong": 17,
+   "rows_h_right_d3_wrong": 41
+  },
+  "intervals": "[point, 2.5th, 97.5th]; two-way bootstrap (postings, then rows), 2000 draws, seed 20261021"
+ },
+ "dev_fit_by_slice (reported, not for selection)": {
+  "eligibility_pass (n=462)": {
+   "h+H'": {
+    "accuracy": 0.7706,
+    "macro_f1": 0.7697
+   },
+   "d3+H'": {
+    "accuracy": 0.7251,
+    "macro_f1": 0.7193
+   },
+   "rules_skills_free": {
+    "accuracy": 0.7121,
+    "macro_f1": 0.6383
+   }
+  },
+  "source:twins (n=326)": {
+   "h+H'": {
+    "accuracy": 0.8712,
+    "macro_f1": 0.8707
+   },
+   "d3+H'": {
+    "accuracy": 0.8221,
+    "macro_f1": 0.8232
+   },
+   "rules_skills_free": {
+    "accuracy": 0.6687,
+    "macro_f1": 0.6427
+   }
+  },
+  "source:venator (n=222)": {
+   "h+H'": {
+    "accuracy": 0.7207,
+    "macro_f1": 0.7185
+   },
+   "d3+H'": {
+    "accuracy": 0.7297,
+    "macro_f1": 0.7199
+   },
+   "rules_skills_free": {
+    "accuracy": 0.8964,
+    "macro_f1": 0.9002
+   },
+   "d3+H' - h+H' macro_f1": [
+    0.0014,
+    -0.0453,
+    0.0469
+   ]
+  },
+  "source:teaser (n=19)": {
+   "h+H'": {
+    "accuracy": 0.8947,
+    "macro_f1": 0.5611
+   },
+   "d3+H'": {
+    "accuracy": 0.3684,
+    "macro_f1": 0.3864
+   },
+   "rules_skills_free": {
+    "accuracy": 0.8947,
+    "macro_f1": 0.5833
+   }
+  }
+ },
+ "caveats": [
+  "dev_fit was built by the same pipeline as h's training data (build_fit_train.py: hedged-wording twins, real venator postings, teasers, neutral_fill), so it favors h and is not evidence about generalization. Only the sealed fresh test speaks to that.",
+  "dev_fit gold is rules.label on each row's own card, so rules_full scores 1.0 here by construction and rules baselines are reported, not compared.",
+  "h's whole lead comes from the twins and teasers, the parts made by h's own training pipeline. On the 222 real venator postings h and d3 are level (macro-F1 0.7185 vs 0.7199) and both trail skills-free rules (0.9002) against this rules-made gold."
+ ],
+ "scoring": {
+  "model_label": "scripts/colab_eval.py: merged LoRA, bfloat16, batch 1 (--dtype bfloat16 --batch 1; RUN_CHOICE 'bfloat16 1' in both sessions), float32 label scores of Keep/Explore/Skip at the first answer token; fit_eval_score.py reads the label again (ties Skip, Explore, Keep) and checked every stored pred and row",
+  "prompts": "data/built/fit/eval_inputs/h/dev_fit.jsonl for h, data/built/fit/eval_inputs/d3/dev_fit.jsonl for d3 (byte-identical, pinned in eval/fit_eval_hashes.json)",
+  "archives": {
+   "h": "h_63659c74-57fd-4353-8a03-07bc11dc0fb6.tar.gz md5 34c7c3f9024f701aed4129dba7b6ad4a",
+   "d3": "d3_5be8d991-d02e-4293-bded-3d1374c55e7f.tar.gz md5 6167f578230326f5ff0569be1c87bf76"
+  },
+  "score_files (gitignored)": {
+   "h": "data/models/v4_eval/dev_fit/h_dev_fit.json sha256 2b6812fe0c0c88acf7ffdc9c9656dfd5f5832b31e5c2466d24691e3d1e6cde30 (per-row copy h.jsonl)",
+   "d3": "data/models/v4_eval/dev_fit/d3_dev_fit.json sha256 f085b7c8027e508ecad3330f74d982f2e0ef5fa7d5c1376dbd41daf33569cc6a (per-row copy d3.jsonl)",
+   "result": "data/models/main_4b/fit_eval/dev_fit.json sha256 d3d3e4d59ed59cf38f50686bdfe59f4f1009ffbd4a0e92f60ecfac1989a8ce16 (and dev_fit.md)"
+  },
+  "colab_sessions": {
+   "matcher-h-devfit": "h, L4, scored 567 rows at batch 1",
+   "matcher-d3-devfit": "d3, L4, lost its connection before the merge (colab exec timed out); stopped, nothing scored",
+   "matcher-d3-devfit2": "d3 again, L4, scored 567 rows at batch 1"
+  }
+ },
+ "next": "fit_eval_score.py fresh --score h=... --score d3=... --score base=... --chosen h, once, on the sealed fresh test"
+}

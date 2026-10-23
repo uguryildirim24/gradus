@@ -1,0 +1,1387 @@
+{
+ "what": "Sealed fresh test 5 (scripts/build_fresh_test.py --set 5, eval/protocol_amendment_6.json, the FALLBACK design): 300 round-2 Simplify ATS postings with their existing Adaption v2 cards, the post-8c6bac5 candidate builder with the Keep-leaning design the amendment declares, resumes written by Claude Sonnet through the same writer instruction, gates and retries as test 4, seed 20261022, row ids f5_... Not gold: no row carries a label; gold comes from blind labelers A and B and the adjudicator reading the label batches.",
+ "seed": 20261022,
+ "row_id_prefix": "f5_",
+ "credit_cap": 0.0,
+ "decided_by": "eval/protocol_amendment_6.json (709da4a + a8e6dfd) and the author's decisions of 2026-10-22: zero Adaption credits, Sonnet writer, 300 postings at most 7 per employer, 4 candidates a posting, refit-B as the bar's comparator",
+ "sample": {
+  "rule": "load_round2 (amendment 6 fresh_test_5.postings.filter) then cmd_sample_round2 (its draw): sorted ids, random.Random(20261022).shuffle, walk taking a posting unless its company_key already has 7; the first 300 taken",
+  "pool_filter": {
+   "round2_postings": 1664,
+   "by_source_set": {
+    "real_test": 86,
+    "real_train train": 1413,
+    "real_train dev": 165
+   },
+   "dropped_by_amendment6": [
+    "ats_079b70ee-8105-46b4-9163-319c8610f157",
+    "ats_0c0c50f3-9bb4-4e00-9b44-a6ec64006ebb",
+    "ats_11e12aaa-6e95-477a-a2ef-b0995c36edee",
+    "ats_12a95e7d-c62e-4b8c-b8ff-491b854e7a20",
+    "ats_1da785e9-2186-4432-8764-fe77d2edf0dc",
+    "ats_27460c05-e022-499c-bcc8-2783559d2639",
+    "ats_302e6ed8-0e34-4d81-bd75-93f9c018883c",
+    "ats_3c5615c3-8831-41c5-8668-b6072cfc338c",
+    "ats_3c6dc4c7-bd24-4215-a600-0d55a3952673",
+    "ats_46c77ff4-d626-47a9-bdb5-d46938c07a50",
+    "ats_5012230e-2a8b-4047-80ec-4b7c9ecbf427",
+    "ats_5a08979e-7e9a-404e-8ff7-08e9387be038",
+    "ats_61029f11-ef86-4f8a-bf15-92d10b7cf4dc",
+    "ats_6e4f094f-682c-4e8f-b9a8-f1ee44c201d3",
+    "ats_75d3af44-afc1-48c6-a0ac-5a69ec3e6694",
+    "ats_7a1c6145-534b-4180-a87b-447e2edd9c8f",
+    "ats_80bdfcf1-83d4-4181-ac07-1b85ab062845",
+    "ats_811210da-553e-4d37-b262-9897450dc43d",
+    "ats_90912950-0238-4415-ada4-c22d0cbd6ae8",
+    "ats_914d1c0b-d8fa-4b99-acb4-a54d4c96b960",
+    "ats_97071ed7-a906-402b-b755-8a9a9f9968c7",
+    "ats_9eef895c-2727-4ebb-92bc-fda2b10c3d34",
+    "ats_a4493c94-033c-44ce-ae50-4d4e92ed5dda",
+    "ats_a980e8b0-12fe-45eb-9fa2-697b990375e7",
+    "ats_bb1db447-a460-4fc9-882b-74f577a14cdb",
+    "ats_c3266d6e-c488-4eef-899d-7b513296dd3b",
+    "ats_caf607e7-c4db-41eb-b84a-606fa07f4ae6",
+    "ats_d25191cb-2a6a-41b6-aebd-15d609a98d7b",
+    "ats_d758e83a-11e4-44be-9758-0accaa82c352",
+    "ats_dc2aebf1-8c3c-4139-937e-f31dfd69950e",
+    "ats_fb5852a4-7dd6-4402-9294-65ab39f88f85",
+    "ats_fb864212-d3c0-4051-9019-29f9bcfde6ac"
+   ],
+   "dropped_ids_not_in_pool": [],
+   "after_drop": 1632,
+   "same_employer_and_title_after_the_first": 68,
+   "not_english": [],
+   "kept": 1564,
+   "kept_employers": 669
+  },
+  "walk_file": "data/built/fresh_test5/sample_walk.json (the whole walk, for amendment 6 size.extension: the next 50 postings are walk[300:350], then walk[350:400], ...)",
+  "walk_length": 1397,
+  "next_extension_block": [
+   "ats_bff4510b-7399-4839-ba08-b08b5f2b5538",
+   "ats_279f47da-651d-4b99-be89-f25aaa8768d1",
+   "ats_5f76de18-3bc1-48e2-9d35-24e631bfd2a3",
+   "ats_61953270-c6b4-4f92-91af-e17b940e3337",
+   "ats_77211b06-6ffe-4b46-8946-ff7bd084bf71",
+   "ats_85dc62c3-ab71-4f8c-9c0b-8ec92bf2dc40",
+   "ats_c671ab74-606e-409b-a6c6-dabe7d21c602",
+   "ats_acafb8f1-75b4-44f1-8450-4628ddf3b8a1",
+   "ats_8db764f7-caf2-46e5-88d8-976776e63ec3",
+   "ats_c82530ca-dbef-4fab-9d6f-c3146e43aeb8",
+   "ats_d685084b-bb19-44ee-94e2-9dc27f4ae170",
+   "ats_aa69d095-c407-4d41-bd13-43bf2ad85ee3",
+   "ats_15263e7f-505d-493b-9a92-35719d51ed83",
+   "ats_c5f567d9-027e-4207-b6d3-80f5a9566861",
+   "ats_0a9ce9b7-d5b8-4236-b53e-9b0f85df728c",
+   "ats_afb133d1-e91b-4a67-adc8-c99f849a84fd",
+   "ats_e7f4bf5f-d2db-4cf1-a052-81c57b0543b1",
+   "ats_9cb9b3d0-14d5-47cb-bd55-ce2ce7c5213e",
+   "ats_51e1a2e8-b6b0-42e0-918a-e363a43db4bf",
+   "ats_93fa34ac-b6d0-4b02-87d8-5c14b2deb4a9",
+   "ats_1094515c-ca9a-4ee1-8d5e-33f55799ef37",
+   "ats_82d2f53d-fc5f-477d-bbfa-42b2f0710605",
+   "ats_877a9341-f1cf-4811-b50f-994e93d1791e",
+   "ats_0d13979f-34e6-4863-983f-b931e8619e05",
+   "ats_ab954d87-227f-493a-937e-9b6bc2c9ce33",
+   "ats_e6fe2e61-3900-434b-b4ba-4dd51b2556b8",
+   "ats_a9777bd4-5efc-4a60-a627-f2e6cfabbfcf",
+   "ats_baa8b8d6-449c-418e-a848-559939c61d8f",
+   "ats_40b99c31-78d9-4ae9-aff3-a7c300843b1c",
+   "ats_02e5128c-f9d6-4224-9ba7-5ab3d06f1352",
+   "ats_5de3980e-8b11-479f-b78e-cce6b70957b5",
+   "ats_948a7229-20bf-4220-9876-ec5879966d9c",
+   "ats_5e14584d-3148-449a-b903-28b77771e883",
+   "ats_a7b8dfdb-0651-46f0-ba4c-8a3bbba87010",
+   "ats_ca96c441-d218-4a8a-b6f6-a035b101c51b",
+   "ats_96540543-955c-4dd4-a9ab-4382147f9d78",
+   "ats_f57bb086-aa5d-4b27-be0c-45e482f63cc5",
+   "ats_2149ec11-ebea-44e9-95ff-a9ef69ecacdf",
+   "ats_5b4ae178-0df3-49c7-af71-0631e6c99728",
+   "ats_85ec31e6-4d3a-497b-b455-039741edf4df",
+   "ats_423e3f73-e0d9-47d9-be9e-94bff6e4c579",
+   "ats_e5c8303e-444a-4707-bf65-53bb4b87042b",
+   "ats_deb8d6fe-4590-448f-b1b0-387c585b3b65",
+   "ats_f865648f-b814-4503-ba7b-112c3f3fe9f1",
+   "ats_f3ce0494-256c-4884-acf3-f8db79e4216d",
+   "ats_b9ca24ba-2e7c-4a91-9c5e-af511017a2e2",
+   "ats_aea50023-bfc4-4203-a4d7-f3decbe8ebd6",
+   "ats_63e35d52-59ef-41f5-9562-df62a222e103",
+   "ats_288b98cb-c28a-4749-b863-533bf90afd67",
+   "ats_db9b14b4-2c6f-4ea8-baf5-b481e71a3635"
+  ],
+  "employers": 222,
+  "max_per_employer": 7,
+  "employers_at_cap": [
+   "astera labs"
+  ],
+  "source_set_mix": {
+   "postings": {
+    "real_train train": 255,
+    "real_train dev": 31,
+    "real_test": 14
+   },
+   "rows": {
+    "real_train train": 1007,
+    "real_train dev": 124,
+    "real_test": 56
+   }
+  },
+  "category_mix": {
+   "Software": 98,
+   "AI/ML/Data": 117,
+   "Hardware": 52,
+   "Product": 15,
+   "Quant": 18
+  },
+  "field_note": "every posting is a tech internship, co-op or new-grad listing (Simplify categories above); fit_pools.field_of puts most in 'internship' and kit_of picks the candidate field from the title, so the field mix is narrower than test 4's, as the amendment expected"
+ },
+ "candidate_design": {
+  "per_posting": 4,
+  "pass_rate": 0.75,
+  "arch_w_near_gap_strong": [
+   0.3,
+   0.3,
+   0.4
+  ],
+  "why": "amendment 6 candidates.design: Keep-leaning by design, declared before the build (the c3train setting); test 4 used pass_rate 0.58 and 0.4/0.4/0.2",
+  "target_pass_but_fail_work_mode_only": 221,
+  "skill_vocab_coupling": {
+   "what": "skill_vocab() reads every v2 card in data/built/cards/extracted_real_cards_v2.jsonl, whose docstring says training-side postings only; test 5's postings are in that file, so for the first time the vocabulary that finds skill mentions in a test posting includes that posting's own card. Kept unchanged (amendment 6: the sampler is the existing one; dropping the test cards would also change the first 300 postings' candidates whenever an extension block is added).",
+   "measured_before_render": "with the 300 test postings' cards left out of the vocabulary, 172 of 300 postings get a different mention list (3,050 -> 2,835 mentions), and the candidates meet 34.7% of their card's must_skills groups instead of 36.0% (strong 51.8% vs 53.9%, near 47.8% both, gap 29.2% vs 31.2%, off 1.6% both): a small free ride for rules_full, which reads the card"
+  }
+ },
+ "writer_sonnet": {
+  "who": "Claude Sonnet via the Agent tool (model sonnet, effort medium), one agent per chunk of at most 24 candidates, no two candidates of one posting in a chunk; Adaption wrote every earlier test's resumes, so this is the amendment's one known style shift",
+  "instruction": "WRITER_UNIVERSAL + blank line + WRITER_BLUEPRINT, unchanged since test 4 (sha1[:12] of the two concatenated, as test 4's manifest records it: da56452953c7)",
+  "instruction_file_sha256": "c3af81f46c5db8670b57986edc33866ec093aa33fe8f3bbf2f60df754236171c",
+  "harness": "You write resumes for a test set. Read {prompt} first: it is your whole instruction for every resume. Then read {chunk}: one JSON object per line, each with a row_id and a context (the facts of one person). For each line, write that person's resume by following the instruction with that line's context as the context, and save it with the Write tool as {out}/<row_id>.txt, holding the resume text only. Write each resume yourself, one at a time, from its own context alone; don't write or run code to produce them. Write each once and move on: don't check it against a list of rules afterwards and don't rewrite it after saving. Don't open, search or list any other file. When every row has its file, reply with the number of files written.",
+  "harness_sha256": "02a6f682a4ebfb9027648918e1c481776e311c7e15bf9e246be80931207d0efd",
+  "context": "writer_context(r) per candidate, with fix_from_last_try (the gate's feedback) on a retry; the writer sees no posting text and no label",
+  "batches": [
+   {
+    "name": "sonnet_0",
+    "n": 1200,
+    "retries": 0,
+    "stage": "data/writer_stage/fresh_test5/sonnet_0",
+    "returned": 1200,
+    "missing": []
+   },
+   {
+    "name": "sonnet_1",
+    "n": 279,
+    "retries": 279,
+    "stage": "data/writer_stage/fresh_test5/sonnet_1",
+    "returned": 279,
+    "missing": []
+   },
+   {
+    "name": "sonnet_2",
+    "n": 26,
+    "retries": 26,
+    "stage": "data/writer_stage/fresh_test5/sonnet_2",
+    "returned": 26,
+    "missing": []
+   }
+  ],
+  "tries_by_try_number": {
+   "sent": {
+    "1": 1200,
+    "2": 279,
+    "3": 26
+   },
+   "passed": {
+    "1": 921,
+    "2": 253,
+    "3": 13
+   }
+  },
+  "pass_counts_vs_test4": {
+   "test5": {
+    "first_try": 921,
+    "second_try": 253,
+    "third_try": 13,
+    "no_resume": 13,
+    "candidates": 1200
+   },
+   "test4": {
+    "first_try": 910,
+    "second_try": 216,
+    "third_try": 13,
+    "source": "eval/fresh_test4_manifest.json writer.tries (kept resumes by tries)"
+   }
+  },
+  "staging": "data/writer_stage/fresh_test5/ (chunks, agent prompts and every saved file; hashed in eval/fresh_test5_data_hashes.json)"
+ },
+ "freshness": {
+  "postings_in_fresh_tests_1_4": [],
+  "postings_in_cycle3_rows": [],
+  "postings_dropped_by_amendment6_overlap_rule": [],
+  "training_text": {
+   "rule": "Postings whose text sits in a training file: three 12-word windows (at 25%, 50% and 75% of the normalized body) ...",
+   "files": [
+    "data/built/fit/train_fit.csv",
+    "data/built/fit/train_fit2_bal.csv",
+    "data/built/fit/train_fit2_nat.csv",
+    "data/built/fit/dpo_pairs.csv",
+    "data/built/fit/cycle3/train_B.csv"
+   ],
+   "checked": 300,
+   "too_short_to_check": 0,
+   "hits": [
+    "ats_02902ce1-e453-4b13-95d6-e35d14fa4d60",
+    "ats_0421e841-beed-4315-83cf-cbc7ffc68617",
+    "ats_0f457023-4491-454a-bc5c-fc8ea237a9a1",
+    "ats_14448cc0-3d1c-4951-95e8-357816e7a042",
+    "ats_1c799f05-b926-4be3-ae23-debd91b8eabf",
+    "ats_202659ad-f0b5-439c-b21e-caa711b9c30d",
+    "ats_27a6ad01-fe1e-43d5-b073-0910ba54f479",
+    "ats_2d557827-15c8-4aae-b17a-37a7ad82b3ec",
+    "ats_2e670f26-fa85-4586-a044-ad138d073cf3",
+    "ats_2e7d1060-d8d6-45d0-8cbc-f5502d8eea8b",
+    "ats_335f80f5-c466-4364-a041-7daa9748daa0",
+    "ats_39cb839f-d71d-445f-8fc1-2f4c28012af9",
+    "ats_50499486-6332-4938-96b5-b56eb16e464d",
+    "ats_5292f2d8-70e9-44a6-a50e-aea6724dfacd",
+    "ats_60dfdc9e-b8e3-49d2-81b6-1e7cd70c9881",
+    "ats_6e6b023d-cf2b-4a85-8f77-ea385c38f3b3",
+    "ats_b07a5da6-2c9f-4bf1-bf90-18ffff8232ae",
+    "ats_c9792cfd-c5b4-4224-b707-ce3b840830f4",
+    "ats_dd9872ea-6a55-4724-9b58-908b225567fd",
+    "ats_eac8db70-c9b5-4336-aacd-473e34b2745d",
+    "ats_eee7ad08-5a09-4e71-82b2-3eefe1615b80"
+   ],
+   "one_window_found": [
+    "ats_048e3990-3499-4699-a3be-ba3a3f66aaa5",
+    "ats_079e1669-46b8-488f-8297-f7c139a745ec",
+    "ats_0a084a9e-73e3-46c7-8b55-599df5f82308",
+    "ats_1422b495-5c4c-4cc4-9cb0-74b93a01f75e",
+    "ats_1535643d-2ad1-4c13-bd66-f7ad6cb1ee9d",
+    "ats_348b5edc-892b-42e5-8da3-5eaf1dc12c7a",
+    "ats_3975a833-570a-4c3b-bbe6-af2ed466f0f7",
+    "ats_3d2ef8a9-a5da-4120-9c53-50ceec3023cd",
+    "ats_3ee40ac5-c7d1-4fcc-92ae-6bbd4a5346a0",
+    "ats_3fbac32a-0281-41ae-95c5-95556d462395",
+    "ats_40a73eb1-1878-4203-a116-82e2ad5c39c2",
+    "ats_4c2e5fe2-a3e6-4d00-ac53-11343dc121dc",
+    "ats_4db14536-35df-4c54-a441-ac5bd7b8253f",
+    "ats_635bf0d1-e3cb-4d15-98d1-86f3a5f11691",
+    "ats_688fb9b4-365c-4e25-b93a-9c4d8abb8f59",
+    "ats_72a95a86-9b4f-436c-b408-21eafc8a80fb",
+    "ats_8361ff2b-f33d-4bba-ba6a-756c0fda60f4",
+    "ats_ac408c9b-551b-4f57-aae2-3f7efade1def",
+    "ats_b6d8ec76-80b9-4666-8292-eba8abebdca5",
+    "ats_bcf5b326-6a1f-42e1-b189-3d314b84fc8d",
+    "ats_c2a0262e-8fac-4306-9c0f-0ef0424bb16a",
+    "ats_c5d99aec-a24e-48a7-a680-3954ba770c54",
+    "ats_ca83c527-3aa7-4bc1-b842-d5e57efca6dd",
+    "ats_cd3e7aeb-84d9-4069-aa81-e1afa527a3d0",
+    "ats_d2c8d6aa-577e-4c0d-8edc-a385f1d6ad60",
+    "ats_db477b31-3358-44a9-85b7-9c1740e035fe"
+   ]
+  },
+  "training_text_hits_in_B_training": [
+   "ats_14448cc0-3d1c-4951-95e8-357816e7a042",
+   "ats_1c799f05-b926-4be3-ae23-debd91b8eabf"
+  ],
+  "training_text_note": "train_fit.csv, train_fit2_*.csv and dpo_pairs.csv hold round-2 real_train rows (cycle 1-2 runs h and d3; amendment 6: never B, C or D), so their hits are these postings' own round-2 rows. In B's train_B.csv the two hits (Moderna, Regeneron) match on employer boilerplate (benefits and equal-opportunity paragraphs) shared with other postings of the same employers; the amendment's overlap rule found no near copy of either, and employer overlap with B's training is allowed and reported (amendment 6 employer_overlap_kept)"
+ },
+ "title_copies": {
+  "rule": "fit_eval_score.title_in_resume (the posting's exact title in the resume)",
+  "rows": 3
+ },
+ "pool": {
+  "file": "data/raw/ats/postings.jsonl (the postings behind data/built/real_test/test.jsonl and data/built/real_train/{train,dev}.jsonl), filtered by load_round2",
+  "kept": 1564,
+  "walk_length": 1397,
+  "sha256 sorted walk ids": "0d8dca9bcbbb3c2e492bff71c69e23ae00c8e06aa8bd09932e3a0ed7b35acb47"
+ },
+ "n_rows": 1187,
+ "n_postings": 300,
+ "dropped_candidates_without_resume": [
+  "f5_2e759b1e8c",
+  "f5_504d300e45",
+  "f5_1030eb3a5e",
+  "f5_a71011c25a",
+  "f5_0682f2f3ca",
+  "f5_711311e88e",
+  "f5_0a96e16c11",
+  "f5_f201761ff7",
+  "f5_81d9583e02",
+  "f5_85c81a7592",
+  "f5_3ec76cc547",
+  "f5_e0f6483a62",
+  "f5_c39ef7ac1a"
+ ],
+ "sample_excluded": [
+  {
+   "posting_id": "ats_079b70ee-8105-46b4-9163-319c8610f157",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_0c0c50f3-9bb4-4e00-9b44-a6ec64006ebb",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_11e12aaa-6e95-477a-a2ef-b0995c36edee",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_12a95e7d-c62e-4b8c-b8ff-491b854e7a20",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_1da785e9-2186-4432-8764-fe77d2edf0dc",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_27460c05-e022-499c-bcc8-2783559d2639",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_302e6ed8-0e34-4d81-bd75-93f9c018883c",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_3c5615c3-8831-41c5-8668-b6072cfc338c",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_3c6dc4c7-bd24-4215-a600-0d55a3952673",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_46c77ff4-d626-47a9-bdb5-d46938c07a50",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_5012230e-2a8b-4047-80ec-4b7c9ecbf427",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_5a08979e-7e9a-404e-8ff7-08e9387be038",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_61029f11-ef86-4f8a-bf15-92d10b7cf4dc",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_6e4f094f-682c-4e8f-b9a8-f1ee44c201d3",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_75d3af44-afc1-48c6-a0ac-5a69ec3e6694",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_7a1c6145-534b-4180-a87b-447e2edd9c8f",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_80bdfcf1-83d4-4181-ac07-1b85ab062845",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_811210da-553e-4d37-b262-9897450dc43d",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_90912950-0238-4415-ada4-c22d0cbd6ae8",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_914d1c0b-d8fa-4b99-acb4-a54d4c96b960",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_97071ed7-a906-402b-b755-8a9a9f9968c7",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_9eef895c-2727-4ebb-92bc-fda2b10c3d34",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_a4493c94-033c-44ce-ae50-4d4e92ed5dda",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_a980e8b0-12fe-45eb-9fa2-697b990375e7",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_bb1db447-a460-4fc9-882b-74f577a14cdb",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_c3266d6e-c488-4eef-899d-7b513296dd3b",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_caf607e7-c4db-41eb-b84a-606fa07f4ae6",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_d25191cb-2a6a-41b6-aebd-15d609a98d7b",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_d758e83a-11e4-44be-9758-0accaa82c352",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_dc2aebf1-8c3c-4139-937e-f31dfd69950e",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_fb5852a4-7dd6-4402-9294-65ab39f88f85",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_fb864212-d3c0-4051-9019-29f9bcfde6ac",
+   "why": "dropped by amendment 6 (overlap_rule)"
+  },
+  {
+   "posting_id": "ats_01d46802-0616-4267-b69b-e69902565213",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_18eeb2a6-97b5-4ca5-9d64-d93fadcd08be",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_1d8b7a9a-aad7-445b-8465-b11074c1fc87",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_2426eed2-a847-4eb5-b42b-1e4063ee6925",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_259c0c7d-c60b-40ad-936e-d5aef95bbb9f",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_285be14e-467c-40bd-9e7d-e1efeee8735f",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_2a5121b2-8df8-49ee-aef9-5b192735c687",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_3db02834-f359-4a02-bf1b-c607d90870af",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_3e6f921b-67f9-4456-8fb9-b304590094b6",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_463d369a-081e-447b-9b9b-02cc6a0c5f79",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_46bc2309-eff6-49b8-b663-051d87560282",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_4ade01ff-90f7-40e7-88aa-1756bc4d6de1",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_4f6c38aa-af24-4222-9bc8-745ccd365dc1",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_50be2257-187c-46a4-aedc-d35d1f37a185",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_5d2cc0a7-797d-469c-8dd8-e309a7441bca",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_68de8d45-6bcd-4d34-8968-744de9a30443",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_6fa663cd-1579-4517-8525-ab4243d205b9",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_7041f2db-7b76-4047-a3f8-ffe4cfe4d262",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_704ba07f-0e70-41ce-a17e-face649ad4bc",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_721b1502-72bd-47a9-91c2-a71011c5fd1c",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_78445aa7-00e0-40b9-b4f6-4c249ce90536",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_83d4cf50-e633-4931-8fc1-41da357001f2",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_843fba41-132c-404a-8b80-8c1564b35d52",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_861dcad9-ed8f-4469-9f30-7137335a4cda",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_880f0ef0-3511-45a5-9803-3af2a5868a27",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_88d4e38d-d6d5-4550-8ea8-651074023cd3",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_8ba55980-bb00-4f5d-8d2a-4b40243aa2ac",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_8c3ef60f-82b8-40a0-a8af-f49d57750b6c",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_92e9545b-71c8-4dda-aea6-8cfaf7374068",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_9da555c8-ebe4-4b2e-b4e9-21621068b88c",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_9e38ba0d-ec3d-410d-9e74-03cba82dd023",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_9f746496-421c-4ac5-8ac4-b19297427cfc",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_a0358dcb-290b-456b-9030-f8045f0283d5",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_a19e6481-79f8-4c12-b497-9d6b4566b45d",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_ace29758-682c-4ca7-bf84-bdf2bcee9fbe",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_b0a16fef-11b5-41ac-9847-3b4ac324f5b7",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_b47a3a87-7204-4961-8b3a-3948d35aaa61",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_b854fca7-7546-478f-937b-a76b8dbbddae",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_b94cf7ed-2647-428d-9383-72fe99c67ec8",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_bb8a4664-4f0f-425c-bdb0-8c200228a024",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_bbaa19f4-71a8-4f61-a652-4fe6c534ef4b",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_bbe59360-d6e5-4189-9126-da097b9c93c6",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_bdb92677-9bd1-4327-b0ca-c988ff0e1d31",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_be949df0-0657-4f39-b1f3-e45962a3eee3",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_c14572f8-b00e-4e62-8392-acc04ab71fb7",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_c30c5453-329a-4adc-809f-dccac3c13b29",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_c44d5bae-3113-405a-844d-b54205f48458",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_c4745709-5fa9-4f56-b6f8-9e2f7d7a0cb3",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_cfcaab3a-1ece-4f3d-80ca-21da950ffc74",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_d042c4df-d400-4412-8a8f-e088dca5e104",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_d7b507c0-bb45-40b2-97e2-575198d7b5c7",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_da1074aa-7344-4ad3-9b53-078f1dbd2edc",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_dd774f3a-91d2-4b8d-88b9-3ce86360a893",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_df0f68d2-dead-4fe2-ba77-790f8c0dd3fa",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_e3f3f004-23e7-439a-ab30-792358e16b7f",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_e594a5ce-1e2e-4e72-97df-2dfbaee88a0e",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_ebfbd4aa-1575-4433-ae61-19d71eac1f5d",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_ee38a5ce-789c-4457-92fc-8400e8b038bc",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_efd0e820-6a88-4cc7-9218-b062cf7cf141",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_efda5b68-f0b9-4264-a302-c0a1b654d7ec",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_f059bcac-24f2-41a0-981e-d2d3df6ed71d",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_f314730e-f20b-4616-a2f5-0a38cc3aed0b",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_f7a343c9-18df-466d-8819-4a97f323bf5c",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_f81a1952-cfe8-4ceb-9c7e-652848972c6f",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_fade2ce4-29a2-4feb-8f0f-e050190a4332",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_fb99fc9f-da10-4a0c-9d4c-565dd66138c8",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_fc36587f-acf4-428e-a61f-aab42b07540c",
+   "why": "same employer key and title as an earlier id"
+  },
+  {
+   "posting_id": "ats_ff059d9c-66eb-461f-8f3f-dce895cbbcff",
+   "why": "same employer key and title as an earlier id"
+  }
+ ],
+ "posting_ids": [
+  "ats_005ce970-8e7b-41e0-9e62-2f26655f9748",
+  "ats_01effa4f-a101-46d3-ae7c-516e03b8b401",
+  "ats_02902ce1-e453-4b13-95d6-e35d14fa4d60",
+  "ats_0421e841-beed-4315-83cf-cbc7ffc68617",
+  "ats_048e3990-3499-4699-a3be-ba3a3f66aaa5",
+  "ats_04c61af9-3fff-42ea-b8cb-7e2f17ca3778",
+  "ats_05ffbfcd-fa0b-4650-baa4-19048fcad9d7",
+  "ats_062bdbce-e91d-4a7c-aeac-138825e5c279",
+  "ats_06ba6a6e-e713-450a-b464-1f3ebcc67afc",
+  "ats_06f8582b-d2e1-4928-8269-999eb07e3aa1",
+  "ats_079e1669-46b8-488f-8297-f7c139a745ec",
+  "ats_0851431c-8006-418d-ad5e-f304128900fc",
+  "ats_099a34f8-de36-4008-b851-c1546eb7f942",
+  "ats_0a084a9e-73e3-46c7-8b55-599df5f82308",
+  "ats_0f457023-4491-454a-bc5c-fc8ea237a9a1",
+  "ats_0f474509-a4fe-4afd-a3b2-875ee4689df0",
+  "ats_118adc1e-4c91-45e1-8654-5297c47e9a9c",
+  "ats_125bd988-6772-4728-ae9c-d0c5bc2562d3",
+  "ats_127d880c-e16b-43e4-b4b6-c0788fbe90ae",
+  "ats_13bbc7c4-2a80-4fd9-a89b-51601d50188c",
+  "ats_1422b495-5c4c-4cc4-9cb0-74b93a01f75e",
+  "ats_14448cc0-3d1c-4951-95e8-357816e7a042",
+  "ats_14baa8ae-f151-483f-b5e0-77ca5086d04e",
+  "ats_1535643d-2ad1-4c13-bd66-f7ad6cb1ee9d",
+  "ats_155087e9-02c4-4e9c-af43-3d7e5a3a6091",
+  "ats_15636fe2-413f-4e5d-b6c9-0d42dc5edc5f",
+  "ats_1563ef12-a5a1-4ab1-ad3f-d08d9b9a46f1",
+  "ats_1612b1ec-0741-41c1-b8d3-31f1060dc2aa",
+  "ats_185284ab-d314-416c-8a28-44c6b1938920",
+  "ats_1a70f3d5-9b7c-4830-81a5-6da2c80e7c16",
+  "ats_1b670e5e-9edc-4255-93f8-5fdac2fb70ac",
+  "ats_1c799f05-b926-4be3-ae23-debd91b8eabf",
+  "ats_1ce187ae-c250-4b22-8bee-28e3422d6cba",
+  "ats_1d644e49-57ad-45aa-99f8-3aac7bdaa0ce",
+  "ats_1d82f46c-320d-4eeb-96d2-61189afaa8f6",
+  "ats_1dba15c8-8b9b-480b-9237-6a5a7bf57e11",
+  "ats_1e295cb0-851c-4444-95da-daa70198fa7d",
+  "ats_1e725c82-1935-4693-9438-52143ad5e19b",
+  "ats_1ee79857-d633-45a7-8e77-d969ec16837d",
+  "ats_1fd32548-9b70-43de-815b-740a8ac20359",
+  "ats_202659ad-f0b5-439c-b21e-caa711b9c30d",
+  "ats_206b933c-d14d-4bf7-952c-895af8edc9ac",
+  "ats_20aa7ab0-ffba-4efb-abf1-15d3064172be",
+  "ats_229eef02-3f6a-438c-8418-e238047cac56",
+  "ats_23d6cc2e-855b-4458-a689-002cda7f4705",
+  "ats_240adc3d-e80f-42bc-9a7b-559c2acdc5f5",
+  "ats_2470b381-61c4-4e0a-9a0b-dcc58f4956bd",
+  "ats_26d85102-d4c6-4131-967f-0fa32de9c7a9",
+  "ats_27282ffa-070f-4079-bf3e-b159fa097600",
+  "ats_27a6ad01-fe1e-43d5-b073-0910ba54f479",
+  "ats_29572b77-0c6f-4521-84e8-0931fe20e8e4",
+  "ats_297cab20-afc1-4907-a0ac-266c5647d2c4",
+  "ats_2a0b4fae-5de5-4ba8-b55d-c4bba930145b",
+  "ats_2a2027ea-3805-4463-8106-17eb9c36472c",
+  "ats_2b427c48-848f-4f28-b666-9136b44ba757",
+  "ats_2be561b9-160a-48ef-bd5b-6428e001f402",
+  "ats_2d557827-15c8-4aae-b17a-37a7ad82b3ec",
+  "ats_2d95aab9-745c-4250-bdfc-eeba0eae5b63",
+  "ats_2e00548b-f99d-4989-8242-5b661ea5f91b",
+  "ats_2e092fdb-ec46-491f-a0b4-0730b3e3d0d7",
+  "ats_2e670f26-fa85-4586-a044-ad138d073cf3",
+  "ats_2e6978bb-ece5-4ba5-9ed6-b6b11bed2627",
+  "ats_2e7d1060-d8d6-45d0-8cbc-f5502d8eea8b",
+  "ats_307d782e-1cab-4427-88d5-99b15f53f3f7",
+  "ats_3170bd08-be46-4758-93fa-a6d1157147c3",
+  "ats_3317833d-ccb8-4a20-b49c-8ff24b724fdf",
+  "ats_335f80f5-c466-4364-a041-7daa9748daa0",
+  "ats_339959f8-3cdc-4c3f-bd22-07c25e9b0ab0",
+  "ats_33b81d4d-2080-4016-b2af-33d8a690356f",
+  "ats_33bbbdb3-7bf2-4ddd-90dc-200d4e2d8f82",
+  "ats_33de0b71-35eb-43c8-b0c6-c35c088c8ddf",
+  "ats_348b5edc-892b-42e5-8da3-5eaf1dc12c7a",
+  "ats_35dd8e24-1c88-4e4b-8ba3-f9b9be169b31",
+  "ats_35f89fc9-30ca-497a-a6a0-ed005cf0e2af",
+  "ats_37bb29c7-328f-43fb-aaef-fd5fc8f0355d",
+  "ats_3975a833-570a-4c3b-bbe6-af2ed466f0f7",
+  "ats_39cb839f-d71d-445f-8fc1-2f4c28012af9",
+  "ats_3d2ef8a9-a5da-4120-9c53-50ceec3023cd",
+  "ats_3ee40ac5-c7d1-4fcc-92ae-6bbd4a5346a0",
+  "ats_3f2a74d0-e723-4bd5-b670-23b753042fbe",
+  "ats_3fbac32a-0281-41ae-95c5-95556d462395",
+  "ats_3fbd056c-e79f-488d-ba11-b3f5a12d40e5",
+  "ats_40089e3d-a032-4dd1-845c-110e7d0a7481",
+  "ats_40a73eb1-1878-4203-a116-82e2ad5c39c2",
+  "ats_422500a8-0786-49f2-b8bc-d16971d96cd8",
+  "ats_425f9072-8894-4abe-aff3-1bf6ccd9c848",
+  "ats_4336282e-7614-47bc-8016-56f15458ad8b",
+  "ats_441d92c8-bb63-49f4-94cb-afcd777fa84a",
+  "ats_442e767f-02ce-411c-8238-a1f8c5d06757",
+  "ats_45f96119-ae4c-406b-aa1e-f4c0a6c59d89",
+  "ats_4770a4e3-28be-40d7-b5a2-700c0307960d",
+  "ats_484795df-9f5d-4137-aada-8bc8059146a3",
+  "ats_48a2a7ae-ec5a-4743-a183-da80a429505a",
+  "ats_4a6c8dec-bbc4-43b8-a768-fbedfacf95d3",
+  "ats_4a95ac52-7825-4a68-a0be-ce8dd225c94e",
+  "ats_4c2e5fe2-a3e6-4d00-ac53-11343dc121dc",
+  "ats_4db14536-35df-4c54-a441-ac5bd7b8253f",
+  "ats_4ddf7519-0779-44d9-9ca8-9846f1419567",
+  "ats_4e01562f-f8bc-4029-bc79-5ea4aa18c8a3",
+  "ats_50499486-6332-4938-96b5-b56eb16e464d",
+  "ats_50830172-7af7-4ae3-9ca9-1e8d425064b1",
+  "ats_5292f2d8-70e9-44a6-a50e-aea6724dfacd",
+  "ats_52bd67ea-cc1b-4b12-9ba9-77c1fe08ed78",
+  "ats_53251689-34f9-4e14-8fd1-42cda602bfe4",
+  "ats_536606c4-92da-492e-9413-10a39c4c011b",
+  "ats_55d83f42-3073-4394-a485-5f539341ffe1",
+  "ats_571dc222-d134-45dd-8547-ba1ce9e2c5a4",
+  "ats_5824240e-2adc-4a7c-9e37-ff62114f248e",
+  "ats_5b597914-e71c-489d-b3ad-77a3e48f7c58",
+  "ats_5f7a34ef-1409-4c5f-8952-1bbeaad4cedd",
+  "ats_60bb015a-5f71-421c-9d8e-f15a0576fa7b",
+  "ats_60dfdc9e-b8e3-49d2-81b6-1e7cd70c9881",
+  "ats_63568a2f-00b4-4b19-97a6-35eaaa8d2367",
+  "ats_635bf0d1-e3cb-4d15-98d1-86f3a5f11691",
+  "ats_6372d8e1-142c-4d6e-871a-b4f1c44e6df8",
+  "ats_641e5df2-28c3-4b93-9707-1071b5f603f4",
+  "ats_64a35586-2a6e-4c71-9919-ca8c55f250ed",
+  "ats_668addc3-ee22-4b6d-b2be-f2536915cf3e",
+  "ats_688fb9b4-365c-4e25-b93a-9c4d8abb8f59",
+  "ats_689d2320-97b9-49eb-910e-901bc1a4fb98",
+  "ats_68a407b4-f609-4594-8c72-301c689dcbe6",
+  "ats_6a4e45f8-1b33-43c4-ad0c-eff30becd150",
+  "ats_6cc400a9-db6f-4550-9989-36f65cbe70b1",
+  "ats_6db7a199-b2fc-411a-bc8e-960bd3c02f28",
+  "ats_6e6b023d-cf2b-4a85-8f77-ea385c38f3b3",
+  "ats_6f7ac145-e2ab-44ce-afc0-2cb825c9a4dd",
+  "ats_70276fbb-025b-4544-b0c0-db8dc7259234",
+  "ats_71d10136-22a9-4798-89cd-9df17b662d88",
+  "ats_71d40ca7-1546-417c-8bf5-c360ac814bb0",
+  "ats_72a95a86-9b4f-436c-b408-21eafc8a80fb",
+  "ats_72d70be2-7543-43d5-a8cd-9b80189884ad",
+  "ats_74129f26-3f29-4069-9bd9-234810c4491a",
+  "ats_7509a79d-1085-4918-bdcc-6c82b44b486b",
+  "ats_772840e3-4552-42aa-b102-8cb0e1752b13",
+  "ats_77ad91df-64e7-4538-98d7-6c44639adb63",
+  "ats_7b0bc5f5-b7eb-4ee8-905a-aff3cc7c2c4f",
+  "ats_7c1ab0e2-c11d-4d40-b0a5-af075f866cec",
+  "ats_7c22338a-df0b-4095-91bf-a410a9cb65f4",
+  "ats_7d29e9a8-e116-43c5-a3b9-267f864cddfc",
+  "ats_7e2ddc17-84b3-4327-99fb-1e197ca793c3",
+  "ats_7e5297a1-7f6f-4f6d-8354-231a0d995b15",
+  "ats_7e5feb76-9fea-420d-a0ea-32c19e256975",
+  "ats_7e8680d0-6421-49b3-b24c-f418b5cb0a37",
+  "ats_7ed5f8a7-365f-4795-bb28-dd68ad3dfbcf",
+  "ats_7f4d2358-707d-4cbf-83b4-694072fbba3e",
+  "ats_80d17130-e8af-42ec-9d13-451a3db46199",
+  "ats_811e791b-0d29-4d96-91a5-b3046f372674",
+  "ats_82a9dd04-7074-414b-8928-07e34a66ca17",
+  "ats_8361ff2b-f33d-4bba-ba6a-756c0fda60f4",
+  "ats_84f60c1d-5d94-4e3b-a460-466cccf1d021",
+  "ats_87678940-271f-408b-bde3-11378558b132",
+  "ats_87b11fea-2c1b-4427-b741-a7acd9fd822b",
+  "ats_886b58df-3da6-4888-8b8d-ac9eef06b1a7",
+  "ats_8876789e-be2c-4a8f-9478-572e3f0085cb",
+  "ats_891675f9-d992-469b-b933-050b68293e04",
+  "ats_8928298d-2bd6-4de5-9edd-ae9c1900a2b2",
+  "ats_8938d4f1-3093-43eb-a443-bd11de15a159",
+  "ats_89c5e157-f2f0-4797-8fad-377cf5478e3d",
+  "ats_8a308b93-06a7-472d-a655-a49f2bf19ab1",
+  "ats_8bab5dd2-9265-4515-b6ba-b4ca2af51a80",
+  "ats_8c0720bf-747e-4a04-b5c4-846531aa0186",
+  "ats_8c8a1f21-e711-48d0-8cec-601018138920",
+  "ats_8d2d1d5d-4101-4154-8430-c9b1201db685",
+  "ats_8ebffa8a-5798-4920-9dd3-afa9ea573f00",
+  "ats_8f6df37f-2adf-4d38-9a4d-3b01fd227f46",
+  "ats_900cb2e6-bb32-47f1-b267-ed7ef0f7142a",
+  "ats_9177815a-e02f-413c-b8ad-32c3c5c644cc",
+  "ats_91dc2cea-fc02-4261-b19d-3c2c94d12a0d",
+  "ats_93005bff-d5f2-49e9-bcee-112d24984b29",
+  "ats_95a232c5-f611-4960-ab8f-79fcd25db5f2",
+  "ats_965788be-07b4-4640-984c-ea792247b602",
+  "ats_96d99494-69a2-4bcf-b4b5-b88b9abb3c85",
+  "ats_979ac96d-8d31-44b0-b0ce-b26b281568e9",
+  "ats_98860377-289a-4a03-8249-583c9cb042ca",
+  "ats_9a61bf02-26d8-441a-b583-2c75f25ee9a5",
+  "ats_9ad13c92-e5d2-4c4c-987a-f3263f2dd707",
+  "ats_9ad5d044-10e1-4882-8254-f07370624bdd",
+  "ats_9ba3a79f-40de-421a-a13b-f37a0fa52e78",
+  "ats_9bd3bc29-77ef-440c-9c59-3f852606c72c",
+  "ats_9c708edf-68f9-43ac-a86d-b27868f9d200",
+  "ats_9d58bfcb-a601-465f-97d9-209be8556e6d",
+  "ats_9dc8db6c-b35c-402e-9c20-fa7fae5fdc61",
+  "ats_9f1c1a85-4cae-4368-9581-1d11c5fa2ed0",
+  "ats_9facd644-c8bc-46cb-bd5a-ddf808865147",
+  "ats_a1b8b0b8-8c06-4615-8760-6c056cf30cf3",
+  "ats_a2926abf-abfe-45c5-8ae3-d0e67d3daddd",
+  "ats_a3297773-4d22-478c-97d6-f6f974481782",
+  "ats_a3bc2e02-54a9-46bc-8322-c42571a8600b",
+  "ats_a5a56d2e-e396-48fb-a44e-ddd1461cf086",
+  "ats_a5f886cf-d5b6-41ac-9bfc-98833aff9bb6",
+  "ats_a62e77a9-988b-42c6-abf2-5885839a948c",
+  "ats_a63f1342-abee-4e15-bd4c-988628442f07",
+  "ats_a6770ce6-e8cb-4716-8bc5-b5ed81550a93",
+  "ats_a6830740-e492-4a48-bc09-9e1cb04273be",
+  "ats_a6f02442-de0a-454f-a56f-8462c72d7c74",
+  "ats_a82e8f66-23ec-4c7e-a091-3b34f4635e0f",
+  "ats_aaeb44bf-c9ec-46e3-989c-e8594be3ac17",
+  "ats_ac0de679-0dd0-42fc-bef6-1b6e42f77cdb",
+  "ats_ac408c9b-551b-4f57-aae2-3f7efade1def",
+  "ats_ad59a004-0776-406a-b86b-f75db844806d",
+  "ats_ae7fd66d-2ccb-4c86-894b-f1f097cff21c",
+  "ats_aea07001-c82a-489e-acfd-63739fbbbb08",
+  "ats_af98a22d-d813-4ff1-a656-3513cc954ee7",
+  "ats_b035a98e-db1a-4187-b55e-8cac0076bc05",
+  "ats_b07a5da6-2c9f-4bf1-bf90-18ffff8232ae",
+  "ats_b2bf07f0-f50a-48d6-ac3b-6772ca6de63a",
+  "ats_b399880a-a936-4d77-ba1c-e108a00e5e51",
+  "ats_b6d8ec76-80b9-4666-8292-eba8abebdca5",
+  "ats_b7368293-9c8c-4b02-8787-dddbcf2af626",
+  "ats_b8af3c73-ae72-4e65-9e91-d90b4215c39d",
+  "ats_ba8c4dd2-2dd5-48f2-a9c4-0c716b61b1db",
+  "ats_bb2f8b27-d8ac-4010-844d-cd271e47879e",
+  "ats_bb47dc93-f16f-46a0-b000-c7c3f10499df",
+  "ats_bcf5b326-6a1f-42e1-b189-3d314b84fc8d",
+  "ats_bd80bcd9-1880-4269-8482-1c80a18287f5",
+  "ats_bda4abe8-aa5b-41a0-bb34-7806e4ff2679",
+  "ats_bf2a73c1-b34b-4153-805d-6d8f185ae0de",
+  "ats_c09501b3-944d-4fa2-a12b-031be140f633",
+  "ats_c0d0a7a8-afbc-4283-886f-e4d7e36f52f0",
+  "ats_c19ad514-a4fd-4e47-a2ae-ab57347804ad",
+  "ats_c273bc4d-7d9a-423b-8487-df0419f55399",
+  "ats_c2a0262e-8fac-4306-9c0f-0ef0424bb16a",
+  "ats_c343edb5-a613-4009-b00b-9dda7f9a8fee",
+  "ats_c3cdc8d7-6453-4372-998a-5b325638910a",
+  "ats_c3f5e2ad-b12d-4ea0-bcce-3fc9a30ae812",
+  "ats_c560783a-f942-4881-a14d-0c3cae59d101",
+  "ats_c5d99aec-a24e-48a7-a680-3954ba770c54",
+  "ats_c61b3999-cfc9-4184-8e3e-3a21a00ebcef",
+  "ats_c7b1d381-c5d1-4080-8d2b-531342e2c8a8",
+  "ats_c7d3b494-6183-4201-ae92-c7ddbae1ae27",
+  "ats_c9792cfd-c5b4-4224-b707-ce3b840830f4",
+  "ats_ca3d442d-982e-4251-b443-6e607ffd2504",
+  "ats_ca83c527-3aa7-4bc1-b842-d5e57efca6dd",
+  "ats_cacd3bd3-7f7c-4a70-853d-7c88363173ff",
+  "ats_cb1173a2-154e-496d-b10e-fb3d0b07c7bf",
+  "ats_cd3e7aeb-84d9-4069-aa81-e1afa527a3d0",
+  "ats_cdf19c98-c74e-4082-9b37-51fcaaae298d",
+  "ats_ce00eaa7-df83-4141-bab1-3a0646ca5c07",
+  "ats_cee814d5-6814-4bea-b567-0b0b7460e127",
+  "ats_d053dcdd-9837-4c01-9ba4-fa29ddb4604f",
+  "ats_d0cef856-98c0-4742-86ea-e16297da53fb",
+  "ats_d1956f60-b9eb-4d52-8da7-ac5ab857772b",
+  "ats_d1bb038f-04a0-4995-9bcc-ff779f3a2054",
+  "ats_d2c8d6aa-577e-4c0d-8edc-a385f1d6ad60",
+  "ats_d3c0c779-480d-4810-9393-88d215aa5e7e",
+  "ats_d410a9b5-528c-4d2a-bcec-b5999e85d25f",
+  "ats_d58e6fdc-c150-4d88-bff1-16000fd3a8c1",
+  "ats_d5b13036-27ec-4902-ba94-12246ec895a1",
+  "ats_d61fe354-e973-468f-a604-afbdac6662d2",
+  "ats_d7644495-ed8e-461e-bb15-55188972ef72",
+  "ats_d7d2d9a2-c865-47e5-9029-23b28fb08f05",
+  "ats_d9b64d1c-51e8-4aa5-8275-aee5eb3a274e",
+  "ats_da22274c-bfe9-4435-a733-dece55964a5a",
+  "ats_daba25e4-9e11-4769-bf2a-22371dbb26a5",
+  "ats_db477b31-3358-44a9-85b7-9c1740e035fe",
+  "ats_dbef2550-13ed-4579-95c4-df33ba85e6f1",
+  "ats_dd9872ea-6a55-4724-9b58-908b225567fd",
+  "ats_de1fae80-4df8-4d1d-9d69-9bdecb9cdade",
+  "ats_e08774ee-1d46-4790-8628-62d9b4b136ac",
+  "ats_e102b2db-3bfc-42d6-b363-84cbbe6172e5",
+  "ats_e1457499-6257-4e3b-9b1d-2a8dfac950fe",
+  "ats_e1ba63cb-576e-4561-8453-e83787707f2c",
+  "ats_e2123de3-a5ba-4c83-883a-ac9a270e7e40",
+  "ats_e3aecdd8-6f13-40ba-9cff-b81b59d50ff5",
+  "ats_e3c16702-69b1-496c-b4a7-13ea33504cfc",
+  "ats_e3e1417f-9aa4-44e8-8ee8-c075f7d2f7db",
+  "ats_e4881585-37e6-473f-9176-3a8c751f24ad",
+  "ats_e55a7700-5c93-43ed-a30e-6398ef65a328",
+  "ats_e61e91ef-e618-467a-8ce3-391dc8487535",
+  "ats_e643d8ad-e339-4489-ab40-e671459ef653",
+  "ats_e7067c38-ffd5-4e91-b625-6732557cb064",
+  "ats_e7524d34-3342-448c-83e8-2de9a3502b9b",
+  "ats_e86150cf-386f-4eac-99a4-224ea7eacfc3",
+  "ats_ea33eef8-2837-4a9b-a3b7-a1c32bc77e06",
+  "ats_eaae45a5-af50-478c-8625-bd6b63b17181",
+  "ats_eac8db70-c9b5-4336-aacd-473e34b2745d",
+  "ats_eba08172-5c06-4220-b63f-dd7d345c6983",
+  "ats_ebfe5ed5-c6f8-4877-9e23-ba749cca96fe",
+  "ats_eca868f5-7a43-4aba-a570-ae7f93664ff3",
+  "ats_ee5e38e3-bc10-4546-b6de-d39065ac25f1",
+  "ats_eee7ad08-5a09-4e71-82b2-3eefe1615b80",
+  "ats_ef2297ca-14a3-41d1-b09c-4297b662e9f6",
+  "ats_efcdcda1-4aa4-492b-a092-21d30c45cee1",
+  "ats_f35300a5-06d4-4289-a277-30b4a8d300c8",
+  "ats_f36586f0-7cae-49e9-8b12-06db77de4051",
+  "ats_f455fb7a-6e82-4af2-b378-c5deb178c84d",
+  "ats_f4db16dc-9fd7-499a-b809-554855fcb08f",
+  "ats_f7007672-60be-4e79-8cc0-b6eee4d0c1f5",
+  "ats_f79a534a-9fa4-4f5a-970a-603c7c67ce1e",
+  "ats_f8aa999f-66d3-4ae6-b0bf-286944064197",
+  "ats_f8c7b2c2-899a-4a4f-9f36-7893a8512aed",
+  "ats_f8f58448-a30c-4f0b-bd35-a8b3aee51172",
+  "ats_f9a08de0-d633-4b19-b444-8002689fc795",
+  "ats_f9aac5d5-d4f2-4936-93fc-e6a1cf4306f6",
+  "ats_fc1da624-e620-4f0f-89d1-f78464457a9d",
+  "ats_fcbb295b-3dae-4af6-bd41-ec8b5d05a1ca",
+  "ats_fd295519-9a15-422a-a9c7-36067c9a404a",
+  "ats_fe505dad-df18-4c6b-8a7d-cd778621fc94",
+  "ats_fe7f1e7d-e361-4660-92ac-f496c022b980",
+  "ats_ff8cbc9e-3bcf-4cdb-a99e-b10aec41a916"
+ ],
+ "employers": {
+  "Astera Labs": 7,
+  "Johnson & Johnson": 5,
+  "General Motors": 4,
+  "Bose": 4,
+  "Marvell": 4,
+  "Micron Technology": 4,
+  "Symbotic": 4,
+  "Hewlett Packard": 3,
+  "Copart": 3,
+  "HCSC": 3,
+  "Applied Materials": 3,
+  "RTX": 3,
+  "Jane Street": 3,
+  "Pennsylvania State University": 3,
+  "Astranis": 3,
+  "Gordon Food Service": 3,
+  "Motorola": 3,
+  "Blue Origin": 3,
+  "Xcel Energy": 2,
+  "University of Texas at Austin": 2,
+  "American Century Investments": 2,
+  "NVIDIA": 2,
+  "Nissan Global": 2,
+  "Vermeer": 2,
+  "Perchwell": 2,
+  "LSEG": 2,
+  "Bedrock Robotics": 2,
+  "GlobalFoundries": 2,
+  "Atoms": 2,
+  "Gallup": 2,
+  "PDT Partners": 2,
+  "Q2": 2,
+  "CACI": 2,
+  "Base Power": 2,
+  "Adobe": 2,
+  "Affirm": 2,
+  "American Family Insurance Group": 2,
+  "Veeam Software": 2,
+  "DRW": 2,
+  "BlackRock": 2,
+  "Baird": 2,
+  "Leidos": 2,
+  "Stand Together": 2,
+  "The Aerospace Corporation": 2,
+  "Intel": 2,
+  "Oshkosh": 2,
+  "Booz Allen": 2,
+  "Cigna Group": 2,
+  "Tilde Research": 2,
+  "Firetiger": 1,
+  "Itron": 1,
+  "WhiteWater Midstream": 1,
+  "Marmon Holdings": 1,
+  "Quadrillion": 1,
+  "The Toro Company": 1,
+  "ASM Global": 1,
+  "Rockwell Automation": 1,
+  "Assured Guaranty": 1,
+  "National Information Solutions Cooperative": 1,
+  "Moderna": 1,
+  "Five Rings Capital": 1,
+  "Hewlett Packard Enterprise": 1,
+  "Klaviyo": 1,
+  "Aquatic Capital Management": 1,
+  "Capital Group": 1,
+  "Zoox": 1,
+  "Regeneron Pharmaceuticals": 1,
+  "Flex": 1,
+  "OCC": 1,
+  "Autodesk": 1,
+  "Apple Bank": 1,
+  "F5": 1,
+  "GE Vernova": 1,
+  "Schonfeld": 1,
+  "Covestro": 1,
+  "Michelin": 1,
+  "Revel": 1,
+  "Ramp": 1,
+  "GrayMatter Robotics": 1,
+  "Spacial AI": 1,
+  "Meridian Partners": 1,
+  "PanAgora": 1,
+  "Nordson": 1,
+  "KLA": 1,
+  "The Campbell's Company": 1,
+  "Capstone Investment Advisors": 1,
+  "Allen Control Systems": 1,
+  "HP IQ": 1,
+  "DataRobot": 1,
+  "The Nuclear Company": 1,
+  "Analog Devices": 1,
+  "Persona AI": 1,
+  "Salesforce": 1,
+  "Dow Jones": 1,
+  "Tenstorrent": 1,
+  "Aptiv": 1,
+  "Procter & Gamble": 1,
+  "DV Trading": 1,
+  "Auto-Owners Insurance": 1,
+  "Integra FEC": 1,
+  "Ingredion": 1,
+  "COUNTRY Financial": 1,
+  "Seven Research": 1,
+  "Viam": 1,
+  "Tencent": 1,
+  "CIBC": 1,
+  "Moog": 1,
+  "Acron Aviation": 1,
+  "ZipRecruiter": 1,
+  "Barclays": 1,
+  "Teledyne": 1,
+  "University of Arkansas": 1,
+  "Wawa": 1,
+  "Nationwide": 1,
+  "Texas Rangers": 1,
+  "Vestmark": 1,
+  "Together AI": 1,
+  "InterSystems": 1,
+  "Sierra Nevada Corporation": 1,
+  "Hermeus": 1,
+  "SharkNinja": 1,
+  "Viking Global": 1,
+  "Altar'd State": 1,
+  "AfterQuery": 1,
+  "Workday": 1,
+  "Ryan": 1,
+  "Nelnet": 1,
+  "Prysmian Cables & Systems": 1,
+  "Charta Health": 1,
+  "XPENG Motors": 1,
+  "Expedia Group": 1,
+  "Brunswick": 1,
+  "Clockwork Systems": 1,
+  "Decagon": 1,
+  "Crowe": 1,
+  "Tyson Foods": 1,
+  "ICF International": 1,
+  "Ema": 1,
+  "Helion Energy": 1,
+  "CTGT": 1,
+  "Datacor": 1,
+  "Viavi Solutions": 1,
+  "Northwestern Mutual": 1,
+  "Skydio": 1,
+  "Rigetti": 1,
+  "Human Computer Lab": 1,
+  "Flow Traders": 1,
+  "Live Nation Entertainment": 1,
+  "Uline": 1,
+  "KBR": 1,
+  "Dimensional Fund Advisors": 1,
+  "Toyota Research Institute": 1,
+  "Watts Water": 1,
+  "GuidePoint Security": 1,
+  "Gartner": 1,
+  "SpartanNash": 1,
+  "Primer": 1,
+  "Caterpillar": 1,
+  "Invesco": 1,
+  "EMC Insurance": 1,
+  "Cybernetic Labs": 1,
+  "The Federal Reserve System": 1,
+  "First Quality": 1,
+  "Apex": 1,
+  "Marshall Wace": 1,
+  "Life Fitness": 1,
+  "IEX": 1,
+  "National Laboratory of the Rockies": 1,
+  "Xcimer Energy": 1,
+  "Figma": 1,
+  "Instead": 1,
+  "C&S Wholesale Grocers": 1,
+  "Avis Budget Group": 1,
+  "Corewell Health": 1,
+  "IMC Trading": 1,
+  "Dedalus Labs": 1,
+  "National Life": 1,
+  "Etched": 1,
+  "Capital One": 1,
+  "Uncountable": 1,
+  "Notion": 1,
+  "iRhythm Technologies": 1,
+  "Trimble": 1,
+  "Hy-Vee": 1,
+  "AgZen": 1,
+  "Gecko Robotics": 1,
+  "Arrowstreet Capital": 1,
+  "Highmark Health": 1,
+  "Alston & Bird Law Firm": 1,
+  "k-ID": 1,
+  "DoorDash": 1,
+  "Jain Global": 1,
+  "ShopBack": 1,
+  "Argonne National Laboratory": 1,
+  "PIMCO": 1,
+  "American Electric Power": 1,
+  "Valstad": 1,
+  "Mercer University": 1,
+  "Fab2": 1,
+  "Graco": 1,
+  "Voloridge": 1,
+  "DraftKings": 1,
+  "NJM Insurance Group": 1,
+  "Boeing": 1,
+  "Midland States Bank": 1,
+  "Dow Chemical Company": 1,
+  "Field AI": 1,
+  "Serval": 1,
+  "Hitachi Energy": 1,
+  "AspenTech": 1,
+  "NewsBreak": 1,
+  "Profluent": 1,
+  "Continental Resources": 1,
+  "CoStar Group": 1,
+  "State of Wisconsin Investment Board": 1,
+  "IAT Insurance Group": 1,
+  "Greenheck Group": 1,
+  "Maven Securities": 1,
+  "TC Energy": 1,
+  "Modernizing Medicine": 1,
+  "The Exploration Company": 1,
+  "Nike": 1
+ },
+ "field_mix": {
+  "postings": {
+   "internship": 288,
+   "sales_ops": 2,
+   "software": 3,
+   "lab_bio": 2,
+   "data": 2,
+   "other": 3
+  },
+  "rows": {
+   "internship": 1139,
+   "sales_ops": 8,
+   "software": 12,
+   "lab_bio": 8,
+   "data": 8,
+   "other": 12
+  }
+ },
+ "length_mix": {
+  "3000+": 264,
+  "1300-3000": 34,
+  "700-1300": 2
+ },
+ "source_mix": {
+  "simplify_ats": 300
+ },
+ "country_mix": {
+  "by extracted card meta": {
+   "US": 300
+  },
+  "by pool locations before extraction": {
+   "US": 300
+  }
+ },
+ "foreign_resident_rows": {
+  "what": "rows whose profile lives outside the US (matcher.metros.parse_place not in_us): steer_pass put some candidates in a foreign posting's city so it could pass the location filter",
+  "rows": 4,
+  "eligibility_pass_rows": 3
+ },
+ "repaired_resumes": [],
+ "teaser_rows": 0,
+ "eligibility": {
+  "rule": "design metadata only: hybrid_rules.rule_verdict on the profile and the posting's v2 card (without rules.mark_thin, as every earlier test's flag), with the rules at this commit; pass = no hard Skip in H' categories (degree_field, degree_level, employment_type, enrollment, location, work_auth, work_mode) and no salary cap. steer_pass does not steer work_mode, so some rows designed to pass fail on work_mode alone (target_pass_but_fail_work_mode_only), as in tests 3 and 4",
+  "pass_frac": 0.5695,
+  "by_field": {
+   "data": 0.5,
+   "internship": 0.575,
+   "lab_bio": 0.5,
+   "other": 0.25,
+   "sales_ops": 0.5,
+   "software": 0.5
+  },
+  "fails": {
+   "work_mode": 255,
+   "location": 120,
+   "enrollment": 75,
+   "degree_level": 9,
+   "employment_type": 67,
+   "work_auth": 21,
+   "degree_field": 4
+  },
+  "salary_cap_rows": 12
+ },
+ "archetypes": {
+  "strong": 543,
+  "off": 294,
+  "near": 165,
+  "gap": 185
+ },
+ "work_auth": {
+  "f1_cpt": 169,
+  "citizen_or_pr": 939,
+  "other_visa": 25,
+  "f1_opt": 21,
+  "needs_h1b_now": 28,
+  "stem_opt": 5
+ },
+ "degree_level": {
+  "bachelor": 709,
+  "master": 322,
+  "doctoral": 89,
+  "none": 7,
+  "associate": 60
+ },
+ "extractor": {
+  "script": "scripts/extract_postings.py (imported, unchanged)",
+  "blueprint_hash": "b2b2ed8e"
+ },
+ "writer": {
+  "prompt_sha1": "da56452953c7",
+  "max_tries": 3,
+  "tries": {
+   "2": 253,
+   "1": 921,
+   "3": 13
+  }
+ },
+ "credits": {
+  "runs": []
+ },
+ "files": {
+  "data/built/fresh_test5/rows.jsonl": "caa6020dfe98aaa463ffb44f1b4155a5c10a7e0c7f154607851bf1d26313414b",
+  "data/built/fresh_test5/cards.jsonl": "5a3b6b8a939a508346c74752b0ac938b4301cf4c808c0175164f47e4a70c2c25",
+  "data/built/fresh_test5/postings.jsonl": "999c0caa38ddbfd7db07e365f125d9aaa6403920b8da43765e1d0c65877f5826",
+  "data/built/fresh_test5/candidates.jsonl": "f08a388d42911d81e9637e30beb3d382b84b42a7cd1d9239996215cd346ff1c0",
+  "data/built/fresh_test5/resumes.jsonl": "78f2a42a850035cf3cc695c807af712c8142090d069cdb103eacb059ecd989fd",
+  "data/built/fresh_test5/blind_sheet.jsonl": "a37c4ae3b63164fddc607378906d1d3f59731e68239020f5053f1da11b02458e",
+  "data/built/fresh_test5/label_batches/batch_01.jsonl": "644bcfc8625efc514c9c604e3cba82045787818bef338f27e8c6950746e744d8",
+  "data/built/fresh_test5/label_batches/batch_02.jsonl": "058efa045158da5a4b67e4fef55653abcf6bd4b5745d080da825a7f1083eaf58",
+  "data/built/fresh_test5/label_batches/batch_03.jsonl": "ec4547c05f5bb25e91ad131994e2b4b0fcea00ba8f82069e0be6c31d1254a8df",
+  "data/built/fresh_test5/label_batches/batch_04.jsonl": "4ead52291545dbb0d2a3770ed4d9444338474c8a24a90736bb30ea9181424585",
+  "data/built/fresh_test5/label_batches/batch_05.jsonl": "03673fdd7608cec5709177d1878a46fa04336ec55a8cf7d7de0dd698ff383adc",
+  "data/built/fresh_test5/label_batches/batch_06.jsonl": "40ffdf617f2c31f4dc6bc30de60737d8c6a2d1636102d88b1a147947a8c0edb4",
+  "data/built/fresh_test5/label_batches/batch_07.jsonl": "30e79abc121c09fc98f53d3da774279d5d154b2cbff50fc45c55f9e6c570dcb6",
+  "data/built/fresh_test5/label_batches/batch_08.jsonl": "819e0ccacae0f5b3f90ff50469d6d176f3374f755c85ece8792becb29f5eb1b1",
+  "data/built/fresh_test5/label_batches/batch_09.jsonl": "a6221f04a87ff8d5d9cd75627db8f37cd792ab208c917e4b52406eac5dcb3e9e",
+  "data/built/fresh_test5/label_batches/batch_10.jsonl": "821e35b6d2647649199388d27c408137ad797058bfcf0907275e7a45fc328ac1",
+  "data/built/fresh_test5/label_batches/batch_11.jsonl": "67ef735485507e03e6e3cc3501f903c730bb802e9bdd87d828a1a3ce753819c3",
+  "data/built/fresh_test5/label_batches/batch_12.jsonl": "e185a4d211819dfa588dbf4ce2c0e2089528f0048d48a499b5e9dc0d3285c202",
+  "data/built/fresh_test5/label_batches/batch_13.jsonl": "af93c1127780d588f93988333e04ffe68f13b5773e1a274e09b5ed91c1500ed9",
+  "data/built/fresh_test5/label_batches/batch_14.jsonl": "72ba75f816d530e6b29532eb3cddd6308a7e59f097ab7581a455e4367c0b711d",
+  "data/built/fresh_test5/label_batches/batch_15.jsonl": "7e8188430cbf947e24e74f0aae8c16c107c346e2ebcad3599f1068eab4851953",
+  "data/built/fresh_test5/label_batches/batch_16.jsonl": "0c8440110d2c2bcfa10d2e56b8ed1e101f9d5df9c938049e2c59714e4ffcb938",
+  "data/built/fresh_test5/sample_walk.json": "60499e93ee56752dbac99fc8fb87d8f6003afb9e00f1001529b60e73eafdb032",
+  "data/built/fresh_test5/render_tries.jsonl": "6b645803a5cd693fe6bf5914417690e8b82563ec4602466be0c54701655a8937"
+ },
+ "label_batches": [
+  "data/built/fresh_test5/label_batches/batch_01.jsonl",
+  "data/built/fresh_test5/label_batches/batch_02.jsonl",
+  "data/built/fresh_test5/label_batches/batch_03.jsonl",
+  "data/built/fresh_test5/label_batches/batch_04.jsonl",
+  "data/built/fresh_test5/label_batches/batch_05.jsonl",
+  "data/built/fresh_test5/label_batches/batch_06.jsonl",
+  "data/built/fresh_test5/label_batches/batch_07.jsonl",
+  "data/built/fresh_test5/label_batches/batch_08.jsonl",
+  "data/built/fresh_test5/label_batches/batch_09.jsonl",
+  "data/built/fresh_test5/label_batches/batch_10.jsonl",
+  "data/built/fresh_test5/label_batches/batch_11.jsonl",
+  "data/built/fresh_test5/label_batches/batch_12.jsonl",
+  "data/built/fresh_test5/label_batches/batch_13.jsonl",
+  "data/built/fresh_test5/label_batches/batch_14.jsonl",
+  "data/built/fresh_test5/label_batches/batch_15.jsonl",
+  "data/built/fresh_test5/label_batches/batch_16.jsonl"
+ ],
+ "blind_sheet": "data/built/fresh_test5/blind_sheet.jsonl"
+}

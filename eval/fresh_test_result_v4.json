@@ -1,0 +1,417 @@
+{
+ "what": "v4 sealed fresh test, scored once (eval/protocol.json, eval/protocol_amendment_1.json): headline numbers and the pass verdict. Full per-slice result: data/models/v4_eval/fresh_test/fresh_test.json (gitignored; the amendment's scoring.outputs names data/models/main_4b/fit_eval/, this run wrote next to the per-row files instead, nothing else differs); report data/models/v4_eval/FRESH_TEST.md; Colab runs by scripts/fresh_test_colab.sh (colab_eval.py --base-model Qwen/Qwen3.5-4B --dtype bfloat16 --batch 1 --max-min 70, one model per session).",
+ "chosen": "h+H'",
+ "selection": "eval/selection_v4.json",
+ "pass": {
+  "rule": "macro-F1 of the chosen system minus skills-free rules on the eligibility-pass slice, 95% two-way bootstrap lower bound above 0",
+  "system": "h+H'",
+  "against": "rules_skills_free",
+  "slice": "eligibility_pass",
+  "macro_f1_diff": [
+   0.1269,
+   0.024,
+   0.223
+  ],
+  "lower_bound_exact": 0.02395391228635479,
+  "accuracy_diff (reported, not for pass)": [
+   0.1977,
+   0.0994,
+   0.2914
+  ],
+  "passed": true
+ },
+ "verdict": "PASS",
+ "headline": {
+  "all": {
+   "n": 592,
+   "postings": 150,
+   "gold": {
+    "Explore": 120,
+    "Skip": 415,
+    "Keep": 57
+   },
+   "systems": {
+    "h+H'": {
+     "accuracy": [
+      0.7078,
+      0.6538,
+      0.7585
+     ],
+     "macro_f1": [
+      0.5392,
+      0.4628,
+      0.6136
+     ],
+     "keep_recall": 0.2807,
+     "unsafe_keep": 18
+    },
+    "h raw": {
+     "accuracy": [
+      0.6807,
+      0.6263,
+      0.7352
+     ],
+     "macro_f1": [
+      0.5429,
+      0.4673,
+      0.6178
+     ],
+     "keep_recall": 0.2982,
+     "unsafe_keep": 20
+    },
+    "d3+H'": {
+     "accuracy": [
+      0.7061,
+      0.6503,
+      0.7576
+     ],
+     "macro_f1": [
+      0.5293,
+      0.4553,
+      0.5979
+     ],
+     "keep_recall": 0.4211,
+     "unsafe_keep": 40
+    },
+    "d3 raw": {
+     "accuracy": [
+      0.6774,
+      0.6229,
+      0.7314
+     ],
+     "macro_f1": [
+      0.5284,
+      0.4565,
+      0.597
+     ],
+     "keep_recall": 0.4561,
+     "unsafe_keep": 47
+    },
+    "base+H'": {
+     "accuracy": [
+      0.7196,
+      0.665,
+      0.7707
+     ],
+     "macro_f1": [
+      0.4631,
+      0.4052,
+      0.5212
+     ],
+     "keep_recall": 0.614,
+     "unsafe_keep": 55
+    },
+    "base raw": {
+     "accuracy": [
+      0.7027,
+      0.6486,
+      0.7555
+     ],
+     "macro_f1": [
+      0.4512,
+      0.3981,
+      0.5081
+     ],
+     "keep_recall": 0.6491,
+     "unsafe_keep": 70
+    },
+    "rules_full": {
+     "accuracy": [
+      0.7568,
+      0.7061,
+      0.807
+     ],
+     "macro_f1": [
+      0.4915,
+      0.4278,
+      0.5618
+     ],
+     "keep_recall": 0.0702,
+     "unsafe_keep": 10
+    },
+    "rules_skills_free": {
+     "accuracy": [
+      0.5929,
+      0.5364,
+      0.6454
+     ],
+     "macro_f1": [
+      0.4995,
+      0.4353,
+      0.5599
+     ],
+     "keep_recall": 0.5614,
+     "unsafe_keep": 91
+    },
+    "title_match": {
+     "accuracy": [
+      0.1909,
+      0.1438,
+      0.2429
+     ],
+     "macro_f1": [
+      0.1725,
+      0.1322,
+      0.2156
+     ],
+     "keep_recall": 0.3158,
+     "unsafe_keep": 115
+    }
+   },
+   "labeler_ceiling": {
+    "raw_agreement": 0.8919,
+    "kappa": 0.7754
+   },
+   "paired": {
+    "h+H' - rules_skills_free": {
+     "macro_f1_diff_low_exact": -0.048348894818361875,
+     "accuracy_diff": [
+      0.1149,
+      0.0554,
+      0.1765
+     ],
+     "macro_f1_diff": [
+      0.0397,
+      -0.0483,
+      0.1258
+     ],
+     "rows_fixed": 117,
+     "rows_broken": 49
+    },
+    "h+H' - rules_full": {
+     "macro_f1_diff_low_exact": -0.04514361092915483,
+     "accuracy_diff": [
+      -0.049,
+      -0.0992,
+      0.0
+     ],
+     "macro_f1_diff": [
+      0.0477,
+      -0.0451,
+      0.1406
+     ],
+     "rows_fixed": 39,
+     "rows_broken": 68
+    },
+    "h+H' - d3+H'": {
+     "macro_f1_diff_low_exact": -0.06253730482981158,
+     "accuracy_diff": [
+      0.0017,
+      -0.0353,
+      0.0389
+     ],
+     "macro_f1_diff": [
+      0.0099,
+      -0.0625,
+      0.0798
+     ],
+     "rows_fixed": 33,
+     "rows_broken": 32
+    }
+   }
+  },
+  "eligibility_pass": {
+   "n": 344,
+   "postings": 150,
+   "gold": {
+    "Explore": 92,
+    "Keep": 52,
+    "Skip": 200
+   },
+   "systems": {
+    "h+H'": {
+     "accuracy": [
+      0.6047,
+      0.5371,
+      0.6696
+     ],
+     "macro_f1": [
+      0.5294,
+      0.4483,
+      0.6041
+     ],
+     "keep_recall": 0.3077,
+     "unsafe_keep": 18
+    },
+    "h raw": {
+     "accuracy": [
+      0.6047,
+      0.5371,
+      0.6696
+     ],
+     "macro_f1": [
+      0.5294,
+      0.4483,
+      0.6041
+     ],
+     "keep_recall": 0.3077,
+     "unsafe_keep": 18
+    },
+    "d3+H'": {
+     "accuracy": [
+      0.5988,
+      0.5294,
+      0.664
+     ],
+     "macro_f1": [
+      0.521,
+      0.4413,
+      0.593
+     ],
+     "keep_recall": 0.4615,
+     "unsafe_keep": 40
+    },
+    "d3 raw": {
+     "accuracy": [
+      0.5988,
+      0.5294,
+      0.664
+     ],
+     "macro_f1": [
+      0.521,
+      0.4413,
+      0.593
+     ],
+     "keep_recall": 0.4615,
+     "unsafe_keep": 40
+    },
+    "base+H'": {
+     "accuracy": [
+      0.6134,
+      0.5457,
+      0.681
+     ],
+     "macro_f1": [
+      0.4475,
+      0.3866,
+      0.5111
+     ],
+     "keep_recall": 0.6731,
+     "unsafe_keep": 55
+    },
+    "base raw": {
+     "accuracy": [
+      0.6134,
+      0.5457,
+      0.681
+     ],
+     "macro_f1": [
+      0.4475,
+      0.3866,
+      0.5111
+     ],
+     "keep_recall": 0.6731,
+     "unsafe_keep": 55
+    },
+    "rules_full": {
+     "accuracy": [
+      0.689,
+      0.6236,
+      0.7486
+     ],
+     "macro_f1": [
+      0.5053,
+      0.4382,
+      0.5715
+     ],
+     "keep_recall": 0.0769,
+     "unsafe_keep": 10
+    },
+    "rules_skills_free": {
+     "accuracy": [
+      0.407,
+      0.3333,
+      0.4768
+     ],
+     "macro_f1": [
+      0.4025,
+      0.3281,
+      0.469
+     ],
+     "keep_recall": 0.6154,
+     "unsafe_keep": 91
+    },
+    "title_match": {
+     "accuracy": [
+      0.25,
+      0.1902,
+      0.3191
+     ],
+     "macro_f1": [
+      0.211,
+      0.1605,
+      0.2642
+     ],
+     "keep_recall": 0.2885,
+     "unsafe_keep": 56
+    }
+   },
+   "labeler_ceiling": {
+    "raw_agreement": 0.875,
+    "kappa": 0.7897
+   },
+   "paired": {
+    "h+H' - rules_skills_free": {
+     "macro_f1_diff_low_exact": 0.02395391228635479,
+     "accuracy_diff": [
+      0.1977,
+      0.0994,
+      0.2914
+     ],
+     "macro_f1_diff": [
+      0.1269,
+      0.024,
+      0.223
+     ],
+     "rows_fixed": 117,
+     "rows_broken": 49
+    },
+    "h+H' - rules_full": {
+     "macro_f1_diff_low_exact": -0.0779431355054483,
+     "accuracy_diff": [
+      -0.0843,
+      -0.1653,
+      -0.0028
+     ],
+     "macro_f1_diff": [
+      0.0241,
+      -0.0779,
+      0.1201
+     ],
+     "rows_fixed": 39,
+     "rows_broken": 68
+    },
+    "h+H' - d3+H'": {
+     "macro_f1_diff_low_exact": -0.07277230646285907,
+     "accuracy_diff": [
+      0.0058,
+      -0.0583,
+      0.0691
+     ],
+     "macro_f1_diff": [
+      0.0084,
+      -0.0728,
+      0.0863
+     ],
+     "rows_fixed": 33,
+     "rows_broken": 31
+    }
+   }
+  }
+ },
+ "intervals": "[point, 2.5th, 97.5th]; two-way bootstrap, 2000 draws, seed 20261021",
+ "sha256 (gitignored files)": {
+  "data/models/v4_eval/fresh_test/h.jsonl": "6b4f9d9ae7229741e242638f424b7b495243973ddd95f1ae4cec8014dc6fefbb",
+  "data/models/v4_eval/fresh_test/d3.jsonl": "d79b2dc76f35d9e785dab0cf8a002641b05e64e92a222027b72fc6f2058ce3db",
+  "data/models/v4_eval/fresh_test/base.jsonl": "40d0f16b26aab476815d27048ed84a1bbd92bf4050419ced93d762461cfa4642",
+  "data/models/v4_eval/fresh_test/h_run/h_fresh_test.json": "65ca96d7601397310437def94a22a01b80a00bc47c11580bc916e6af90be3188",
+  "data/models/v4_eval/fresh_test/d3_run/d3_fresh_test.json": "0ad669e35076927fb34783e77cd67bddd48083ffc69949f02cc04ef1580fc067",
+  "data/models/v4_eval/fresh_test/base_run/base_fresh_test.json": "7298ede7b3cf4273e22326bf800548176409bb11a755c21e1c00a37ddecf8f7f",
+  "data/models/v4_eval/fresh_test/fresh_test.json": "bcf14a6ee856c2ea6b85414e03efa8e477efb4a5fb257a293327465c2b0706f8"
+ },
+ "colab_sessions": {
+  "matcher-h-fresh": "h, L4, under colab_guard.sh; merged 128 LoRA pairs; scored 592 rows, bfloat16 batch 1 (RUN_CHOICE 'bfloat16 1'), 0.43 s/row; stopped",
+  "matcher-d3-fresh": "d3, L4, under colab_guard.sh; merged 128 LoRA pairs; scored 592 rows, bfloat16 batch 1, 0.43 s/row; stopped",
+  "matcher-base-fresh": "untrained Qwen/Qwen3.5-4B, L4, under colab_guard.sh; scored 592 rows, bfloat16 batch 1, 0.42 s/row (one exec retry, timed out once, then went through); stopped"
+ }
+}

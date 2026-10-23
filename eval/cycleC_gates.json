@@ -1,0 +1,54 @@
+{
+ "what": "amendment 6b gates for C's relabel",
+ "gate_1": {
+  "reader": "Claude Sonnet, effort high, outside reader, rubric + clarification as written",
+  "rows": 50,
+  "sample": "random.Random(20261024).sample of the 1,292 relabeled row ids, 50",
+  "grades": {
+   "ok": 46,
+   "arguable": 4
+  },
+  "clear_errors": 0,
+  "threshold": "more than 4 clear errors -> fix the prompt and relabel once more",
+  "result": "pass",
+  "arguable": [
+   {
+    "row_id": "c3_2296187bbe",
+    "label_given": "Keep",
+    "my_label": "Explore",
+    "why": "Keep leans generous: the resume shows clinical-data reporting and no teaching or clear biological computational work, and the posting only says classes can be in-person or online, so remote-only is not clearly met."
+   },
+   {
+    "row_id": "c3_3fc73061ff",
+    "label_given": "Keep",
+    "my_label": "Explore",
+    "why": "The required certificate-program graduate in phlebotomy or MA is a certification item the equivalency clause excludes, and the candidate holds an AAS in nursing plus an LNA license, so Keep reads the equivalence note broadly."
+   },
+   {
+    "row_id": "c3_70bcd8eb1e",
+    "label_given": "Explore",
+    "my_label": "Skip",
+    "why": "The reason itself calls deep infrastructure-as-code fluency and multi-account estate as code required and not shown (IaC never appears on the resume), which by the rubric points to Skip; Explore is defensible only if the section is read as non-binding."
+   },
+   {
+    "row_id": "c3_16c9ff36b9",
+    "label_given": "Keep",
+    "my_label": "Keep",
+    "why": "Keep works on an hourly-equivalent reading of the $40,000 floor, but a stricter reader could Skip because the post is 20 hours a week, so $29/hour tops out near $30,000 a year."
+   }
+  ],
+  "pattern_noted": "items listed under 'Requirements' / 'What we're looking for' without the word 'required' were labeled Skip three times and Explore once (c3_70bcd8eb1e); equivalency clauses read generously twice",
+  "files_sha256": {
+   "data/built/fit/cycle3/relabel_C/gate1_rows.jsonl": "1e8ab47089385164fd5b6c7859d3a9a6ea2c2896ad0e6c895b2cda6216ac3b6a",
+   "data/built/fit/cycle3/relabel_C/gate1_grades.jsonl": "1e31e2d2b5b1e20a934c58edf40a4c6c43fd07233ba68047e4df11f34240cd22"
+  }
+ },
+ "gate_2": {
+  "file": "a review sheet for the author, kept outside the repo",
+  "rows": 20,
+  "from": "288 changed labels, random.Random(20261024).sample",
+  "script": "a local helper, not in the repo",
+  "waits_on_author": false
+ },
+ "relabel_scratch_note": "the 18 labelers shared one scratchpad and some overwrote each other's helper scripts; three of them moved cross-written lines back by row_id. The final check pools every label file by row_id: 1,292 rows, each with exactly one valid line in its own batch's file, 0 missing, 0 duplicates, 0 cross-file lines, 0 conflicting."
+}

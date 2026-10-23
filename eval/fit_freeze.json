@@ -1,0 +1,873 @@
+{
+ "what": "v4 fit pools of venator's posting store, frozen before any fit data is built (scripts/fit_pools.py split)",
+ "seed": 20261020,
+ "store postings": 97504,
+ "used set": {
+  "ats postings": 2655,
+  "ats failed fetches": 46,
+  "real_test postings": 86,
+  "real_test outside ats": 0,
+  "real_test/real_train posting ids": 1787,
+  "of them outside the ats set": 0,
+  "venator picks": 701,
+  "picks in store": 701,
+  "store fingerprint": {
+   "postings": 97504,
+   "sha256 sorted keys": "182b00ce6d70055827cc6bf5d310bb08305b49df5bedc9544d17b841caade442",
+   "latest discovered_at": "2026-10-01T04:16:16+00:00"
+  }
+ },
+ "dedupe removed": {
+  "repost within the store (same text, another id)": 27147,
+  "venator pick (same id)": 701,
+  "near copy of a venator pick: same company and title": 547,
+  "near copy of a venator pick: description >= 0.8 alike": 470,
+  "same URL as a used posting": 363,
+  "near copy of an ATS posting: description >= 0.8 alike": 4,
+  "train posting near a dev posting (another employer's copy)": 1
+ },
+ "dedupe removed total": 29233,
+ "rules": {
+  "test cap per employer": 10,
+  "dev cap per employer": 15,
+  "max postings (after dedupe) of a test or dev employer": 800,
+  "teaser share (test, dev)": ">= 0.16",
+  "empty-body share (test, dev)": "<= 0.05",
+  "short teaser": "< 700 chars",
+  "employers": "employer clusters (Employers: company keys linked by despaced key, specific first word or first two words, initials); test and dev clusters hold no used employer name and no placeholder name; test, dev and train employers disjoint; reserved postings of test and dev employers are in no pool"
+ },
+ "pools": {
+  "test": {
+   "n": 250,
+   "employers": 33,
+   "field": {
+    "data": 36,
+    "health_nursing": 35,
+    "internship": 35,
+    "lab_bio": 36,
+    "other": 36,
+    "sales_ops": 36,
+    "software": 36
+   },
+   "length": {
+    "empty": 13,
+    "teaser 1-699": 40,
+    "700-1300": 3,
+    "1300-3000": 19,
+    "3000+": 175
+   },
+   "source": {
+    "workday": 88,
+    "greenhouse": 65,
+    "lever": 35,
+    "adzuna": 32,
+    "smartrecruiters": 20,
+    "ashby": 10
+   },
+   "max per employer": 10,
+   "sha256 sorted ids": "ad5f4bc1300a7ae29d70d3bc1915e3da423a212e565373726b736e17847d55eb"
+  },
+  "dev": {
+   "n": 300,
+   "employers": 70,
+   "field": {
+    "data": 45,
+    "health_nursing": 30,
+    "internship": 13,
+    "lab_bio": 48,
+    "other": 72,
+    "sales_ops": 48,
+    "software": 44
+   },
+   "length": {
+    "empty": 15,
+    "teaser 1-699": 35,
+    "700-1300": 2,
+    "1300-3000": 35,
+    "3000+": 213
+   },
+   "source": {
+    "greenhouse": 150,
+    "workday": 64,
+    "ashby": 37,
+    "adzuna": 33,
+    "lever": 10,
+    "smartrecruiters": 4,
+    "icims": 2
+   },
+   "max per employer": 15,
+   "sha256 sorted ids": "581c04535e871ff95db91fc39887d732f9a3deaa9613988bb6f85044e5c4445d"
+  },
+  "train": {
+   "n": 59780,
+   "employers": 233,
+   "field": {
+    "data": 3591,
+    "health_nursing": 12388,
+    "internship": 1950,
+    "lab_bio": 5540,
+    "other": 23929,
+    "sales_ops": 10811,
+    "software": 1571
+   },
+   "length": {
+    "empty": 27345,
+    "teaser 1-699": 182,
+    "700-1300": 345,
+    "1300-3000": 2836,
+    "3000+": 29072
+   },
+   "source": {
+    "workday": 52160,
+    "smartrecruiters": 2687,
+    "greenhouse": 2053,
+    "talentbrew": 1941,
+    "icims": 446,
+    "ashby": 311,
+    "lever": 80,
+    "adzuna": 51,
+    "avature": 30,
+    "workable": 21
+   },
+   "max per employer": 7517,
+   "sha256 sorted ids": "dc3a9985885684e7daea724e4e23233659da7bf167579f2762bf34c0ad9b4f75"
+  }
+ },
+ "reserved": {
+  "test": 5714,
+  "dev": 2227
+ },
+ "employers": {
+  "test": [
+   {
+    "employer": "abcellera",
+    "names": [
+     "AbCellera"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "billiontoone",
+    "names": [
+     "BillionToOne"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "convergent research",
+    "names": [
+     "Convergent Research"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "covenant health",
+    "names": [
+     "Covenant Health"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "davita",
+    "names": [
+     "DaVita"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "dyne therapeutics",
+    "names": [
+     "Dyne Therapeutics",
+     "Dyne Tx"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "formation bio",
+    "names": [
+     "Formation Bio"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "galderma",
+    "names": [
+     "Galderma"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "inceptive",
+    "names": [
+     "Inceptive"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "iterative health",
+    "names": [
+     "Iterative Health"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "kcas bio",
+    "names": [
+     "KCAS Bio"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "mainegeneral health",
+    "names": [
+     "MaineGeneral Health"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "periodic labs",
+    "names": [
+     "Periodic Labs"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "qiagen",
+    "names": [
+     "QIAGEN"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "scholar rock",
+    "names": [
+     "Scholar Rock",
+     "Scholarrock"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "smiths group",
+    "names": [
+     "Smiths Group"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "sobi swedish orphan biovitrum",
+    "names": [
+     "Sobi (Swedish Orphan Biovitrum)"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "solutionhealth",
+    "names": [
+     "SolutionHealth"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "syneos health",
+    "names": [
+     "Syneos Health"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "veeva",
+    "names": [
+     "Veeva",
+     "Veeva Systems"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "washington university in st louis",
+    "names": [
+     "Washington University in St. Louis"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "zenas biopharma",
+    "names": [
+     "Zenas BioPharma"
+    ],
+    "n": 10
+   },
+   {
+    "employer": "icon",
+    "names": [
+     "ICON"
+    ],
+    "n": 7
+   },
+   {
+    "employer": "tiger analytics",
+    "names": [
+     "Tiger Analytics Inc."
+    ],
+    "n": 6
+   },
+   {
+    "employer": "csl",
+    "names": [
+     "CSL",
+     "CSL Seqirus"
+    ],
+    "n": 3
+   },
+   {
+    "employer": "coriolis pharma research gmbh",
+    "names": [
+     "Coriolis Pharma Research GmbH"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "hartmann young",
+    "names": [
+     "Hartmann Young"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "jobot",
+    "names": [
+     "Jobot"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "socket dev",
+    "names": [
+     "Socket.dev"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "trinetx",
+    "names": [
+     "TriNetX",
+     "TriNetX, LLC"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "xtalpi",
+    "names": [
+     "XtalPi Inc."
+    ],
+    "n": 2
+   },
+   {
+    "employer": "revvity",
+    "names": [
+     "Revvity"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "unitedhealth group",
+    "names": [
+     "UnitedHealth Group"
+    ],
+    "n": 1
+   }
+  ],
+  "dev": [
+   {
+    "employer": "adams clinical",
+    "names": [
+     "Adams Clinical"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "amylyx pharmaceuticals",
+    "names": [
+     "Amylyx Pharmaceuticals"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "baystate health",
+    "names": [
+     "Baystate Health"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "butterfly network",
+    "names": [
+     "Butterfly Network"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "chai discovery",
+    "names": [
+     "Chai Discovery"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "edison scientific",
+    "names": [
+     "Edison Scientific"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "eikon therapeutics",
+    "names": [
+     "Eikon Therapeutics"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "fresenius medical care",
+    "names": [
+     "Fresenius Medical Care"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "illumina",
+    "names": [
+     "Illumina"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "natera",
+    "names": [
+     "Natera"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "sartorius",
+    "names": [
+     "Sartorius"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "twist bioscience",
+    "names": [
+     "Twist Bioscience"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "xaira therapeutics",
+    "names": [
+     "Xaira Therapeutics"
+    ],
+    "n": 15
+   },
+   {
+    "employer": "praxis precision medicines",
+    "names": [
+     "Praxis Precision Medicines"
+    ],
+    "n": 11
+   },
+   {
+    "employer": "tango therapeutics",
+    "names": [
+     "Tango Therapeutics"
+    ],
+    "n": 11
+   },
+   {
+    "employer": "egenesis",
+    "names": [
+     "eGenesis"
+    ],
+    "n": 8
+   },
+   {
+    "employer": "watershed",
+    "names": [
+     "Watershed"
+    ],
+    "n": 6
+   },
+   {
+    "employer": "azurity pharmaceuticals",
+    "names": [
+     "Azurity Pharmaceuticals"
+    ],
+    "n": 4
+   },
+   {
+    "employer": "bicycle therapeutics",
+    "names": [
+     "Bicycle Therapeutics"
+    ],
+    "n": 4
+   },
+   {
+    "employer": "adaptive biotechnologies",
+    "names": [
+     "Adaptive Biotechnologies"
+    ],
+    "n": 3
+   },
+   {
+    "employer": "orbital industries",
+    "names": [
+     "Orbital Industries"
+    ],
+    "n": 3
+   },
+   {
+    "employer": "latchbio",
+    "names": [
+     "LatchBio"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "parallel bio",
+    "names": [
+     "Parallel Bio"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "recursion",
+    "names": [
+     "Recursion"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "retro biosciences",
+    "names": [
+     "Retro Biosciences"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "simons foundation",
+    "names": [
+     "Simons Foundation"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "wuxi apptec",
+    "names": [
+     "WuXi AppTec"
+    ],
+    "n": 2
+   },
+   {
+    "employer": "abbvie",
+    "names": [
+     "AbbVie"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "akebia therapeutics",
+    "names": [
+     "Akebia Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "aktis oncology",
+    "names": [
+     "Aktis Oncology"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "albert invent",
+    "names": [
+     "Albert Invent"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "biontech",
+    "names": [
+     "BioNTech"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "biox",
+    "names": [
+     "BioX"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "cbre",
+    "names": [
+     "CBRE"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "circle strategies",
+    "names": [
+     "Circle Strategies, Inc."
+    ],
+    "n": 1
+   },
+   {
+    "employer": "city therapeutics",
+    "names": [
+     "City Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "cross country nurses",
+    "names": [
+     "Cross Country Nurses"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "cushman wakefield",
+    "names": [
+     "Cushman & Wakefield"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "datavant",
+    "names": [
+     "Datavant"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "debut",
+    "names": [
+     "Debut"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "dyno therapeutics",
+    "names": [
+     "Dyno Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "elsevier",
+    "names": [
+     "Elsevier"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "eql tech",
+    "names": [
+     "EQL Tech"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "fortrea",
+    "names": [
+     "Fortrea"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "foundation medicine",
+    "names": [
+     "Foundation Medicine"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "helical",
+    "names": [
+     "Helical"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "jade biosciences",
+    "names": [
+     "Jade Biosciences"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "katalyst healthcares and lifesciences",
+    "names": [
+     "Katalyst Healthcares and Lifesciences"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "kinara group",
+    "names": [
+     "Kinara Group"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "kyverna therapeutics",
+    "names": [
+     "Kyverna Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "mdxhealth",
+    "names": [
+     "MDxHealth"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "monte rosa therapeutics",
+    "names": [
+     "Monte Rosa Therapeutics, Inc"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "motion recruitment partners",
+    "names": [
+     "Motion Recruitment Partners, LLC"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "nestle",
+    "names": [
+     "Nestle"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "outcomes4me",
+    "names": [
+     "Outcomes4Me"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "prudentia sciences",
+    "names": [
+     "Prudentia Sciences"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "puretech health",
+    "names": [
+     "PureTech Health"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "putnam",
+    "names": [
+     "Putnam"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "real chemistry",
+    "names": [
+     "Real Chemistry"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "relx",
+    "names": [
+     "RELX INC"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "revolution medicines",
+    "names": [
+     "Revolution Medicines"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "rhythm pharmaceuticals",
+    "names": [
+     "Rhythm Pharmaceuticals"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "sarepta therapeutics",
+    "names": [
+     "Sarepta Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "seaport therapeutics",
+    "names": [
+     "Seaport Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "spyre therapeutics",
+    "names": [
+     "Spyre Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "stratevi",
+    "names": [
+     "Stratevi"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "summit therapeutics",
+    "names": [
+     "Summit Therapeutics"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "united therapeutics",
+    "names": [
+     "United Therapeutics Corporation"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "waiv formerly owkin dx",
+    "names": [
+     "Waiv, formerly Owkin Dx"
+    ],
+    "n": 1
+   },
+   {
+    "employer": "zanda",
+    "names": [
+     "Zanda"
+    ],
+    "n": 1
+   }
+  ],
+  "train (count only)": 233
+ }
+}

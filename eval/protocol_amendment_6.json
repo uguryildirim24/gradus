@@ -1,0 +1,145 @@
+{
+ "what": "Amendment 6 (DRAFT, not in force until the author approves it): fresh test 4 becomes dev; a new sealed fresh test 5 judges two Keep-side candidates, C (relabeled with a rubric clarification, retrained with B's recipe) and D (a Keep-verifier adapter), against the shipped run B. Test 5 uses the FALLBACK design: Claude-written resumes through build_fresh_test's post-8c6bac5 candidate sampler and gates, on real postings that already hold an Adaption v2 card. No free pool of existing Adaption-written rows qualifies (see free_pool_finding).",
+ "status": "draft, written 2026-10-22 for the author; the author approves or changes it before any step below runs",
+ "amends": {
+  "files": {
+   "eval/protocol_amendment_4c.json": "d344d9becc44a9ff75be4634978d38ab8e5e540c5298a93d13de9ae4eb5b3447",
+   "eval/protocol_amendment_5.json": "2e0ac6346b39b131e49e67ed71ea9207a7285a205ed3c1dda461001479346aad",
+   "eval/protocol_amendment_5b.json": "d959445da0d96038206cbc3a61aa21dd9dae0917403e3adf752e45e7c338157d",
+   "eval/selection_cycle3.json": "17b6bdd3bda9855f9e0e4bb1708b07e8511c608bb5fb8ff9c0b71a66233deab5",
+   "eval/fresh_test4_manifest.json": "010913c8ce31e180dbfa910e80344256bf53b91975f6fc3a07b4362fd80689f3",
+   "eval/fresh_test4_gold_manifest.json": "a1528e07c31af486f5161d49297c432368d2fabec2d8cb1ceda37ba27c55d937",
+   "eval/fresh_test4_result.json": "6312218c91f7eefca4bdf895e7f5a27ccc2fd21a104c5e8b453b728e41f5f3fb",
+   "eval/diag_keep_levers.md": "37b8bcd7be43ae2400c9bf96043ef75a7e173173ba5e629f549601cacf6db9f6"
+  },
+  "parent_commit": "87187d086263b5116fcebb6bd3d16f9773f6d0a5",
+  "unchanged": "everything earlier files pin that this file does not change: the recorded results of fresh tests 1-4 stand as written and are never rescored or overwritten; the label read from float32 first-token scores; the decider readout s = P(Keep) + 0.5 P(Explore) and amendment 5b's cut-off grid and floors; the H'' variants; the eligibility-pass slice definition (no H' hard Skip in HP_CATS and no salary cap, recomputed from profile and card with the rules in effect); colab_eval bf16 batch 1, one adapter per Colab L4 session; macro-F1 as evalstats.macro_f1_of; the two-way bootstrap (postings, then rows within them, 2,000 draws, one draw set per slice shared by every system)."
+ },
+ "decided_by": "pending the author. Drafted from the author's ask of 2026-10-22: improve the Keep side of run B and show it honestly on a new sealed test, with about 1 Adaption credit left.",
+ "written_before": "any test-5 posting draw, candidate, resume, label batch or gold label; any C or D training label, training run or score; any new score on fresh test 4. Fresh test 4 was scored once (c922be2) and its result stands. The only reads behind this file are stored files: the pool overlap and eligibility counts below (rules on existing cards, no model output, no gold of any test-5 row, since none exists), cycle-3 teacher label rates on cycle-3 training rows, and eval/diag_keep_levers.md.",
+ "why": "B finds 24 of 36 pass-slice gold Keeps on test 4 and makes 20 wrong Keeps there; the main wrong Keep is a required item the resume names but doesn't show doing (eval/diag_keep_levers.md section 2). Test 4 is spent, so any Keep-side change needs a new sealed test. Power: at about 40-60 gold Keeps the bar below can detect a large wrong-Keep cut (diag: about 16 of 20) and has little power for a true-Keep gain (diag section 6: 0.06 at 43 Keeps). A non-pass means B ships as is; it does not mean C or D is worse.",
+
+ "test_4_becomes_dev": {
+  "rule": "Fresh test 4 (1,139 rows, gold pinned by eval/fresh_test4_gold_manifest.json) joins tests 1-3 as a practice set: it may be read for diagnosis, for selecting between C and D, and for refitting decider cut-offs. eval/fresh_test4_result.json stands as written and is never rescored or overwritten.",
+  "dev_pool": "tests 1+2+3+4 pooled: 2,539 rows, 140 gold Keeps (97 + 43)",
+  "never_trained_on": "no row, posting or employer of fresh tests 1-4 enters any training file, C's and D's included (amendments 4 and 5)"
+ },
+
+ "free_pool_finding": {
+  "question": "does a zero-credit test 5 already exist among the stored rows with Adaption-written resumes?",
+  "answer": "the counts are there, the design is not. The only rows with Adaption-written resumes and no posting overlap are the round-2 real-pair rows; they clear 800 rows and 40 pass-slice Keeps easily, but every one was built by the pre-fix round-2 builder (build_real_test.candidates_for, which 8c6bac5 never touched), so they test a different thing from tests 1-4.",
+  "inventory": {
+   "round-1 synthetic (data/built/training/train.jsonl 6,891 = train_mix.csv's synthetic part; dev.jsonl 750; dev_cross.jsonl 300)": "synthetic postings Adaption wrote from requirement cards (rendered/postings.jsonl), resumes rendered on Adaption; build_pairs 521c490/07ba326 + render_cards d8f5856/375082e, 2026-10-17..19; pre-8c6bac5. 344 of their 1,216 card ids are reused by cycle-3 twin rows (289 in B's training), touching 2,154 rows. Not usable: synthetic postings.",
+   "round-2 real test (data/built/real_test/test.jsonl)": "1,183 rows, 86 Simplify ATS postings (data/raw/ats), resumes rendered on Adaption; build_real_test 0a283e5..d1b02b4, 2026-10-18..20; pre-8c6bac5",
+   "round-2 real train (data/built/real_train/train.jsonl 4,593 rows / 1,413 postings; dev.jsonl 2,191 / 165; screened subsets 4,350 / 2,123; real_dev.jsonl 2,123)": "Simplify ATS postings, resumes rendered on Adaption (render_cards 657c606); build_real_train d5d5715/17985a3, 2026-10-20; pre-8c6bac5. The real part of train_mix.csv; 446 of these rows (re-drawn as real_train/mix3) went into train_fit.csv and so into runs h and d3, never into B, C or D.",
+   "fit cycle 1 (data/built/fit/train_fit.csv 10,563 rows: mix3 6,921, twins 2,544, venator 879, teaser 219; dev_fit_all 723)": "build_fit_train 1020e6e, 2026-10-20, resumes in fit/build/resumes.jsonl; pre-8c6bac5. Its venator, teaser and 600 twin rows are in the cycle-3 teacher's 4,102; the rest are round-1/2 rows again (mix3), twins on cards cycle 3 already used, or dev-pool rows (test 3's pool).",
+   "cycle-3 new rows (data/built/fit/cycle3/rows.jsonl 2,553)": "post-8c6bac5; all labeled by the cycle-3 teacher. Not usable.",
+   "fresh tests 1-3 (592 / 371 / 437) and 4 (1,139)": "1-3 pre-8c6bac5, 4 post; all are practice or dev now. Not usable."
+  },
+  "overlap_rule": "a pool posting is dropped when, against any reference set, it shares an id (normalized URL or ATS job id), the same company key and normalized title, a description 6-word-window Jaccard of 0.5 or more (matcher.nearcopy's own bar is 0.8), or 80% or more of the shorter description's windows. Reference sets: the postings of B's 2,686 training rows; of all 4,102 rows the cycle-3 teacher labeled (twin card ids matched by id and by every twin and round-1 rendering of the card); of fresh tests 1, 2, 3 and 4 (with 4b); of the 701 venator postings in a hand-rated set (data/built/fit/venator_picks.json).",
+  "overlap_counts_round2_real": {
+   "postings_checked": 1664,
+   "vs_tests_1_to_4": "0 on every rule, employers included (by construction: fit_pools.split excluded the ATS set's employers from the test and dev pools and dropped its near copies from the store)",
+   "vs_B_train": "0 id, 0 company+title, 0 at Jaccard 0.8; 18 postings dropped on the looser rules (shared employer templates: Stryker, Danaher, LabCorp, Medtronic, J&J, Vertex)",
+   "vs_cycle3_labeled": "21 postings dropped (the 18 above plus 3 Amgen)",
+   "vs_venator_picks": "2 exact copies (same id, Jaccard 1.0, both Johnson & Johnson) and 15 more on the looser rules; 17 in all",
+   "dropped_postings": 32,
+   "dropped_ids": ["ats_079b70ee-8105-46b4-9163-319c8610f157", "ats_0c0c50f3-9bb4-4e00-9b44-a6ec64006ebb", "ats_11e12aaa-6e95-477a-a2ef-b0995c36edee", "ats_12a95e7d-c62e-4b8c-b8ff-491b854e7a20", "ats_1da785e9-2186-4432-8764-fe77d2edf0dc", "ats_27460c05-e022-499c-bcc8-2783559d2639", "ats_302e6ed8-0e34-4d81-bd75-93f9c018883c", "ats_3c5615c3-8831-41c5-8668-b6072cfc338c", "ats_3c6dc4c7-bd24-4215-a600-0d55a3952673", "ats_46c77ff4-d626-47a9-bdb5-d46938c07a50", "ats_5012230e-2a8b-4047-80ec-4b7c9ecbf427", "ats_5a08979e-7e9a-404e-8ff7-08e9387be038", "ats_61029f11-ef86-4f8a-bf15-92d10b7cf4dc", "ats_6e4f094f-682c-4e8f-b9a8-f1ee44c201d3", "ats_75d3af44-afc1-48c6-a0ac-5a69ec3e6694", "ats_7a1c6145-534b-4180-a87b-447e2edd9c8f", "ats_80bdfcf1-83d4-4181-ac07-1b85ab062845", "ats_811210da-553e-4d37-b262-9897450dc43d", "ats_90912950-0238-4415-ada4-c22d0cbd6ae8", "ats_914d1c0b-d8fa-4b99-acb4-a54d4c96b960", "ats_97071ed7-a906-402b-b755-8a9a9f9968c7", "ats_9eef895c-2727-4ebb-92bc-fda2b10c3d34", "ats_a4493c94-033c-44ce-ae50-4d4e92ed5dda", "ats_a980e8b0-12fe-45eb-9fa2-697b990375e7", "ats_bb1db447-a460-4fc9-882b-74f577a14cdb", "ats_c3266d6e-c488-4eef-899d-7b513296dd3b", "ats_caf607e7-c4db-41eb-b84a-606fa07f4ae6", "ats_d25191cb-2a6a-41b6-aebd-15d609a98d7b", "ats_d758e83a-11e4-44be-9758-0accaa82c352", "ats_dc2aebf1-8c3c-4139-937e-f31dfd69950e", "ats_fb5852a4-7dd6-4402-9294-65ab39f88f85", "ats_fb864212-d3c0-4051-9019-29f9bcfde6ac"],
+   "employer_overlap_kept": "allowed and reported: 49 kept postings (306 rows) at 22 employers that also appear among B's training postings (17 of the 49 are Johnson & Johnson); 30 kept postings (235 rows) share an employer with that hand-rated set"
+  },
+  "disjoint_pool": {
+   "rows": 7775,
+   "postings": 1632,
+   "employers": 670,
+   "postings_real_vs_synthetic": "1,632 real (Simplify ATS internship, co-op and new-grad listings), 0 synthetic",
+   "by_set": {"real_test": "1,183 rows / 86 postings", "real_train train": "4,513 / 1,387", "real_train dev": "2,079 / 159"},
+   "pre_8c6bac5_rows": "7,775 of 7,775",
+   "eligibility_pass_rows": "3,563 (recomputed with the rules in effect on each posting's v2 card, mark_thin applied)",
+   "expected_pass_slice_keeps": "about 1,670-1,790 (47-50% of the 3,503 pass rows left after the 132 title-copy rows are set aside) at the cycle-3 teacher's Keep rates on its 730 venator-source rows, which the same old builder made on real postings (by rule label: Keep 0.69, Explore 0.32, Skip 0.19; by variant kind where 8+ rows exist); rules Keep 1,621. At test 4's 7% the floor would be about 250.",
+   "title_copies": "132 rows (60 on the pass slice) hold the posting's exact title (fit_eval_score.title_in_resume); fresh test 3 had 116 of 437, test 4 none",
+   "why_not_used": "(1) keyword copying: the resumes name 95.4% of the card's required skills (exact strings) against 15-17% on tests 1-4, and 93% of each candidate's skills list comes from the card against 7% on tests 3-4. That is the habit 8c6bac5 removed, and it is in every row, not only the 132 title copies. (2) design: each row perturbs one profile field of a base candidate; data/built/real_train/README.md shows the profile block alone predicts the rule label at macro-F1 0.74-0.80. (3) prevalence: an expected pass-slice Keep rate near 47% against test 4's 7%. (4) field mix: tech internships only (AI/ML/Data, Software, Hardware, Quant, Product), no teasers, against test 4's mixed fields. (5) familiarity: B trained on 558 rows from the same builder family (cycle-3 venator-source rows). A C-over-B result there would show C reads keyword-matched intern rows better, not that it fixes test 4's wrong Keeps.",
+   "rule_label_enrichment": "not needed for the count, and not useful: rules_full finds 3 of 36 gold Keeps on test 4, so rule labels don't locate Keeps. Enriching by rule labels would use no model output and no gold, so it would be defensible in principle."
+  }
+ },
+
+ "fresh_test_5": {
+  "FALLBACK": "This is the fallback design: Claude writes the resumes. Every training and test row before it had Adaption-written resumes, so the writer is a known style shift. It is the only shift: postings, cards, candidate sampler and gates are the existing ones.",
+  "postings": {
+   "source": "the 1,632 real postings of free_pool_finding.disjoint_pool (data/raw/ats/postings.jsonl, ids ats_*), each with its existing Adaption v2 card (data/built/cards/extracted_real_cards_v2.jsonl, blueprint b2b2ed8e, the extractor of fresh test 4). The old rows' resumes, profiles and labels are not used.",
+   "filter": "the 32 dropped_ids out; one posting per (employer key, normalized title), the first by id; English",
+   "draw": "sort the remaining ids, shuffle with random.Random(20261022), walk the order and take a posting unless its employer key (matcher.nearcopy.company_key) already has 7 postings in the test; stop at 300 postings. The walk order past the 300th is kept for the extension below.",
+   "uses_no": "rule label, model output, gold label or old-row label of any kind"
+  },
+  "candidates": {
+   "sampler": "scripts/build_fresh_test.py's candidate builder at 8c6bac5 or later (no held job title equal to the posting's title, the skills list the person's own), with each posting adapted to its pool-posting field names, field and kit from the posting's title as fit_pools.field_of does",
+   "design": "4 candidates a posting; Keep-leaning by design, declared here before the build: pass_rate 0.75 and archetype weights near/gap/strong 0.3/0.3/0.4 (the c3train setting), instead of test 4's 0.58 and 0.4/0.4/0.2. This raises the expected Keep count without using any label or model output. Results are reported per archetype and reweighted to test 4's archetype mix beside the raw numbers.",
+   "seed": 20261022,
+   "row_id_prefix": "f5_"
+  },
+  "resumes": {
+   "writer": "Claude Sonnet, effort medium, given exactly build_fresh_test's WRITER_UNIVERSAL + WRITER_BLUEPRINT text and writer_context(r) per candidate; no posting text beyond what writer_context passes; the writer sees no label",
+   "gates": "build_fresh_test.gate unchanged, up to MAX_TRIES = 3 tries with the gate feedback, then the same repair and drop rules; a candidate without a passing resume is dropped and listed",
+   "adaption_credits": "0 (cards exist; nothing is extracted or rendered on Adaption)"
+  },
+  "size": {
+   "rows": "about 1,200 (300 postings x 4, before gate drops)",
+   "expected_pass_slice_gold_keeps": "about 60-70 if gold Keeps per row follow the cycle-3 teacher on c3train-design rows (169 Keeps of 2,553, 6.6%); about 38 if they fall back to test 4's unsteered 3.2% of rows",
+   "minimum": "at least 800 rows and at least 40 gold Keeps on the eligibility-pass slice",
+   "extension": "if gold holds fewer than 40 pass-slice Keeps, the next 50 postings in the seeded walk order are built, labeled and adjudicated the same way, and again until 40 is reached, the walk runs out, or the cut-off below arrives. Decided from gold counts alone, before any system is scored on test 5. If 40 is not reached, test 5 is scored as it stands and the count is printed beside every Keep number (as amendment 4c did)."
+  },
+  "inputs": {
+   "posting": "extract_postings.posting_text(ats posting, None): the whole posting, Title/Company/Locations header",
+   "profile": "matcher.profile.render_profile(CandidateCard)",
+   "label_batches": "fresh test 3's blind format (row_id, posting whole, resume, profile), 75 rows a batch",
+   "system_prompts": "each model gets the prompt it was trained with: B its prompt_b_system (sha256 1d12b0d0...), C its own (B's plus the clarification line), D its own; pinned in an eval-inputs json committed before any inference, as eval/fresh_test4_eval_inputs.json was"
+  },
+  "slices": {
+   "eligibility_pass": "H' (HP_CATS and the salary cap) recomputed from profile and card with the rules in effect; the slice the bar is read on",
+   "also": ["all rows", "A/B-agree subset of each slice", "new-employer slice (employers not among B's training postings' employers)", "per archetype", "per source set of the posting (real_test, real_train train, real_train dev)"]
+  },
+  "sealing": "data/built/fresh_test5/ with eval/fresh_test5_manifest.json and eval/fresh_test5_data_hashes.json committed at sealing, before any label batch is read by a labeler; nothing goes to Adaption or Colab for the build",
+  "never": "no test-5 posting (by overlap_rule) and no test-5 row enters any training file, C's and D's included"
+ },
+
+ "gold": {
+  "labelers": "exactly as fresh tests 1-4: labeler A (Opus, effort medium) and labeler B (Sonnet, effort high), blind, on the label batches only, each with labeler_prompt_test3 (sha256 4e0b955028cbe45dcb6b7f369dbfe1202494756ec806ee841ec306db98fa595e) verbatim; Opus adjudicates every disagreement with the test-3 adjudicator prompt",
+  "rubric": "the unclarified rubric (rubric_bullets sha256 879376f4...). C's clarification is a training-label change only; gold does not get it, so the yardstick does not move toward a candidate.",
+  "pinned": "gold.jsonl with labeler and adjudication files hashed in eval/fresh_test5_gold_manifest.json, committed before any system is scored on test 5",
+  "agreement_subset": "every number is also reported on the rows where labelers A and B agree, with raw agreement and Cohen's kappa as the ceiling",
+  "known_coupling": "C's teacher is labeler A's setup (Opus, medium) with one added line, and Sonnet writes the resumes that Sonnet (labeler B) labels. Both are recorded, not corrected."
+ },
+
+ "candidates": {
+  "B": "shipped run B + H''_without_work_mode, decider, cut-offs of eval/selection_cycle3.json (as shipped). Also refit-B: the same model with its cut-offs refit on dev (tests 1-4 pooled) by amendment 5b's grid and rule. The bar reads against refit-B whenever the candidate's cut-offs are refit on dev, so the bar measures the retrain, not the retune; B as shipped is reported beside.",
+  "C": {
+   "labels": "the 4,102 rows the cycle-3 teacher labeled (data/built/fit/cycle3/label_batches), relabeled by labeler A's setup (Opus, effort medium, one label per row) with labeler_prompt_test3 plus one line after the rubric bullets: \"- A required item the resume names but doesn't show doing is not met.\" The prompt's sha256 is recorded when the file is written, before the first batch.",
+   "training_set": "amendment 5's label-mix band check and downsample rule, a new recorded seed; same prompt_b layout with C's system prompt (B's plus the clarification line)",
+   "run": "B's recipe unchanged (amendment 5 runs.same_for_both, prompt B, Qwen/Qwen3.5-4B); state file main_4b_C.json",
+   "system": "C + H''_without_work_mode, decider, cut-offs fit on dev by amendment 5b's rule"
+  },
+  "D": {
+   "what": "a Keep-verifier adapter trained on Adaption: it reads a row B calls Keep and answers Keep or not-Keep; the system demotes B's Keep to Explore when D says not-Keep",
+   "training_rows": "only rows of the cycle-3 teacher's 4,102 (the 2,686 kept and the 1,416 band-dropped Skips), with labeler A's labels collapsed to Keep vs not-Keep; never a row, posting or employer of fresh tests 1-5",
+   "run": "Qwen/Qwen3.5-4B LoRA with B's hyperparameters; state file main_4b_D.json",
+   "system": "B + H''_without_work_mode, decider, with D re-reading B's Keep calls; B's t_hi refit on dev with D in place (amendment 5b's grid, floors and ties); t_lo unchanged from refit-B"
+  },
+  "credits": "each Adaption run costs about 1-1.5 credits (diag_keep_levers section 5) and the balance is about 1. The balance is read and recorded before any launch. If it covers one run only, the order (C or D first) is written in a committed note before the first launch; a candidate that cannot be trained is dropped and recorded. No credit goes to test 5.",
+  "selection_on_dev": "if both C and D exist, one pick is carried to the bar: the higher pooled Keep-F1 on dev (eligibility-pass slice, tests 1-4 pooled) among candidates whose pooled macro-F1 on that slice is at least refit-B's minus 0.03; ties to C. The pick is written to eval/selection_cycle4.json and committed before any score on test 5. The other candidate is scored on test 5 for the record, with no pass claim."
+ },
+
+ "bar": {
+  "slice": "test 5's eligibility-pass slice",
+  "keep_f1": "pick minus refit-B on Keep-F1 (Keep vs not-Keep after the system's eligibility layer), paired on the same rows and draws: 95% two-way bootstrap lower bound (2.5th percentile, unrounded) above 0",
+  "macro_f1_non_inferior": "pick minus refit-B on macro-F1: 95% two-way bootstrap lower bound above -0.03",
+  "margin_why": "0.03 is about a fifth of the width of B's pass-slice macro-F1 interval on test 4 ([0.592, 0.745]), small enough that a pass cannot hide a real loss on Explore or Skip and large enough not to turn non-inferiority into a second superiority test",
+  "bootstrap": "2,000 two-way draws (postings, then rows within them), numpy default_rng(20261022), one draw set per slice shared by every system",
+  "pass": "both conditions hold; otherwise B ships as is",
+  "also_report": "Keep recall with found/gold counts, Keep precision, true and wrong Keeps, Explore and Skip recall, macro-F1 for: the pick, the other candidate, refit-B, B as shipped, rules_full, base + H''_without_work_mode (decider, its cut-offs refit on dev); on every slice in fresh_test_5.slices; reported as it comes out, pass or not, no second scoring",
+  "output": "eval/fresh_test5_result.json (+ .md), write-once"
+ },
+
+ "cutoff": {
+  "deadline": "Saturday 2026-10-24 12:00 ET",
+  "rule": "if test 5's result is not committed by then, B ships as is and nothing after the deadline changes that. A test 5 whose gold manifest was committed before the deadline is scored (extension finished or not, per size.extension); a test 5 without a committed gold manifest is never scored."
+ }
+}

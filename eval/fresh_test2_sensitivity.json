@@ -1,0 +1,282 @@
+{
+ "set": "fresh_test2",
+ "status": "sensitivities only; the pinned verdict in eval/fresh_test2_result.json (NOT PASSED: h+H' minus rules_full macro-F1 lower bound -0.0018 on the 164-row recomputed eligibility-pass slice, 2000 draws, seed 20261021) stands. Nothing here rescored a model or changes that verdict.",
+ "source": "stored per-row label scores data/models/v4_eval/fresh_test2/{h,d3,base}_run/*_fresh_test2.json, data/built/fresh_test2/{gold,rows,cards}.jsonl (hashes checked by fit_eval_score.check_fresh2), functions of scripts/fit_eval_score.py; script scripts/fresh_test2_sensitivity.py",
+ "pinned_reproduced": {
+  "n": 164,
+  "postings": 83,
+  "draws": 2000,
+  "seed": 20261021,
+  "h+H' - rules_full": {
+   "macro_f1_diff": [
+    0.1517,
+    -0.0018,
+    0.2729
+   ],
+   "macro_f1_lower_bound_exact": -0.0018355609608792995,
+   "accuracy_diff": [
+    0.0244,
+    -0.0844,
+    0.1266
+   ],
+   "lower_bound_above_0": false
+  },
+  "h+H' - base+H'": {
+   "macro_f1_diff": [
+    0.3449,
+    0.208,
+    0.4796
+   ],
+   "macro_f1_lower_bound_exact": 0.2080328400597472,
+   "accuracy_diff": [
+    0.3171,
+    0.1739,
+    0.4616
+   ],
+   "lower_bound_above_0": true
+  }
+ },
+ "sealed_design_slice": {
+  "slice": "rows.jsonl design.eligibility_pass (the sealed design flag, before the cycle-2 work-mode fix)",
+  "note": "the 50 extra rows are the ones the cycle-2 work-mode fix makes a hard Skip; H' and rules_full both Skip them, base+H' too, so they shift the comparison by how often gold is Skip there (32 of 50)",
+  "n": 214,
+  "postings": 94,
+  "draws": 2000,
+  "seed": 20261021,
+  "h+H' - rules_full": {
+   "macro_f1_diff": [
+    0.1502,
+    0.0013,
+    0.2601
+   ],
+   "macro_f1_lower_bound_exact": 0.0012656894309043584,
+   "accuracy_diff": [
+    0.0187,
+    -0.0664,
+    0.0981
+   ],
+   "lower_bound_above_0": true
+  },
+  "h+H' - base+H'": {
+   "macro_f1_diff": [
+    0.3091,
+    0.1809,
+    0.4288
+   ],
+   "macro_f1_lower_bound_exact": 0.18090170018527696,
+   "accuracy_diff": [
+    0.243,
+    0.1262,
+    0.347
+   ],
+   "lower_bound_above_0": true
+  }
+ },
+ "reading": "the h+H' minus rules_full macro-F1 lower bound sits at about 0 on fresh test 2: the pinned seed gives -0.0018, seed 4 gives -0.0009, seeds 1, 2, 3, 7 and 10,000 draws give +0.004 to +0.009, and the sealed-design 214-row slice gives +0.0013. The point estimate (+0.152) does not move with seed. The result is a near-miss on Monte Carlo noise; amendment 2 pinned seed and draws before scoring, so the verdict stays NOT PASSED. h+H' minus base+H' clears 0 by about 0.18 or more everywhere.",
+ "recomputed_slice_seeds_and_draws": [
+  {
+   "n": 164,
+   "postings": 83,
+   "draws": 2000,
+   "seed": 1,
+   "h+H' - rules_full": {
+    "macro_f1_diff": [
+     0.1517,
+     0.0091,
+     0.2658
+    ],
+    "macro_f1_lower_bound_exact": 0.009064429636753066,
+    "accuracy_diff": [
+     0.0244,
+     -0.0819,
+     0.1235
+    ],
+    "lower_bound_above_0": true
+   },
+   "h+H' - base+H'": {
+    "macro_f1_diff": [
+     0.3449,
+     0.1985,
+     0.472
+    ],
+    "macro_f1_lower_bound_exact": 0.1984848978037519,
+    "accuracy_diff": [
+     0.3171,
+     0.1694,
+     0.4557
+    ],
+    "lower_bound_above_0": true
+   }
+  },
+  {
+   "n": 164,
+   "postings": 83,
+   "draws": 2000,
+   "seed": 2,
+   "h+H' - rules_full": {
+    "macro_f1_diff": [
+     0.1517,
+     0.0063,
+     0.2733
+    ],
+    "macro_f1_lower_bound_exact": 0.006326158909564074,
+    "accuracy_diff": [
+     0.0244,
+     -0.0798,
+     0.1342
+    ],
+    "lower_bound_above_0": true
+   },
+   "h+H' - base+H'": {
+    "macro_f1_diff": [
+     0.3449,
+     0.2138,
+     0.4704
+    ],
+    "macro_f1_lower_bound_exact": 0.21382299707604965,
+    "accuracy_diff": [
+     0.3171,
+     0.1842,
+     0.4511
+    ],
+    "lower_bound_above_0": true
+   }
+  },
+  {
+   "n": 164,
+   "postings": 83,
+   "draws": 2000,
+   "seed": 3,
+   "h+H' - rules_full": {
+    "macro_f1_diff": [
+     0.1517,
+     0.007,
+     0.2662
+    ],
+    "macro_f1_lower_bound_exact": 0.007007513200922563,
+    "accuracy_diff": [
+     0.0244,
+     -0.0807,
+     0.1234
+    ],
+    "lower_bound_above_0": true
+   },
+   "h+H' - base+H'": {
+    "macro_f1_diff": [
+     0.3449,
+     0.2044,
+     0.4697
+    ],
+    "macro_f1_lower_bound_exact": 0.2043922282934099,
+    "accuracy_diff": [
+     0.3171,
+     0.1667,
+     0.4534
+    ],
+    "lower_bound_above_0": true
+   }
+  },
+  {
+   "n": 164,
+   "postings": 83,
+   "draws": 2000,
+   "seed": 4,
+   "h+H' - rules_full": {
+    "macro_f1_diff": [
+     0.1517,
+     -0.0009,
+     0.2591
+    ],
+    "macro_f1_lower_bound_exact": -0.0008852376988079998,
+    "accuracy_diff": [
+     0.0244,
+     -0.0824,
+     0.1287
+    ],
+    "lower_bound_above_0": false
+   },
+   "h+H' - base+H'": {
+    "macro_f1_diff": [
+     0.3449,
+     0.2065,
+     0.4726
+    ],
+    "macro_f1_lower_bound_exact": 0.20646894895471457,
+    "accuracy_diff": [
+     0.3171,
+     0.1772,
+     0.4567
+    ],
+    "lower_bound_above_0": true
+   }
+  },
+  {
+   "n": 164,
+   "postings": 83,
+   "draws": 2000,
+   "seed": 7,
+   "h+H' - rules_full": {
+    "macro_f1_diff": [
+     0.1517,
+     0.0081,
+     0.2686
+    ],
+    "macro_f1_lower_bound_exact": 0.008111112390186958,
+    "accuracy_diff": [
+     0.0244,
+     -0.0823,
+     0.1294
+    ],
+    "lower_bound_above_0": true
+   },
+   "h+H' - base+H'": {
+    "macro_f1_diff": [
+     0.3449,
+     0.2175,
+     0.4773
+    ],
+    "macro_f1_lower_bound_exact": 0.21752934634748095,
+    "accuracy_diff": [
+     0.3171,
+     0.1775,
+     0.4524
+    ],
+    "lower_bound_above_0": true
+   }
+  },
+  {
+   "n": 164,
+   "postings": 83,
+   "draws": 10000,
+   "seed": 20261021,
+   "h+H' - rules_full": {
+    "macro_f1_diff": [
+     0.1517,
+     0.0041,
+     0.2707
+    ],
+    "macro_f1_lower_bound_exact": 0.004090227345082071,
+    "accuracy_diff": [
+     0.0244,
+     -0.0823,
+     0.1299
+    ],
+    "lower_bound_above_0": true
+   },
+   "h+H' - base+H'": {
+    "macro_f1_diff": [
+     0.3449,
+     0.21,
+     0.4739
+    ],
+    "macro_f1_lower_bound_exact": 0.21004303620489417,
+    "accuracy_diff": [
+     0.3171,
+     0.1745,
+     0.4571
+    ],
+    "lower_bound_above_0": true
+   }
+  }
+ ]
+}

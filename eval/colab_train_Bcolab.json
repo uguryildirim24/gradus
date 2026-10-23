@@ -1,0 +1,75 @@
+{
+ "tag": "Bcolab",
+ "session": "matcher-train-bcolab",
+ "gpu_asked": "A100",
+ "started_utc": "20261022T225127Z",
+ "train_csv": "data/built/fit/cycle3/train_B.csv",
+ "train_sha256": "117128cbebeca2a8351df2266a4d8f4dd2e69725b7c4ba51a54d2068e63b17cc",
+ "eval_csv": "data/built/fit/cycle3/relabel_C/eval_loss_B.csv",
+ "eval_sha256": "e0abc0ae2d983277f4f9ff16d8e34e970bd955c51b17457bae20ed979fc35c7d",
+ "archive": "data/models/main_4b_c3/Bcolab_colab_20261022T225127Z.tar.gz",
+ "archive_sha256": "11eb4e6a70d9b4f0282de2e9f9fdab616b1e764f1a48a67b371c0ecb8aff4d9c",
+ "archive_md5": "0052b8e4000efeab5c79ab8302509b19",
+ "archive_bytes": 78569772,
+ "download": "cli",
+ "gpu": "NVIDIA A100-SXM4-40GB",
+ "wall_seconds": {
+  "total": 5064,
+  "training": 5037
+ },
+ "session_minutes": 86.7,
+ "final_train_loss": 0.6586145383213651,
+ "final_eval_loss": 0.6541757906522733,
+ "eval": [
+  {
+   "step": 21,
+   "epoch": 1,
+   "eval_loss": 0.7336423788530707
+  },
+  {
+   "step": 42,
+   "epoch": 2,
+   "eval_loss": 0.6678582417721651
+  },
+  {
+   "step": 63,
+   "epoch": 3,
+   "eval_loss": 0.6541757906522733
+  }
+ ],
+ "train_rows": 2686,
+ "recipe": {
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.0,
+  "target_modules": ".*\\.layers\\.\\d+\\.(self_attn\\.(q_proj|k_proj|v_proj|o_proj)|mlp\\.(gate_proj|up_proj|down_proj))",
+  "lora_modules": 128,
+  "dtype": "bfloat16",
+  "optimizer": "torch AdamW (0.9, 0.999), eps 1e-8, weight decay 0",
+  "max_grad_norm": 2.0,
+  "lr": 0.0002,
+  "warmup_steps": 4,
+  "scheduler": "cosine, half cycle, min_lr_ratio 0.1",
+  "epochs": 3,
+  "steps_per_epoch": 21,
+  "steps": 63,
+  "rows_per_step": 128,
+  "seed": 20261024,
+  "gradient_checkpointing": true,
+  "loss": "completion + <|im_end|> tokens only, token mean over the step",
+  "framing": "chat template, user turn, add_generation_prompt, enable_thinking False"
+ },
+ "versions": {
+  "torch": "2.11.0+cu130",
+  "transformers": "5.20.1",
+  "peft": "0.21.2",
+  "python": "3.13.15",
+  "flash_linear_attention": true
+ },
+ "base_fix": {
+  "what": "adapter_config.json base_model_name_or_path 'base' -> 'Qwen/Qwen3.5-4B'; weights unchanged",
+  "original_archive": "data/models/main_4b_c3/Bcolab_colab_20261022T225127Z.orig.tar.gz",
+  "original_sha256": "b74b38d8157468f05b897dc198436c269db309de546112b05f0c09c32d436aab",
+  "adapter_model_safetensors_sha256": "6475de44aad323dbf3dbf5cbf20817eb311ac37e1c40cfb0697cee9ddb940780"
+ }
+}

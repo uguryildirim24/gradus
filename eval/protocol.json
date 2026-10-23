@@ -1,0 +1,60 @@
+{
+ "what": "v4 fit evaluation protocol, frozen before any fit data is built; the pools are eval/fit_freeze.json",
+ "systems": {
+  "rule": "Each candidate model (g = SFT with reasoning traces, h = SFT without, i = DPO if it runs, d3 as the reference) is scored as a system: the eligibility layer (src/matcher/hybrid.py H' on the Adaption-extracted card, salary cap included) decides Skip where it fires, the model decides every other row.",
+  "candidates": {
+   "g": "SFT with reasoning traces",
+   "h": "SFT without reasoning traces",
+   "i": "DPO (if it runs)",
+   "d3": "reference"
+  },
+  "eligibility_layer": "src/matcher/hybrid.py H' on the Adaption-extracted card, salary cap included"
+ },
+ "selection": {
+  "rule": "On data/built/fit/dev_fit.jsonl only. Pick the system with the highest macro-F1; if two are within 0.01, prefer the one without reasoning traces (cheaper to serve). The fresh test plays no part in selection.",
+  "data": "data/built/fit/dev_fit.jsonl",
+  "metric": "macro-F1",
+  "tie_margin": 0.01,
+  "tie_break": "prefer the system without reasoning traces",
+  "fresh_test_used": false
+ },
+ "fresh_test": {
+  "rule": "Scored once, for every system and these baselines on the same rows: skills-free rules (rules on the extracted card with must and nice skills removed), full rules on the extracted card, the untrained Qwen3.5-4B with the eligibility layer, and d3 + H'. Gold is data/built/fresh_test/gold.jsonl: two independent blind labelers, disagreements adjudicated blind to cards, rules and models.",
+  "scored": "once",
+  "baselines": [
+   "skills-free rules (rules on the extracted card with must and nice skills removed)",
+   "full rules on the extracted card",
+   "the untrained Qwen3.5-4B with the eligibility layer",
+   "d3 + H'"
+  ],
+  "gold": "data/built/fresh_test/gold.jsonl",
+  "gold_process": "two independent blind labelers, disagreements adjudicated blind to cards, rules and models",
+  "pool": "data/built/fit/pools/test.jsonl (sha256 in eval/fit_freeze.json); the test builder samples 150"
+ },
+ "headline": {
+  "rule": "Accuracy and macro-F1 of the chosen system against skills-free rules, as a paired difference with 95% intervals from a bootstrap that resamples postings and candidates. Reported on all rows and on the eligibility-pass slice (rows the eligibility layer lets through, which are the rows that need the resume). Labeler agreement (raw and Cohen's kappa) is reported as the ceiling.",
+  "metrics": [
+   "accuracy",
+   "macro-F1"
+  ],
+  "comparison": "chosen system - skills-free rules, paired",
+  "interval": {
+   "level": 0.95,
+   "method": "bootstrap resampling postings and candidates"
+  },
+  "slices": [
+   "all rows",
+   "eligibility-pass slice (rows the eligibility layer lets through)"
+  ],
+  "ceiling": [
+   "labeler raw agreement",
+   "Cohen's kappa"
+  ]
+ },
+ "pass": {
+  "rule": "The chosen system beats skills-free rules on the eligibility-pass slice with the interval above zero. Whatever the result, it is reported as it is.",
+  "slice": "eligibility-pass slice",
+  "against": "skills-free rules",
+  "condition": "95% interval lower bound > 0"
+ }
+}

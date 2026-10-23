@@ -1,0 +1,72 @@
+{
+ "what": "sha256 of fresh test 3's data files (data/ is gitignored), computed before any model, rules or baseline output on fresh test 3: the built set, gold, the blind label batches, both labelers' labels and the adjudication chunks gold was assembled from. fit_eval_score.py fresh3 checks every entry before it reads a row.",
+ "computed_at_commit": "73990e93f2adbca9af57c62b22f15163364325ba",
+ "computed_on": "2026-10-21",
+ "overlap_with_manifest": {
+  "what": "entries also pinned by eval/fresh_test3_manifest.json files; every one equal",
+  "paths": [
+   "data/built/fresh_test3/candidates.jsonl",
+   "data/built/fresh_test3/cards.jsonl",
+   "data/built/fresh_test3/label_batches/batch_01.jsonl",
+   "data/built/fresh_test3/label_batches/batch_02.jsonl",
+   "data/built/fresh_test3/label_batches/batch_03.jsonl",
+   "data/built/fresh_test3/label_batches/batch_04.jsonl",
+   "data/built/fresh_test3/label_batches/batch_05.jsonl",
+   "data/built/fresh_test3/label_batches/batch_06.jsonl",
+   "data/built/fresh_test3/postings.jsonl",
+   "data/built/fresh_test3/resumes.jsonl",
+   "data/built/fresh_test3/rows.jsonl"
+  ]
+ },
+ "overlap_with_gold_manifest": {
+  "data/built/fresh_test3/gold.jsonl": "equal to eval/fresh_test3_gold_manifest.json gold_sha256"
+ },
+ "not_pinned_elsewhere": [
+  "data/built/fresh_test3/adjudicate/chunk_01.gold.jsonl",
+  "data/built/fresh_test3/adjudicate/chunk_01.jsonl",
+  "data/built/fresh_test3/adjudicate/chunk_02.gold.jsonl",
+  "data/built/fresh_test3/adjudicate/chunk_02.jsonl",
+  "data/built/fresh_test3/labels/A/batch_01.jsonl",
+  "data/built/fresh_test3/labels/A/batch_02.jsonl",
+  "data/built/fresh_test3/labels/A/batch_03.jsonl",
+  "data/built/fresh_test3/labels/A/batch_04.jsonl",
+  "data/built/fresh_test3/labels/A/batch_05.jsonl",
+  "data/built/fresh_test3/labels/A/batch_06.jsonl",
+  "data/built/fresh_test3/labels/B/batch_01.jsonl",
+  "data/built/fresh_test3/labels/B/batch_02.jsonl",
+  "data/built/fresh_test3/labels/B/batch_03.jsonl",
+  "data/built/fresh_test3/labels/B/batch_04.jsonl",
+  "data/built/fresh_test3/labels/B/batch_05.jsonl",
+  "data/built/fresh_test3/labels/B/batch_06.jsonl"
+ ],
+ "sha256": {
+  "data/built/fresh_test3/rows.jsonl": "08702d7cda71ba0d9c9c356264c6776bbfc3e0f5c09115ec1c200b06abf5d38a",
+  "data/built/fresh_test3/cards.jsonl": "1750e32f37bfacf8cb87a768d130cab6c8977e95965b58708fc5cce7b9a76c6d",
+  "data/built/fresh_test3/postings.jsonl": "09a4923936cfd5b4afe497ae0a27b66dda083e7491a4fac1c9906c4319fc55f5",
+  "data/built/fresh_test3/candidates.jsonl": "5a95893657a88bab544cdd36db9b28467b610da302aa3edcd9d717a54cdd5c25",
+  "data/built/fresh_test3/resumes.jsonl": "839244e93bfcdfd3110ebb13a3840919dab7a30e3cc9dcc267ab3ef2a6b04559",
+  "data/built/fresh_test3/gold.jsonl": "284fb2313fc6024da0fc0deee4e607d190ec50636a8006871deb1e16165f5085",
+  "data/built/fresh_test3/label_batches/batch_01.jsonl": "ef452fad9c506a497b494ca93329493d2b46b2c06a8dd3884956aff013719e5e",
+  "data/built/fresh_test3/label_batches/batch_02.jsonl": "8603da4920cf2ab6a040297abfc8e5a4d0867ddb9c790515ef57b6178f99c91e",
+  "data/built/fresh_test3/label_batches/batch_03.jsonl": "321622afede6f7b0a86a9c849517930332435d3bb7f9b30a89558fff72a33e8f",
+  "data/built/fresh_test3/label_batches/batch_04.jsonl": "27ded2ed8ee87b27ced427d23d3d8a785c2f9a93201a468d3487f37accb96d5f",
+  "data/built/fresh_test3/label_batches/batch_05.jsonl": "c3371e6f64188f74b6d230f65c27ef268fd03f044bba90e21d30d8ce0386ebce",
+  "data/built/fresh_test3/label_batches/batch_06.jsonl": "739ae1b5be74899c0df60bf7d7b6b6509bf48e61af91a49ce94315376f96ae90",
+  "data/built/fresh_test3/labels/A/batch_01.jsonl": "accdcb161bd4f5857e91dff288432a6f158a515840099b4c0762f614c3a290f9",
+  "data/built/fresh_test3/labels/A/batch_02.jsonl": "722548334a8db0d90a64c7586cc609a5ef599fc7fee806f2c8411bd1a5b9681c",
+  "data/built/fresh_test3/labels/A/batch_03.jsonl": "840e628bb6fcc10da29a461ddf4493f813de72b03e1fa6d3c4253206c0b18573",
+  "data/built/fresh_test3/labels/A/batch_04.jsonl": "35e5e2d0b80e5cfbd7e15a3070966191de13dfb3ef2780c8969dcd9930859bb1",
+  "data/built/fresh_test3/labels/A/batch_05.jsonl": "1f9487ecae61181f7814128dc1760efb0e78047c2d20935a45b9a94b419248cc",
+  "data/built/fresh_test3/labels/A/batch_06.jsonl": "46642b103d0e6594de0ee0cf820708bbd5f6f0a45dc145496c1ff71d180a4e07",
+  "data/built/fresh_test3/labels/B/batch_01.jsonl": "1ff1999f744579d96a81d55b0491fa6de22a03a2c710efc8fe2640f955aeaeee",
+  "data/built/fresh_test3/labels/B/batch_02.jsonl": "7cab8431daa2d769cfcd21628b332ffd4475a0df66b5128fc8a5a66f5781f896",
+  "data/built/fresh_test3/labels/B/batch_03.jsonl": "d93bc37fa2e982add4d853fc3b478531eb6d3c0562e8557f32efa520c92b5d12",
+  "data/built/fresh_test3/labels/B/batch_04.jsonl": "35f0051cc679f44e05d7a1c5b7977c2efe059e8c7c74f1878d0a3cbde00c4ed1",
+  "data/built/fresh_test3/labels/B/batch_05.jsonl": "6fd9b93d63345bd6c0b76a3a07e6ad005ad62cee2992e9384d506e1c9b8d29dd",
+  "data/built/fresh_test3/labels/B/batch_06.jsonl": "e57a057b81777a5c4f5acb7c08cf1188771f9d45ce8eb243b2f4a4870e02619d",
+  "data/built/fresh_test3/adjudicate/chunk_01.gold.jsonl": "c3539945462f8cda5dfd9b1d8bf2d6cc31cb6c369a0ee06c8d50aa7270243d71",
+  "data/built/fresh_test3/adjudicate/chunk_01.jsonl": "d10a33a62ec8196132ac53b7ba88de2bab0b26a9c7e4bdcfb0a57cfd99485b95",
+  "data/built/fresh_test3/adjudicate/chunk_02.gold.jsonl": "bf55343b869c828008a166b1755fa3374dc02249c487d42a8c9586a248ef661e",
+  "data/built/fresh_test3/adjudicate/chunk_02.jsonl": "1dd78617abc0edbcbfc492ad4f4dcde6e17b429d0e5c1cc5e2bc0349f3e08dec"
+ }
+}

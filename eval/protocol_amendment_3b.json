@@ -1,0 +1,29 @@
+{
+ "what": "Amendment 3b to the fit evaluation protocol: the author's decision of 2026-10-21 on amendment 3's open question. Fresh test 3 is scored now, once, with pick h; whether a cycle 3 follows is decided after the result is read, not before.",
+ "decided_by": "the author, 2026-10-21",
+ "amends": {
+  "files": {
+   "eval/protocol_amendment_2.json": "6cfaa69e84c139139b28132aaf28d826588473ee25d77c725138ba6b703c74d1",
+   "eval/protocol_amendment_3.json": "b218b1270bfafdbd7a9c0e6ab18e327f4874ea4d257006fc2b8392ec11824615",
+   "eval/fresh_test3_manifest.json": "63bd3cffa2df1dae26978715aaaa5c462c6d7d9fe3baf4bbe6499ff060663f33",
+   "eval/fresh_test3_gold_manifest.json": "7c7ee06070e75cd06322622601e175f257ee8ec6991d3508d9925f0fe4ac4b91",
+   "eval/fresh_test3_data_hashes.json": "7ff7f2314b409e1166dbbd3070f460832bb7c214226967efe71ca95ace1a3855"
+  },
+  "parent_commit": "02f4851",
+  "unchanged": "Everything amendment 3 pins that this file does not change: the system definition, the label read, colab_eval bf16 batch 1 with one model per Colab L4 session, macro-F1, the two-way bootstrap (2000 draws, default_rng(20261021)), the eligibility-pass slice recomputed at scoring time, the sealed-design sensitivity slice, amendment 2's pass bar, the report list, and reporting the result as it comes out."
+ },
+ "written_before": "Any model, rules or baseline output on fresh test 3 rows.",
+ "decision": {
+  "replaces": "amendment 3's decision.options (stop or cycle_3, to be chosen before scoring)",
+  "now": "Fresh test 3 is scored once, now, with pick h (the incumbent, the adapter h_63659c74, unchanged since fresh test 2; eval/selection_test3.json). Scored beside it, each once: base+H' (Qwen/Qwen3.5-4B untrained), d3+H', rules_full, rules_skills_free. The pass verdict is amendment 2's bar read on fresh test 3's recomputed eligibility-pass slice.",
+  "after_the_result": "The author reads the result and then decides stop or cycle 3.",
+  "if_stop": "Fresh test 3 is the final measurement of the shipped system h+H', as amendment 3's stop option says; nothing is changed after the score.",
+  "if_cycle_3": {
+   "fresh_test_3_role": "becomes a selection and diagnosis set for cycle 3: its rows, model outputs and error lists may be read for diagnosis and used to select cycle 3's pick; its rows, postings and employers are still never trained on (amendment 3 never_trained_on stands)",
+   "judged_on": "a new sealed fresh test 4, built and sealed (rows, cards, gold from two blind labelers and the same adjudication) before any cycle-3 model output on it exists",
+   "fresh_test_4_source": "postings the freeze reserved (eval/fit_freeze.json 'reserved') and no pool used; none from the train, dev or test pools, and no employer of fresh tests 1, 2 or 3 or of the train pool",
+   "bar": "amendment 2's pass bar, unchanged, read on fresh test 4's eligibility-pass slice: the cycle-3 pick+H' beats both rules_full and base+H' on macro-F1, each paired difference's 95% two-way bootstrap lower bound above 0",
+   "own_amendment": "cycle 3 writes its own amendment (fresh test 4's build, the selection rule on fresh test 3) before any cycle-3 model output on fresh test 3 or 4"
+  }
+ }
+}

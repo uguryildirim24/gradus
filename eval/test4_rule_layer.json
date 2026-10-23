@@ -1,0 +1,96 @@
+{
+ "what": "What the eligibility layer adds on sealed fresh test 4: run B read with the decider, alone, against the shipped B + H'' without work mode. Reported, not part of any pass bar. CPU only: it reads the stored per-row file.",
+ "script": "scripts/test4_rule_layer.py",
+ "per_row_file": {
+  "path": "data/models/c3_eval/test4/test4_rows.jsonl",
+  "sha256": "323470e15217cdb18a27a73f7be51bbea9916783e19d4f128f9f85e0c32d6e2c"
+ },
+ "draws": 2000,
+ "seed": 20261021,
+ "slices": {
+  "all rows": {
+   "rows": 1139,
+   "B alone": {
+    "macro_f1": [
+     0.6696,
+     0.5908,
+     0.7349
+    ],
+    "keeps_found": 29,
+    "wrong_keeps": 27,
+    "predicted_keeps": 56
+   },
+   "B + H''": {
+    "macro_f1": [
+     0.6786,
+     0.5989,
+     0.7472
+    ],
+    "keeps_found": 28,
+    "wrong_keeps": 23,
+    "predicted_keeps": 51
+   },
+   "B + H'' minus B alone": {
+    "macro_f1_diff_low_exact": -0.01035484378118387,
+    "accuracy_diff": [
+     0.0079,
+     0.0,
+     0.0176
+    ],
+    "macro_f1_diff": [
+     0.0089,
+     -0.0104,
+     0.0256
+    ],
+    "rows_fixed": 11,
+    "rows_broken": 2
+   },
+   "labels_changed_by_H''": 17,
+   "changes": {
+    "Explore -> Skip": 12,
+    "Keep -> Skip": 4,
+    "Keep -> Explore": 1
+   }
+  },
+  "eligibility pass": {
+   "rows": 513,
+   "B alone": {
+    "macro_f1": [
+     0.6764,
+     0.5921,
+     0.7449
+    ],
+    "keeps_found": 24,
+    "wrong_keeps": 20,
+    "predicted_keeps": 44
+   },
+   "B + H''": {
+    "macro_f1": [
+     0.6764,
+     0.5921,
+     0.7449
+    ],
+    "keeps_found": 24,
+    "wrong_keeps": 20,
+    "predicted_keeps": 44
+   },
+   "B + H'' minus B alone": {
+    "macro_f1_diff_low_exact": 0.0,
+    "accuracy_diff": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "macro_f1_diff": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "rows_fixed": 0,
+    "rows_broken": 0
+   },
+   "labels_changed_by_H''": 0,
+   "changes": {}
+  }
+ }
+}

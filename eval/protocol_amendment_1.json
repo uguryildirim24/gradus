@@ -1,0 +1,110 @@
+{
+ "what": "Amendment 1 to the v4 fit evaluation protocol: every scoring choice pinned before any model output on dev_fit or the fresh test exists",
+ "amends": {
+  "file": "eval/protocol.json",
+  "commit": "c6c814b6c6f92ebc577656be1f28f56630a60bb2",
+  "sha256": "f95d47a05cd386b93566af410005f4a1c3185e16cd9c794eef3fc96fee8ffa31",
+  "unchanged": "Everything protocol.json says that this file does not change: selection on dev_fit only, the fresh test scored once and playing no part in selection, the gold process, the headline comparison, labeler agreement as the ceiling, and reporting the result as it is."
+ },
+ "written_before": "Any model (h, d3 or the base) has been run on data/built/fit/dev_fit.jsonl or data/built/fresh_test. While writing it, only gold-free facts of the fresh test were read (row counts, eligibility flags, blank fields, title matches, posting kinds); no system was scored against fresh-test gold.",
+ "files": "eval/fit_eval_hashes.json pins every input by sha256 (pools, protocol, this amendment, fresh-test rows/cards/gold, dev_fit, train_fit.csv, the prompt files) and both model archives by md5 and sha256; scripts/fit_eval_score.py refuses to score files that differ.",
+
+ "candidates": {
+  "run": {
+   "h": "Qwen/Qwen3.5-4B LoRA, d3's recipe on data/built/fit/train_fit.csv (SFT without reasoning traces)",
+   "d3": "the previous pick, Qwen/Qwen3.5-4B LoRA on data/built/real_train/train_mix3.csv"
+  },
+  "not_run": {
+   "g": "SFT with reasoning traces: not run. A raw Adaption upload keeps only the mapped prompt and completion columns and discards reasoning_trace; context mode folds the trace into the prompt after 'Answer:' (the verdict would leak into the prompt). The only documented trace path is adapt with recipes.reasoning_traces, which writes Adaption's traces, not ours.",
+   "i": "DPO: not run. Raw processing never marks a dataset as preference pairs, so a DPO run on data/built/fit/dpo_pairs.csv would silently train SFT."
+  },
+  "selection_between": ["h", "d3"]
+ },
+
+ "selection": {
+  "rule": "protocol.json's rule on dev_fit: the system (TAG+H') with the higher macro-F1 on all 567 rows. Amended tie-break: protocol.json's tie-break (prefer the system without reasoning traces) cannot separate h and d3, which both have none, so within 0.01 macro-F1 (|h - d3| <= 0.01) the incumbent d3 stays. dev_fit was built by the same pipeline as h's training data, so a near tie on it is not evidence for h.",
+  "data": "data/built/fit/dev_fit.jsonl",
+  "metric": "macro-F1",
+  "tie_margin": 0.01,
+  "tie_break": "d3 (the incumbent)",
+  "note": "dev_fit gold is rules.label on each row's own card, so rules_full scores 1.0 on dev_fit by construction; rules baselines there are reported, not compared."
+ },
+
+ "systems": {
+  "rule": "TAG+H' = hybrid_rules.hybrid(model label, hybrid_rules.rule_verdict(candidate, card), HP_CATS, salary_cap=True), exactly hybrid_rules.VARIANTS['H_prime']: Skip when rules.label on the Adaption-extracted card says Skip for a reason in work_auth, enrollment, degree_level, degree_field, employment_type or location; a model Keep capped at Explore when the rules flag pay under the candidate's floor; otherwise the model's label.",
+  "card": "fresh test: data/built/fresh_test/cards.jsonl (v2 extractor unchanged), with rules.mark_thin(card, posting body) applied first, as in training; every one of the 150 postings has a card. dev_fit: the card each row carries (thin_posting already set).",
+  "model_label": "scripts/colab_eval.py / local_eval.py score output: float32 label scores of Keep, Explore, Skip at the first answer token after the chat template (enable_thinking False), merged LoRA, bf16, batch 1; fit_eval_score.py reads the label again with evalstats.pick (ties: Skip, then Explore, then Keep) and refuses a file whose stored pred disagrees, or that misses or adds a row.",
+  "sessions": "one adapter per Colab L4 session, under the watchdog."
+ },
+
+ "eligibility_pass": {
+  "rule": "A row passes when rule_verdict on its profile and card gives no Skip in HP_CATS and no salary cap: the rows H' leaves to the model untouched. Recomputed from profile and card by fit_eval_score.eligibility on both sets.",
+  "fresh_test_rows": 344,
+  "fresh_test_check": "the recomputed flag equals rows.jsonl design.eligibility_pass on every row, or nothing is scored",
+  "dev_fit_rows": 462,
+  "dev_fit_note": "dev_fit's stored eligibility_pass (build_fit_train.eligibility_pass) leaves the salary cap out and passes 504 rows; this amendment's definition is used for every slice.",
+  "consequence": "On the eligibility-pass slice TAG+H' equals TAG raw, so the pass rule measures the model's own label there."
+ },
+
+ "pass": {
+  "rule": "The chosen system (TAG+H', TAG from dev_fit selection) minus skills-free rules, macro-F1, paired on the fresh test's eligibility-pass slice (344 rows): the 95% two-way bootstrap lower bound (2.5th percentile of the paired differences) is above 0. Accuracy is reported alongside and is not used for pass.",
+  "metric": "macro-F1 (evalstats.macro_f1_of: mean of the Keep, Explore and Skip F1s, a label with no true positive counting 0)",
+  "comparison": "chosen system - rules_skills_free, same rows, same bootstrap draws",
+  "slice": "eligibility_pass",
+  "condition": "95% lower bound > 0, decided on the unrounded percentile (reported as lower_bound_exact; tables show 4 decimals)",
+  "accuracy": "reported, not used for pass",
+  "replaces": "protocol.json pass.rule's unnamed metric ('beats skills-free rules ... with the interval above zero') is pinned to macro-F1; protocol.json's headline (accuracy and macro-F1 paired differences on all rows and on the eligibility-pass slice) is reported unchanged."
+ },
+
+ "baselines": {
+  "rules_skills_free": "rules.label on the (thin-marked) extracted card with must_skills and nice_skills emptied; no H' on top (its hard Skips are the same rules').",
+  "rules_full": "rules.label on the extracted card (with the thin-posting rule, commit 857e829).",
+  "base_qwen_with_eligibility": "base+H': the untrained Qwen/Qwen3.5-4B on h's prompts, H' on top (already in protocol.json).",
+  "other_candidate_with_eligibility": "d3+H' (protocol.json) and h+H', whichever is not chosen; each candidate's raw label also reported.",
+  "title_match": "Reported, not used for pass: Keep when the resume holds the posting's exact title (fit_eval_score.title_in_resume: both lower-cased, every dash as '-', whitespace runs collapsed; the title a substring of the resume), else Explore. Not the gold-majority label of non-matching rows: Explore, fixed in advance. 133 of the 592 rows match (129 of them strong or near candidates)."
+ },
+
+ "slices": {
+  "used_for_pass": ["eligibility_pass"],
+  "reported_not_for_pass": {
+   "all": "all 592 rows",
+   "teaser": "design.teaser (posting under 700 characters): 75 rows",
+   "empty_body": "design.empty_body (no posting body): 11 rows",
+   "teaser_or_empty": "either",
+   "blank_profile_field": "salary_floor not set or no job type wanted, the two form fields the test builder left blank by draw (40% and 35%): 344 rows. Industries wanted/avoided and roles avoided are blank on every row and cannot slice.",
+   "lives_in_not_given": "current_location empty, shown as 'Lives in: not given': 21 rows; no training prompt of train_fit.csv or train_mix3.csv ever shows it",
+   "agreed_only": "labelers A and B gave the same label (no adjudication): 528 rows",
+   "no_exact_title_in_resume": "title_in_resume false: 459 rows (the test-build review found strong/near resumes carrying the posting title verbatim)",
+   "exact_title_in_resume": "title_in_resume true: 133 rows",
+   "kind": "kind:<k> for each recomputed posting kind"
+  },
+  "kind_rule": "fit_eval_score.kind_of(title, body), recomputed because the pool's field tag (fit_pools.field_of: title only, first match wins) is noisy, e.g. 'Senior Data Scientist' tagged lab_bio and 'Territory Sales Representative - GI Physician Partnerships' tagged health_nursing. internship when the title names an internship, co-op, apprenticeship, trainee, fellowship or student role; otherwise each of data, software, health_nursing, lab_bio, sales_ops counts its distinct keyword hits in the normalized title and in the first 3,000 characters of the normalized body: most title hits wins, ties by body hits, then the order data, software, health_nursing, lab_bio, sales_ops; with no title hit, the most body hits if at least 3, else other. Keyword lists are KIND_TERMS in scripts/fit_eval_score.py at this commit. Fresh-test postings: sales_ops 38, lab_bio 25, software 22, internship 22, health_nursing 21, data 17, other 5.",
+  "per_slice": "every system's accuracy and macro-F1 with intervals, the chosen system's paired differences against every other system, and labeler A vs B raw agreement and kappa on the slice"
+ },
+
+ "bootstrap": {
+  "method": "two-way: draw the slice's postings with replacement (as many as the slice has), then, for each drawn posting, draw its rows with replacement (as many as it has); the metric on the concatenated rows",
+  "draws": 2000,
+  "seed": 20261021,
+  "rng": "numpy.random.default_rng(seed), one draw set per slice, shared by every system and every paired difference on that slice",
+  "interval": "95% percentile: 2.5th and 97.5th percentiles of the draws; the point value on the slice as it is",
+  "code": "scripts/fit_eval_score.py two_way_draws"
+ },
+
+ "prompts": {
+  "files": "data/built/fit/eval_inputs/{h,d3,base}/{dev_fit,fresh_test}.jsonl (scripts/fit_eval_inputs.py build), rows with row_id, pair_id, posting_id, prompt, gold, bucket",
+  "h": "train_fit.csv's format: pairs.build_prompt(resume, profile.render_profile(card), posting), a pool posting through build_fit_train.posting_text_of (textclean.real_posting_text)",
+  "d3": "train_mix3.csv's format: the same build_prompt and render_profile, a pool posting through build_real_test.posting_text on an ATS row (textclean.real_posting_text)",
+  "base": "h's format",
+  "formats_differ": "No. One instruction (pairs.INSTRUCTION) in every row of both CSVs, one profile renderer, one prompt frame, one chat framing; both posting paths end in textclean.real_posting_text. The h and d3 builds are byte-identical on all 567 dev_fit and all 592 fresh-test prompts. What differs between the two training sets is content (h: twins with hedged wording, venator postings, teasers, neutral_fill; d3: ATS postings and synthetic rows), not format.",
+  "parity": "All 879 venator rows of train_fit.csv and all 471 real rows of train_mix3.csv rebuild byte for byte from their raw parts with these functions (a seeded sample of 20 of each compared byte for byte); the 6,921 mix3 rows of train_fit.csv are train_mix3.csv rows byte for byte; dev_fit's stored prompt equals the h build on 567 of 567 rows.",
+  "blank_fields": "The fresh test's blank form fields stay blank. Training filled them in part: build_fit_train.neutral_fill set each blank field to a value the posting meets about half the time (job type 50%, salary floor under the posting's top pay 50%, work arrangement the mode allows 60%, the posting's industry wanted 30%) on twin first draws and on venator and teaser rows; mix3 rows were drawn by clean_real_checked.draw_hidden. Shares in prompts: salary not set train_fit 51%, train_mix3 56%, fresh test 38%; job types any 47%, 49%, 33%; 'Lives in: not given' 0, 0, 3.5% (21 rows).",
+  "shown_text": "The model sees the posting cut to build_prompt's 6,000-character budget (55 of the 150 fresh-test postings are longer); the labelers saw the whole posting. Two fresh-test postings with no location show 'Locations: United States' to the model (textclean.format_locations) and an empty 'Locations:' to the labelers. 246 of 592 fresh-test resumes have no contact block, so after redaction their second line is not a city (training: 96% of resumes have one)."
+ },
+
+ "scoring": {
+  "code": "scripts/fit_eval_score.py dev | fresh (tests/test_fit_eval_score.py on synthetic score files)",
+  "outputs": "data/models/main_4b/fit_eval/{dev_fit,fresh_test}.{json,md}",
+  "fresh_test_scored": "once, after dev_fit selection, for h, d3 and base, with --chosen the dev_fit pick"
+ }
+}

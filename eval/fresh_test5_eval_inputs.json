@@ -1,0 +1,52 @@
+{
+ "what": "the prompt files B, B-colab and C are scored on for fresh tests 1-5 (scripts/fit_eval_inputs.py build6; amendment 6b eval_inputs), pinned before any inference of B-colab or C, and of B on test 5",
+ "B": {
+  "data/built/fit/eval_inputs/B/fresh_test.jsonl": "4b542bed9f7dd98d0665b383f42f4efdeea7f704be3a1d8015b60872411db3d1",
+  "data/built/fit/eval_inputs/B/fresh_test2.jsonl": "2183e35413f90a2fc9001ce90513a8640daff32facdb2b0edb553b47c4598f1c",
+  "data/built/fit/eval_inputs/B/fresh_test3.jsonl": "881a330cb6896395cbbb96fb14aac02f1ef7d0ce23a570194402699826753aa0",
+  "data/built/fit/eval_inputs/B/fresh_test4.jsonl": "f7ef4c1b30384803df83c184e585fd2b244b98119f7a747c621bca0dbfbfa232",
+  "data/built/fit/eval_inputs/B/fresh_test5.jsonl": "e9685bcba52cd93ef57e460784145396abcb99b481ef9df565acd8baca59c1a8"
+ },
+ "Bcolab": {
+  "data/built/fit/eval_inputs/B/fresh_test.jsonl": "4b542bed9f7dd98d0665b383f42f4efdeea7f704be3a1d8015b60872411db3d1",
+  "data/built/fit/eval_inputs/B/fresh_test2.jsonl": "2183e35413f90a2fc9001ce90513a8640daff32facdb2b0edb553b47c4598f1c",
+  "data/built/fit/eval_inputs/B/fresh_test3.jsonl": "881a330cb6896395cbbb96fb14aac02f1ef7d0ce23a570194402699826753aa0",
+  "data/built/fit/eval_inputs/B/fresh_test4.jsonl": "f7ef4c1b30384803df83c184e585fd2b244b98119f7a747c621bca0dbfbfa232",
+  "data/built/fit/eval_inputs/B/fresh_test5.jsonl": "e9685bcba52cd93ef57e460784145396abcb99b481ef9df565acd8baca59c1a8"
+ },
+ "C": {
+  "data/built/fit/eval_inputs/C/fresh_test.jsonl": "4d6b976198e6441730ef51b65f88c8bf228e4f27c0ff48c4e6a4e1905ac83cd8",
+  "data/built/fit/eval_inputs/C/fresh_test2.jsonl": "c1fc0409c0f050f56a6901ea8f59826e57be8edbd3983b4cd5715102f452be24",
+  "data/built/fit/eval_inputs/C/fresh_test3.jsonl": "dc30d9938237a753ea5edf995b42b6f128d63e1893a596256e670c4cb0933a53",
+  "data/built/fit/eval_inputs/C/fresh_test4.jsonl": "9393979baf533b9bd88a7081b4a0fb5c65e434335c3888d83d3e6dc81cbf0685",
+  "data/built/fit/eval_inputs/C/fresh_test5.jsonl": "c5868d7483d4138d73c6838f446c058551ff2e5ef5384e63c1402247fa53ddc8"
+ },
+ "B_format": "build_fit_train3.prompt_b(resume_text, render_profile(profile), posting_text, system_b())",
+ "C_format": "the same with C's system = system_b() + '\\n' + the clarification line",
+ "system_b_sha256": "1d12b0d0ec70e3dcab5e7523a3477c04fc75714564b5e33b94c31f44e7cb2e0d",
+ "system_c_sha256": "eb304433e80f6a71d43d5404cec86131f5094a32487472f4494ae8361c22cc9f",
+ "inputs_sha256": {
+  "data/built/fresh_test/rows.jsonl": "fec921ab3fc0dd3e4c6618663e44a90a0de8bef383cf0ec626a5db64c6eff418",
+  "data/built/fresh_test/gold.jsonl": "eef1d5699056b982d09bcfa1e7550348a2b26a5f6a6ffe09aca6ea32309be572",
+  "data/built/fresh_test2/rows.jsonl": "26259fedf974cd40ca429fa2ada9c2bbf7a95272c7cd7bfc3c3295de50128e31",
+  "data/built/fresh_test2/gold.jsonl": "9f813ddc25acf48eaa570754d7290bdacc84051962112313d7da08d1f9f4133a",
+  "data/built/fresh_test3/rows.jsonl": "08702d7cda71ba0d9c9c356264c6776bbfc3e0f5c09115ec1c200b06abf5d38a",
+  "data/built/fresh_test3/gold.jsonl": "284fb2313fc6024da0fc0deee4e607d190ec50636a8006871deb1e16165f5085",
+  "data/built/fresh_test4/rows.jsonl": "b4e7d84e5be70fa870556efde6f09e0282173f59caead6179260a0438818b172",
+  "data/built/fresh_test4/postings.jsonl": "108596c24c428b5dfb7f73b89a26b5f5436fa326b86f8e4a56b8fc8ea3d9aabf",
+  "data/built/fresh_test4/gold.jsonl": "dfe279891821076299769c8cc1b7f90221638ebbf4977edf88bfe83d58ec5bfd",
+  "data/built/fresh_test5/rows.jsonl": "caa6020dfe98aaa463ffb44f1b4155a5c10a7e0c7f154607851bf1d26313414b",
+  "data/built/fresh_test5/postings.jsonl": "999c0caa38ddbfd7db07e365f125d9aaa6403920b8da43765e1d0c65877f5826",
+  "data/built/fresh_test5/gold.jsonl": "e837c641d4880fb02baeabe71105eb3e5d0c73eb6cf1c74f91e454db7153fa37"
+ },
+ "train_B_parity": {
+  "train_B.csv rows": 2686,
+  "kept new rows": 1501,
+  "rebuilt": 1501,
+  "byte_equal": 1501,
+  "profile_text == render_profile": 1501,
+  "first_mismatches": []
+ },
+ "report": "data/built/fit/eval_inputs/report_fresh_test5.json",
+ "report_sha256": "2ed69fddd45f1595fd699aa8a0e1c97e63f78ff73d7a6775af4b287add3905f3"
+}
